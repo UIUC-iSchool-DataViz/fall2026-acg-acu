@@ -1,8 +1,8 @@
 # Jupytext configuration
 # This file controls how notebooks are synced to other formats.
 
-# We pair the ipynb with both a python script and a myst markdown file.
-formats = "ipynb,py:percent,md:myst"
+# We pair the ipynb with both a python script and a markdown file.
+formats = "ipynb,py:percent,md"
 
 # Allow Jekyll metadata to pass through.
 notebook_metadata_filter = "layout,title"

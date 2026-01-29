@@ -45,7 +45,7 @@ To add a new notebook to the repository:
 1.  Create your notebook as usual (e.g., `my_notebook.ipynb`).
 2.  Pair the notebook with a markdown file using `jupytext`. You can do this via the command line:
     ```bash
-    jupytext --set-formats ipynb,md:myst my_notebook.ipynb
+    jupytext --set-formats ipynb,md my_notebook.ipynb
     ```
 3.  Stage the files for commit.
     ```bash
