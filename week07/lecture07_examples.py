@@ -2,13 +2,14 @@
 # jupyter:
 #   jupytext:
 #     cell_metadata_filter: -all
-#     formats: ipynb,py:percent,md:myst
+#     default_lexer: ipython3
+#     formats: ipynb,py:percent,md
 #     notebook_metadata_filter: layout,title
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.0
+#       jupytext_version: 1.18.1
 #   kernelspec:
 #     display_name: py311
 #     language: python
@@ -206,7 +207,6 @@ date_selection.observe(change_date_selection, ["selected"])
 states_by_date.loc[date_selection.selected[0] : date_selection.selected[1]].groupby("fips")["cases"].max().to_dict()
 
 # %%
-
 map_mark.color
 
 # %%

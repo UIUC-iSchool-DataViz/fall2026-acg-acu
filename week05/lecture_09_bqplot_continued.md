@@ -1,22 +1,24 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: Dataset
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: Dataset
 ---
 
-```{code-cell} ipython3
+```python
 import pandas as pd
 import numpy as np
 import bqplot
@@ -28,11 +30,11 @@ import ipywidgets
 
 [UFO dataset](https://github.com/planetsig/ufo-reports)
 
-```{code-cell} ipython3
+```python
 #!wget https://github.com/planetsig/ufo-reports/raw/master/csv-data/ufo-scrubbed-geocoded-time-standardized.csv
 ```
 
-```{code-cell} ipython3
+```python
 ufo = pd.read_csv('ufo-scrubbed-geocoded-time-standardized.csv', 
                   names=['date_sighted', 'city', 'state', 'country',
                          'shape', 'duration', 
@@ -59,7 +61,7 @@ df.head(2)
 # Last week: BrushIntervalSelector
  - Select an area by X or by Y
 
-```{code-cell} ipython3
+```python
 # Brush, along y
 
 # Scale
@@ -116,7 +118,7 @@ scatter_fig_annotated
 
 # BrushSelector: Select by X and Y
 
-```{code-cell} ipython3
+```python
 # Brush, 2D
 
 # Scale
@@ -184,7 +186,7 @@ scatter_fig_annotated
 - Left Scatter: year scatter plot
 - Right Scatter: longitude and latitude
 
-```{code-cell} ipython3
+```python
 # Left Scatter: Year Scatter
 
 # Scale
@@ -296,7 +298,7 @@ my_dashboard
 
 # DateScale
 
-```{code-cell} ipython3
+```python
 # UFOs sigthed in 2000 and their durations in seconds
 
 df_selected = df.loc[df['date_reported'].dt.year==2000]
@@ -319,13 +321,13 @@ scatter_fig = bqplot.Figure(marks=[scatter], axes=[x_ax, y_ax])
 scatter_fig
 ```
 
-```{code-cell} ipython3
+```python
 df_selected.head(2)
 ```
 
 # Heatmap and click select
 
-```{code-cell} ipython3
+```python
 # Prep data: UFOs reported in different years and countries
 heatmap_data = df.groupby([df['date_reported'].dt.year, 'country'])[['ufo_id']].count()
 heatmap_data = heatmap_data.reset_index()
@@ -335,7 +337,7 @@ heatmap_data = heatmap_data.pivot(index='date_reported',
 heatmap_data
 ```
 
-```{code-cell} ipython3
+```python
 # Heatmap without interactivity
 
 clr = np.log10(heatmap_data)
@@ -363,6 +365,6 @@ heatmap_fig = bqplot.Figure(marks=[heatmap], axes=[x_ax, y_ax, c_ax])
 heatmap_fig
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

@@ -1,22 +1,24 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: UFO dataset
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: UFO dataset
 ---
 
-```{code-cell} ipython3
+```python
 import pandas as pd
 import numpy as np
 import bqplot
@@ -24,7 +26,7 @@ import traitlets
 import ipywidgets
 ```
 
-```{code-cell} ipython3
+```python
 buildings = pd.read_csv("building_inventory.csv", 
                         na_values={"Year Acquired": 0,
                                    "Year Constructed": 0,
@@ -33,27 +35,27 @@ buildings = pd.read_csv("building_inventory.csv",
 buildings.info()
 ```
 
-```{code-cell} ipython3
+```python
 # Show values in Year Acquired column
 buildings.head()[['Year Acquired']]
 ```
 
-```{code-cell} ipython3
+```python
 # Convert without format
 buildings_cp = buildings.copy()
 buildings_cp['Year Acquired'] = pd.to_datetime(buildings_cp['Year Acquired'])
 buildings_cp.head()[['Year Acquired']]
 ```
 
-```{code-cell} ipython3
+```python
 buildings_cp['Year Acquired'].dt.year.tolist()[:3]
 ```
 
-```{code-cell} ipython3
+```python
 buildings_cp['Year Acquired'].dt.microsecond.tolist()[:3]
 ```
 
-```{code-cell} ipython3
+```python
 # Convert with format
 buildings['Year Acquired'] = pd.to_datetime(buildings['Year Acquired'], 
                                             format='%Y')
@@ -61,7 +63,7 @@ print(buildings['Year Acquired'].dtype)
 buildings.head()[['Year Acquired']]
 ```
 
-```{code-cell} ipython3
+```python
 # Extract the year from the date object, Note the datatype
 buildings['Year Acquired'] = buildings['Year Acquired'].dt.year
 print(buildings['Year Acquired'].dtype)
@@ -70,11 +72,11 @@ buildings.head()[['Year Acquired']]
 
 # UFO dataset
 
-```{code-cell} ipython3
+```python
 #!wget https://github.com/planetsig/ufo-reports/raw/master/csv-data/ufo-scrubbed-geocoded-time-standardized.csv
 ```
 
-```{code-cell} ipython3
+```python
 ufo = pd.read_csv('ufo-scrubbed-geocoded-time-standardized.csv', 
                   names=['date_sighted', 'city', 'state', 'country',
                          'shape', 'duration', 
@@ -98,7 +100,7 @@ df.head()
 
 # Time-series data
 
-```{code-cell} ipython3
+```python
 # prep data: Number of UFOs sighted in each month
 # https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases
 
@@ -107,18 +109,18 @@ line_data = df.groupby(pd.Grouper(key='date_sighted',
 line_data
 ```
 
-```{code-cell} ipython3
+```python
 # Check if grouped result is correct
 df.loc[df['date_sighted'].dt.year == 1955]
 ```
 
-```{code-cell} ipython3
+```python
 line_data.loc[line_data.index.year == 1955]
 ```
 
 ## Parameter: X lim
 
-```{code-cell} ipython3
+```python
 # range slider for years
 my_slider = ipywidgets.SelectionRangeSlider(options=line_data.index.year,
                                             description='Year Range', 
@@ -126,11 +128,11 @@ my_slider = ipywidgets.SelectionRangeSlider(options=line_data.index.year,
 my_slider
 ```
 
-```{code-cell} ipython3
+```python
 my_slider.value
 ```
 
-```{code-cell} ipython3
+```python
 # A line plot + displayed the selected year window
 
 # Scale
@@ -177,7 +179,7 @@ line_fig_slider
 
 # Heatmap and click selected
 
-```{code-cell} ipython3
+```python
 # Prep data: UFOs reported in different years and countries
 heatmap_data = df.groupby([df['date_reported'].dt.year, 'country'])[['ufo_id']].count()
 heatmap_data = heatmap_data.reset_index()
@@ -187,7 +189,7 @@ heatmap_data = heatmap_data.pivot(index='date_reported',
 heatmap_data
 ```
 
-```{code-cell} ipython3
+```python
 # Heatmap without interactivity
 # Scale
 x_sc = bqplot.OrdinalScale()
@@ -212,7 +214,7 @@ heatmap_fig = bqplot.Figure(marks=[heatmap], axes=[x_ax, y_ax, c_ax])
 heatmap_fig
 ```
 
-```{code-cell} ipython3
+```python
 # Heatmap with click and select that shows the UFO counts in each month
 
 # Left plot: heatmap
@@ -297,18 +299,18 @@ my_dashboard
 
 # Maps
 
-```{code-cell} ipython3
+```python
 # US map data
 us_map_data = bqplot.topo_load('map_data/USStatesMap.json')
 us_map_data.keys()
 ```
 
-```{code-cell} ipython3
+```python
 # Data of one state
 us_map_data['objects']['subunits']['geometries'][0]
 ```
 
-```{code-cell} ipython3
+```python
 # US Map with tooltip
 
 # Data
@@ -333,7 +335,7 @@ us_map_fig = bqplot.Figure(marks=[us_map],
 us_map_fig
 ```
 
-```{code-cell} ipython3
+```python
 # World Map with tooltip
 
 # Data
@@ -359,15 +361,15 @@ world_map_fig
 
 # US Map with customized colors
 
-```{code-cell} ipython3
+```python
 df.head()
 ```
 
-```{code-cell} ipython3
+```python
 !wget https://gist.githubusercontent.com/dantonnoriega/bf1acd2290e15b91e6710b6fd3be0a53/raw/11d15233327c8080c9646c7e1f23052659db251d/us-state-ansi-fips.csv
 ```
 
-```{code-cell} ipython3
+```python
 # Values in the us-state-ansi-fips.csv
 # rename column names and clean values
 
@@ -378,7 +380,7 @@ states_df['name_abbr'] = states_df['name_abbr'].str.strip().str.lower()
 states_df
 ```
 
-```{code-cell} ipython3
+```python
 # FIPS and state names in the US State map data
 for entry in us_map_data['objects']['subunits']['geometries']:
     fips = entry['id']
@@ -387,15 +389,15 @@ for entry in us_map_data['objects']['subunits']['geometries']:
 
 ## Coropleth map
 
-```{code-cell} ipython3
+```python
 states_df.head()
 ```
 
-```{code-cell} ipython3
+```python
 states_df.loc[states_df['fips']==1]['name_abbr'].tolist()[0]
 ```
 
-```{code-cell} ipython3
+```python
 # Color map by number of UFOs sighted in states
 clr_prep = df.loc[df['country']=='us'].groupby(['state'])[['ufo_id']].count()
 #clr_prep
@@ -412,7 +414,7 @@ for entry in us_map_data['objects']['subunits']['geometries']:
 clr
 ```
 
-```{code-cell} ipython3
+```python
 # Color: number of UFOs sighted in states
 # Data
 us_map_data = bqplot.topo_load('map_data/USStatesMap.json')
@@ -437,7 +439,7 @@ us_map_fig
 
 ## A Dashboard showing duration in seconds by years in the selected state
 
-```{code-cell} ipython3
+```python
 # Click select + sum of duration in seconds (all the selected states are combined)
 
 # Left plot
@@ -503,13 +505,13 @@ my_dashboard = ipywidgets.HBox([us_map_fig, line_fig])
 my_dashboard
 ```
 
-```{code-cell} ipython3
+```python
 df_selected = df.loc[(df['country']=='us')&(df['state'].isin(['nm', 'tx']))]
 df_selected_g = df_selected.groupby(df_selected['date_sighted'].dt.year)[['duration']].sum()
 df_selected_g
 ```
 
-```{code-cell} ipython3
+```python
 # Click select + sum of duration in seconds (the selected states presented as seperated lines)
 # Left plot
 # Scale
@@ -594,7 +596,6 @@ my_dashboard
 
 ## A Dashboard with three plots
 
-+++
 
 [Matplotlib colormap](https://matplotlib.org/stable/tutorials/colors/colormaps.html)
 
@@ -613,7 +614,7 @@ ordinal_schemes = {
 }
 ```
 
-```{code-cell} ipython3
+```python
 # Click select + sum of duration in seconds (the selected states are in seperated lines) + stacked bars by shapes
 
 # Top plot : Map
@@ -757,19 +758,19 @@ my_dashboard = ipywidgets.VBox([us_map_fig, bottom_panel])
 my_dashboard
 ```
 
-```{code-cell} ipython3
+```python
 df_selected_bar = df.loc[(df['country']=='us')&(df['state'].isin(['il', 'az']))]
 df_selected_bar_g = df_selected_bar.groupby(['state', 'shape'])[['ufo_id']].count()
 df_selected_bar_g = df_selected_bar_g.reset_index()
 df_selected_bar_g
 ```
 
-```{code-cell} ipython3
+```python
 filter_1 = df_selected_bar_g['state'] == 'il'
 filter_2 = df_selected_bar_g['shape'] == 'chevron'
 df_selected_bar_g.loc[(filter_1)&(filter_2)]
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

@@ -1,30 +1,32 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
-layout: notebook
-title: Color Spaces
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+  layout: notebook
+  title: Color Spaces
 ---
 
 # Color Spaces
 
 In this notebook, we will explore how colormaps move through two colorspaces, specifically [HSV](https://en.wikipedia.org/wiki/HSL_and_HSV) and RGB.
 
-```{code-cell} ipython3
+```python
 %matplotlib inline
 ```
 
-```{code-cell} ipython3
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
@@ -38,7 +40,7 @@ plt.rcParams["figure.figsize"] = (16, 12)
 
 The next cell is going to set up two different functions.  One will take rgb values and rotate them through RGB space, and the other will plot a nice depiction of the colormap in RGB space.
 
-```{code-cell} ipython3
+```python
 def rotate(arr, theta, phi, psi):
     Rx = np.array([[1, 0, 0],
                    [0, np.cos(phi), np.sin(phi)],
@@ -136,14 +138,14 @@ def plot_colortable(colortable, theta = 0.0, phi = 0.0, psi = 0.0):
 
 Let's create a widget, and see what our colormaps look like in those dimensions.
 
-```{code-cell} ipython3
+```python
 ipywidgets.interact(plot_colortable, colortable = ["viridis", "jet", "RdBu", "Blues"],
                    theta = (0.0, 2.0*np.pi, 0.01), phi = (0.0, 2.0*np.pi, 0.01), psi = (0.0, 2.0*np.pi, 0.01))
 ```
 
 A better representation of this would be in HSV space.  Here we convert from RGB to HSV, which can be a tricky process.  Note that HSV space is periodic in Hue, so we can rotate around the axis and it will remain continous.
 
-```{code-cell} ipython3
+```python
 def move_cylinder(arr, theta, phi, psi):
     Rx = np.array([[1, 0, 0],
                    [0, np.cos(phi), np.sin(phi)],
@@ -310,18 +312,18 @@ def plot_colortable_hsv(colortable, hue_theta = 0.0, sat_scale = 1.0, val_scale 
         plt.savefig(name)
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.interact(plot_colortable_hsv, colortable = ["viridis", "jet", "gray", "gist_stern", "flag", "magma"],
                     hue_theta = (-1.0*np.pi, 1.0*np.pi, 0.01),
                     sat_scale = (0.01, 10.0, 0.01),
                     val_scale = (0.01, 10.0, 0.01))
 ```
 
-```{code-cell} ipython3
+```python
 for c in ["viridis", "jet", "gray", "gist_stern", "flag", "magma"]:
     plot_colortable_hsv(c, name="images/%s_3d.png" % c)
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

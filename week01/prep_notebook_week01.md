@@ -1,44 +1,46 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3 (mjt)
-  language: python
-  name: python3-yt
-layout: notebook
-title: Prep Notebook Week01
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3 (mjt)
+    language: python
+    name: python3-yt
+  layout: notebook
+  title: Prep Notebook Week01
 ---
 
-```{code-cell} ipython3
+```python
 %matplotlib inline
 ```
 
-```{code-cell} ipython3
+```python
 import matplotlib
 import matplotlib.pyplot as plt
 import datetime
 matplotlib.rcParams["font.family"] = "Questrial"
 ```
 
-```{code-cell} ipython3
+```python
 import numpy as np
 ```
 
-```{code-cell} ipython3
+```python
 years = [2729, 2699, 2613, 2583, 2562, 2530, 2501, 2490, 2470, 2400]
 # 2714-2719 Choking
 # 2322-2329 Acid
 seasons = [[2714, 2719], [2322, 2329]]
 ```
 
-```{code-cell} ipython3
+```python
 values = [1 for _ in years]
 
 def make_plot(capstyle, lw=20.0, ms=100):
@@ -70,23 +72,23 @@ def make_plot(capstyle, lw=20.0, ms=100):
     plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 make_plot("butt")
 ```
 
-```{code-cell} ipython3
+```python
 make_plot("projecting")
 ```
 
-```{code-cell} ipython3
+```python
 make_plot("round")
 ```
 
-```{code-cell} ipython3
+```python
 # GDP from https://fred.stlouisfed.org/series/GDP
 ```
 
-```{code-cell} ipython3
+```python
 def converter(v):
     return np.datetime64(v.decode("ascii"), 'D')
 
@@ -95,7 +97,7 @@ with open("Downloads/GDP.csv", "r") as f:
                      dtype=np.dtype([("date", "datetime64[D]"), ("val", np.float64)]))
 ```
 
-```{code-cell} ipython3
+```python
 def make_gdp_plot(style):
     with plt.style.context(style):
         fig, ax = plt.subplots(figsize=(10, 8))
@@ -104,15 +106,15 @@ def make_gdp_plot(style):
         plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 for v in data["date"][240:260]: print(v)
 ```
 
-```{code-cell} ipython3
+```python
 for v in data["val"][240:260]: print(v)
 ```
 
-```{code-cell} ipython3
+```python
 horizontal = matplotlib.patches.Wedge([0.0, 0.0], 1.0, 90 - (210/2.0), 90 + (210/2.0), lw=2.0, facecolor="#1f77b4", edgecolor="#000000")
 binoc = matplotlib.patches.Wedge([0.0, 0.0], 1.0, 90 - (114/2.0), 90 + (114/2.0), width=0.25, lw=2.0, facecolor="#ff7f0e", edgecolor="#000000")
 arrow = matplotlib.patches.Arrow(-1.10, 0.0, 0.0, 0.75, width=0.25, edgecolor="#000000", facecolor="#aaaaaa", label="forward")
@@ -139,7 +141,7 @@ ax.spines['bottom'].set_visible(False)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 vertical = matplotlib.patches.Wedge([0.0, 0.0], 1.0, 0 - (150/2.0), 0 + (150/2.0), lw=2.0, facecolor="#1f77b4", edgecolor="#000000")
 forward_arrow = matplotlib.patches.Arrow(0.0, -1.10, 0.75, 0.0, width=0.25, edgecolor="#000000", facecolor="#aaaaaa", label="forward")
 up_arrow = matplotlib.patches.Arrow(-0.1, 0.0, 0.0, 0.75, width=0.25, edgecolor="#000000", facecolor="#aaaaaa", label="forward")
@@ -164,16 +166,16 @@ ax.spines['bottom'].set_visible(False)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 import PIL.Image as Image
 data = np.array(Image.open("stitch_badness_level_reworked.png", "r"))
 ```
 
-```{code-cell} ipython3
+```python
 np.unique(data[:,:,0])
 ```
 
-```{code-cell} ipython3
+```python
 ngood = (data[:,:,0] == 255).sum()
 nbad = (data[:,:,0] == 153).sum()
 total = ngood + nbad
@@ -186,27 +188,27 @@ p2 = plt.bar([1], goodness, [0.5], bottom=badness)
 plt.xlim(0.0, 2.0)
 ```
 
-```{code-cell} ipython3
+```python
 # 372 pixels for full height, 72 for goodness
 goodness_apparent = 79./362.
 ```
 
-```{code-cell} ipython3
+```python
 print(goodness_apparent)
 ```
 
-```{code-cell} ipython3
+```python
 ngood
 ```
 
-```{code-cell} ipython3
+```python
 nbad
 ```
 
-```{code-cell} ipython3
+```python
 1.0-goodness_apparent
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

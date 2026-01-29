@@ -1,67 +1,69 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
-layout: notebook
-title: Week04-Inclass-02
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+  layout: notebook
+  title: Week04-Inclass-02
 ---
 
-```{code-cell} ipython3
+```python
 import traitlets
 import ipywidgets
 ```
 
-```{code-cell} ipython3
+```python
 a = ipywidgets.IntSlider()
 b = ipywidgets.IntText()
 traitlets.link((a, 'value'), (b, 'value'))
 ```
 
-```{code-cell} ipython3
+```python
 a
 ```
 
-```{code-cell} ipython3
+```python
 b
 ```
 
-```{code-cell} ipython3
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
-```{code-cell} ipython3
+```python
 np.mgrid[0.0:10.0:0.5]
 ```
 
-```{code-cell} ipython3
+```python
 np.mgrid[0.0:1.0:4j]
 ```
 
-```{code-cell} ipython3
+```python
 np.mgrid[0.0:10.0:256j]
 ```
 
-```{code-cell} ipython3
+```python
 x = np.mgrid[0.0:10.0:256j]
 y = np.sin(1 * x)
 ```
 
-```{code-cell} ipython3
+```python
 plt.plot(x, y)
 ```
 
-```{code-cell} ipython3
+```python
 @ipywidgets.interact( factor = ( 0.0, 2.5, 0.1) )
 def make_plot(factor):
     x = np.mgrid[0.0:10.0:256j]
@@ -69,11 +71,11 @@ def make_plot(factor):
     plt.plot(x, y)
 ```
 
-```{code-cell} ipython3
+```python
 fw = ipywidgets.FloatText()
 ```
 
-```{code-cell} ipython3
+```python
 @ipywidgets.interact( factor = fw, color = ipywidgets.ColorPicker(), file = ipywidgets.FileUpload() )
 def make_plot(factor, color):
     x = np.mgrid[0.0:10.0:256j]
@@ -81,80 +83,80 @@ def make_plot(factor, color):
     plt.plot(x, y, c = color)
 ```
 
-```{code-cell} ipython3
+```python
 fw.value = 9.5
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.ColorPicker()
 ```
 
-```{code-cell} ipython3
+```python
 fup = ipywidgets.FileUpload()
 ```
 
-```{code-cell} ipython3
+```python
 fup
 ```
 
-```{code-cell} ipython3
+```python
 fup.value
 ```
 
-```{code-cell} ipython3
+```python
 dp = ipywidgets.DatePicker()
 ```
 
-```{code-cell} ipython3
+```python
 dp
 ```
 
-```{code-cell} ipython3
+```python
 dp.value
 ```
 
-```{code-cell} ipython3
+```python
 hb = ipywidgets.HBox([ ipywidgets.FileUpload(), ipywidgets.IntSlider() ])
 ```
 
-```{code-cell} ipython3
+```python
 hb
 ```
 
-```{code-cell} ipython3
+```python
 hb.layout.border = '1px solid black'
 ```
 
-```{code-cell} ipython3
+```python
 class SimpleTraitlets(traitlets.HasTraits):
     my_name = traitlets.Unicode()
 ```
 
-```{code-cell} ipython3
+```python
 st = SimpleTraitlets(name = "Hi")
 ```
 
-```{code-cell} ipython3
+```python
 st.traits()
 ```
 
-```{code-cell} ipython3
+```python
 hb.layout.traits()
 ```
 
-```{code-cell} ipython3
+```python
 hb.layout.justify_content = 'center'
 ```
 
-```{code-cell} ipython3
+```python
 hb
 ```
 
-```{code-cell} ipython3
+```python
 fw.value = 10
 ```
 
-```{code-cell} ipython3
+```python
 class MySineGraph(traitlets.HasTraits):
     offset = traitlets.Float()
     factor = traitlets.Float()
@@ -165,29 +167,29 @@ class MySineGraph(traitlets.HasTraits):
         plt.plot(x, y)
 ```
 
-```{code-cell} ipython3
+```python
 import io
 ```
 
-```{code-cell} ipython3
+```python
 b = io.BytesIO()
 plt.savefig(b)
 ```
 
-```{code-cell} ipython3
+```python
 b.seek(0)
 ipywidgets.Image(value = b.read())
 ```
 
-```{code-cell} ipython3
+```python
 msg = MySineGraph(offset = 0.0, factor = 2.0)
 ```
 
-```{code-cell} ipython3
+```python
 msg
 ```
 
-```{code-cell} ipython3
+```python
 class MySineGraph(traitlets.HasTraits):
     offset = traitlets.Float()
     factor = traitlets.Float()
@@ -208,19 +210,19 @@ class MySineGraph(traitlets.HasTraits):
         display(im)
 ```
 
-```{code-cell} ipython3
+```python
 msg = MySineGraph()
 ```
 
-```{code-cell} ipython3
+```python
 msg
 ```
 
-```{code-cell} ipython3
+```python
 msg.make_plot()
 ```
 
-```{code-cell} ipython3
+```python
 class MySineGraph(traitlets.HasTraits):
     offset = traitlets.Float()
     factor = traitlets.Float()
@@ -243,31 +245,31 @@ class MySineGraph(traitlets.HasTraits):
         display(im)
 ```
 
-```{code-cell} ipython3
+```python
 msg = MySineGraph(factor = 1.0, offset = 0.0)
 ```
 
-```{code-cell} ipython3
+```python
 msg
 ```
 
-```{code-cell} ipython3
+```python
 msg.factor = 2.0
 ```
 
-```{code-cell} ipython3
+```python
 msg.factor = 2.0
 ```
 
-```{code-cell} ipython3
+```python
 import bqplot
 ```
 
-```{code-cell} ipython3
+```python
 
 ```
 
-```{code-cell} ipython3
+```python
 class MySineGraph(traitlets.HasTraits):
     factor = traitlets.Float()
     offset = traitlets.Float()
@@ -296,30 +298,30 @@ class MySineGraph(traitlets.HasTraits):
         display(self.figure)
 ```
 
-```{code-cell} ipython3
+```python
 msg = MySineGraph(factor = 1.0, offset = 0.0)
 ```
 
-```{code-cell} ipython3
+```python
 msg
 ```
 
-```{code-cell} ipython3
+```python
 msg.factor = 4
 ```
 
-```{code-cell} ipython3
+```python
 fs = ipywidgets.FloatSlider()
 traitlets.link((fs, 'value'), (msg, 'factor'))
 fs
 ```
 
-```{code-cell} ipython3
+```python
 ns = ipywidgets.IntSlider(min = 1, max = 2048)
 traitlets.link((ns, 'value'), (msg, 'n'))
 ns
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

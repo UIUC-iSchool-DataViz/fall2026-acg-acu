@@ -1,26 +1,28 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
-layout: notebook
-title: Geopandas
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+  layout: notebook
+  title: Geopandas
 ---
 
-```{code-cell} ipython3
+```python
 #!pip install geopandas
 ```
 
-```{code-cell} ipython3
+```python
 import requests
 import bqplot
 import ipywidgets
@@ -33,18 +35,18 @@ import matplotlib.pyplot as plt
 
 # Geopandas
 
-```{code-cell} ipython3
+```python
 # build in dataset
 gpd.datasets.available
 ```
 
-```{code-cell} ipython3
+```python
 # New York dataset
 gdf_ny = gpd.read_file(gpd.datasets.get_path('nybb'))
 gdf_ny
 ```
 
-```{code-cell} ipython3
+```python
 # Make viz
 gdf_ny.plot(figsize=(8, 8), color='green', alpha=0.5, edgecolor='k')
 plt.show()
@@ -53,7 +55,7 @@ plt.show()
 # Geopandas and matplotlib
 - Open access datasets: https://gis-cityofchampaign.opendata.arcgis.com/search?collection=Dataset
 
-```{code-cell} ipython3
+```python
 # Datasets that we are going to use:
 
 # Council Districts
@@ -64,48 +66,48 @@ url_properties = 'https://opendata.arcgis.com/datasets/3ecbc7baf1a44110a98f6d442
 url_apartments = 'https://opendata.arcgis.com/datasets/64154052c5a040e287bae1583d727825_8.geojson'
 ```
 
-```{code-cell} ipython3
+```python
 # councils
 gdf_councils = gpd.read_file(url_council)
 gdf_councils
 ```
 
-```{code-cell} ipython3
+```python
 gdf_councils.crs
 ```
 
-```{code-cell} ipython3
+```python
 gdf_councils.bounds
 ```
 
-```{code-cell} ipython3
+```python
 gdf_councils.centroid
 ```
 
-```{code-cell} ipython3
+```python
 gdf_councils.plot(figsize=(8, 8))
 ```
 
-```{code-cell} ipython3
+```python
 gdf_councils.boundary.plot()
 ```
 
-```{code-cell} ipython3
+```python
 # properties file
 gdf_prop = gpd.read_file(url_properties)
 print(gdf_prop.info())
 gdf_prop.head()
 ```
 
-```{code-cell} ipython3
+```python
 print(gdf_prop['TYPE'].unique())
 ```
 
-```{code-cell} ipython3
+```python
 gdf_prop.groupby(['TYPE'])[['OBJECTID']].count()
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(figsize=(8, 8))
 
 gdf_councils.plot(ax=ax, color='grey')
@@ -122,18 +124,18 @@ ax.set_ylim(40.10, 40.14)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # Apartment file
 gdf_apat = gpd.read_file(url_apartments)
 print(gdf_apat.info())
 gdf_apat.head()
 ```
 
-```{code-cell} ipython3
+```python
 gdf_apat['Building_Type'].unique()
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(figsize=(8, 8))
 
 gdf_councils.plot(ax=ax, color='grey')
@@ -146,7 +148,7 @@ ax.set_ylim(40.10, 40.14)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # add interaction
 
 building_types = gdf_apat['Building_Type'].unique().tolist()
@@ -154,8 +156,7 @@ selector = ipywidgets.SelectMultiple(options=building_types , description='Build
 selector
 ```
 
-```{code-cell} ipython3
-
+```python
 def make_plot(selected_type):
     print('Selected Type:', selected_type)
     
@@ -182,7 +183,7 @@ ipywidgets.interact(make_plot, selected_type=selector)
 
 # GeoJSON and Bqplot
 
-```{code-cell} ipython3
+```python
 # Map Data
 
 council_map_data = requests.get(url_council).json()
@@ -202,6 +203,6 @@ fig = bqplot.Figure(marks=[council_map, apartment_map])
 fig
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

@@ -2,13 +2,14 @@
 # jupyter:
 #   jupytext:
 #     cell_metadata_filter: -all
-#     formats: ipynb,py:percent,md:myst
+#     default_lexer: ipython3
+#     formats: ipynb,py:percent,md
 #     notebook_metadata_filter: layout,title
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.0
+#       jupytext_version: 1.18.1
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -38,7 +39,6 @@ import pandas as pd # Library for working with tabular data, such as CSV and TSV
 # fig, ax OR plt.plot()
 
 plt.plot() # Create an empty figure
-
 
 # %%
 # Create a figure 
@@ -222,7 +222,6 @@ df_filtered = df.loc[(fiter_1)&(fiter_2)&(fiter_3)].copy()
 
 print(df.shape) # print n_rows, n_cols in the original dataframe
 print(df_filtered.shape) # print n_rows, n_cols in the new dataframe (the selected one)
-
 
 # %%
 # Filter by relationship, set based

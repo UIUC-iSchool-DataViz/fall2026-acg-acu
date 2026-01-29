@@ -1,19 +1,21 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: UNGRADED Workbook for In-Class
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: UNGRADED Workbook for In-Class
 ---
 
 # UNGRADED Workbook for In-Class
@@ -22,190 +24,190 @@ This notebook is here for you to "code along" during class.
 
 It will not be graded, so feel free to play around!
 
-```{code-cell} ipython3
+```python
 %matplotlib inline
 ```
 
-```{code-cell} ipython3
+```python
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-```{code-cell} ipython3
+```python
 import PIL.Image as Image
 ```
 
-```{code-cell} ipython3
+```python
 im = Image.open("stitch_reworked.png")
 ```
 
-```{code-cell} ipython3
+```python
 im
 ```
 
-```{code-cell} ipython3
+```python
 a = 1
 ```
 
-```{code-cell} ipython3
+```python
 print(a)
 ```
 
-```{code-cell} ipython3
+```python
 b = "Hello there"
 ```
 
-```{code-cell} ipython3
+```python
 b
 ```
 
-```{code-cell} ipython3
+```python
 print(b)
 ```
 
-```{code-cell} ipython3
+```python
 im_data = np.array(im)
 ```
 
-```{code-cell} ipython3
+```python
 im_data
 ```
 
-```{code-cell} ipython3
+```python
 im_data.shape
 ```
 
-```{code-cell} ipython3
+```python
 np.unique(im_data)
 ```
 
-```{code-cell} ipython3
+```python
 channel_labels = ["R", "G", "B", "A"]
 for i in range(im_data.shape[2]):
     print('channel=', channel_labels[i],
          'unique values=', np.unique(im_data[:,:,i]))
 ```
 
-```{code-cell} ipython3
+```python
 im_data.shape
 ```
 
-```{code-cell} ipython3
+```python
 im_data[:,:,1].shape
 ```
 
-```{code-cell} ipython3
+```python
 im_data[10:-10,::3,:3].shape
 ```
 
-```{code-cell} ipython3
+```python
 im_reshaped = im_data.reshape((-1, 4))
 ```
 
-```{code-cell} ipython3
+```python
 im_reshaped.shape
 ```
 
-```{code-cell} ipython3
+```python
 np.sum(im_reshaped, axis=1)
 ```
 
-```{code-cell} ipython3
+```python
 np.sum(im_reshaped, axis=0)
 ```
 
-```{code-cell} ipython3
+```python
 np.unique(im_reshaped, axis=0)
 ```
 
-```{code-cell} ipython3
+```python
 hex(126), hex(22), hex(33)
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(figsize=(10, 10))
 ```
 
-```{code-cell} ipython3
+```python
 ax.imshow(im_data)
 ```
 
-```{code-cell} ipython3
+```python
 fig
 ```
 
-```{code-cell} ipython3
+```python
 ax.imshow(im_data, origin='lower')
 ```
 
-```{code-cell} ipython3
+```python
 fig
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(figsize=(10,10))
 ax.imshow(im_data * 0 + 125)
 ax.imshow(im_data)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 im_data[:,:,0] == 255
 ```
 
-```{code-cell} ipython3
+```python
 reds_good_mask = im_data[:,:,0] == 255
 greens_good_mask = im_data[:,:,1] == 255
 blues_good_mask = im_data[:,:,2] == 255
 alphas_good_mask = im_data[:,:,3] == 255
 ```
 
-```{code-cell} ipython3
+```python
 pixel_good_mask = (reds_good_mask & greens_good_mask & blues_good_mask & alphas_good_mask)
 ```
 
-```{code-cell} ipython3
+```python
 pixel_good_mask.sum()
 ```
 
-```{code-cell} ipython3
+```python
 pixel_good_mask.size
 ```
 
-```{code-cell} ipython3
+```python
 ~pixel_good_mask
 ```
 
-```{code-cell} ipython3
+```python
 pixel_mask_bad = ( (im_data[:,:,0] == 126)
                   & (im_data[:,:,1] == 22)
                   & (im_data[:,:,2] == 33)
                   & (im_data[:,:,3] == 255))
 ```
 
-```{code-cell} ipython3
+```python
 pixel_mask_bad.sum()
 ```
 
-```{code-cell} ipython3
+```python
 ngood = pixel_good_mask.sum()
 nbad = pixel_mask_bad.sum()
 ```
 
-```{code-cell} ipython3
+```python
 ngood / (ngood + nbad)
 ```
 
-```{code-cell} ipython3
+```python
 nbad / (ngood + nbad)
 ```
 
-```{code-cell} ipython3
+```python
 total = ngood + nbad
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(figsize=(8,8))
 
 ax.bar([1], nbad/total, [0.5], color='maroon', label = 'badness')
@@ -216,45 +218,45 @@ ax.legend()
 fig
 ```
 
-```{code-cell} ipython3
+```python
 import csv
 ```
 
-```{code-cell} ipython3
+```python
 f = open("building_inventory.csv", "r")
 ```
 
-```{code-cell} ipython3
+```python
 f.seek(0)
 ```
 
-```{code-cell} ipython3
+```python
 f.seek(100)
 ```
 
-```{code-cell} ipython3
+```python
 f.read(10)
 ```
 
-```{code-cell} ipython3
+```python
 f.seek(0)
 for record in csv.reader(f):
     print(record)
 ```
 
-```{code-cell} ipython3
+```python
 f.seek(0)
 reader = csv.reader(f)
 header = next(reader)
 ```
 
-```{code-cell} ipython3
+```python
 data = {}
 for column in header:
     data[column] = []
 ```
 
-```{code-cell} ipython3
+```python
 arr1 = ["hi", "there", "my", "friends"]
 arr2 = [2, 5, 3, 7]
 
@@ -262,7 +264,7 @@ for word, num in zip(arr1, arr2):
     print(word, num, len(word) == num)
 ```
 
-```{code-cell} ipython3
+```python
 f.seek(0)
 reader = csv.reader(f)
 header = next(reader)
@@ -276,27 +278,27 @@ for row in reader:
         data[column].append(value)
 ```
 
-```{code-cell} ipython3
+```python
 data.keys()
 ```
 
-```{code-cell} ipython3
+```python
 import collections
 ```
 
-```{code-cell} ipython3
+```python
 agency_counter = collections.Counter(data['Agency Name'])
 ```
 
-```{code-cell} ipython3
+```python
 agency_counter.most_common?
 ```
 
-```{code-cell} ipython3
+```python
 agency_counter.most_common(10)
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(figsize=(10,6))
 
 names = []
@@ -310,6 +312,6 @@ ax.bar(names, counts)
 fig.autofmt_xdate(rotation=90)
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

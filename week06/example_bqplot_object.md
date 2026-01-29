@@ -1,19 +1,21 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: UNGRADED Workbook for In-Class
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: UNGRADED Workbook for In-Class
 ---
 
 # UNGRADED Workbook for In-Class
@@ -22,25 +24,25 @@ This notebook is here for you to "code along" during class.
 
 It will not be graded, so feel free to play around!
 
-```{code-cell} ipython3
+```python
 import numpy as np
 import bqplot
 ```
 
-```{code-cell} ipython3
+```python
 import matplotlib.pyplot as plt
 ```
 
-```{code-cell} ipython3
+```python
 x = np.random.random(size=32**3)
 y = np.random.random(size=32**3)
 ```
 
-```{code-cell} ipython3
+```python
 plt.scatter(x, y)
 ```
 
-```{code-cell} ipython3
+```python
 x_sc = bqplot.LinearScale()
 y_sc = bqplot.LinearScale()
 
@@ -53,30 +55,30 @@ figure = bqplot.Figure(marks = [], axes = [x_ax, y_ax])
 display(figure)
 ```
 
-```{code-cell} ipython3
+```python
 import traitlets
 import ipywidgets
 ```
 
-```{code-cell} ipython3
+```python
 
 ```
 
-```{code-cell} ipython3
+```python
 class MyDashboard(traitlets.HasTraits):
     x_axis = traitlets.Unicode()
     y_axis = traitlets.Unicode()
 ```
 
-```{code-cell} ipython3
+```python
 db1 = MyDashboard(x_axis = "Time", y_axis = "Sunlight")
 ```
 
-```{code-cell} ipython3
+```python
 db1.x_axis
 ```
 
-```{code-cell} ipython3
+```python
 class MultiViewDashboard(traitlets.HasTraits):
     left_view = traitlets.Instance(klass=bqplot.Figure)
     right_view = traitlets.Instance(klass=bqplot.Figure)
@@ -142,26 +144,26 @@ class MultiViewDashboard(traitlets.HasTraits):
         ])
 ```
 
-```{code-cell} ipython3
+```python
 mdb = MultiViewDashboard()
 ```
 
-```{code-cell} ipython3
+```python
 mdb.view
 ```
 
-```{code-cell} ipython3
+```python
 mdb.left_y_axis = 3
 ```
 
-```{code-cell} ipython3
+```python
 mdb.left_view.marks[0].colors = ["#000000"]
 ```
 
-```{code-cell} ipython3
+```python
 mdb.view
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

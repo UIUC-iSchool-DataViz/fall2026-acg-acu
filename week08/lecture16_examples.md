@@ -1,22 +1,24 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: Lecture16 Examples
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: Lecture16 Examples
 ---
 
-```{code-cell} ipython3
+```python
 import pandas as pd
 import traitlets
 import ipywidgets
@@ -24,71 +26,71 @@ import bqplot
 import numpy as np
 ```
 
-```{code-cell} ipython3
+```python
 states = pd.read_csv("us-states.csv", parse_dates = ["date"])
 ```
 
-```{code-cell} ipython3
+```python
 states.loc
 ```
 
-```{code-cell} ipython3
+```python
 states.iloc
 ```
 
-```{code-cell} ipython3
+```python
 states.head()
 ```
 
-```{code-cell} ipython3
+```python
 states.loc[0:3]
 ```
 
-```{code-cell} ipython3
+```python
 states.iloc[0:3]
 ```
 
-```{code-cell} ipython3
+```python
 states_by_date = states.set_index("date")
 ```
 
-```{code-cell} ipython3
+```python
 states_by_date
 ```
 
-```{code-cell} ipython3
+```python
 states_by_date.loc['2020-01-21':'2020-01-23']
 ```
 
-```{code-cell} ipython3
+```python
 states_by_date.iloc[0:4]
 ```
 
-```{code-cell} ipython3
+```python
 states_by_date.loc['2020-01-21':'2020-01-25']
 ```
 
-```{code-cell} ipython3
+```python
 states_by_date.groupby("state").max()["cases"]
 ```
 
-```{code-cell} ipython3
+```python
 total_cases = states_by_date.groupby("date").sum()["cases"]
 ```
 
-```{code-cell} ipython3
+```python
 states_by_date.groupby("state").get_group("Illinois")
 ```
 
-```{code-cell} ipython3
+```python
 states_timeseries = dict(tuple(_) for _ in states_by_date.groupby("state"))
 ```
 
-```{code-cell} ipython3
+```python
 states_timeseries['Illinois']
 ```
 
-```{code-cell} ipython3
+```python
 case_counts = states.groupby("fips")["cases"].max().to_dict()
 
 proj = bqplot.AlbersUSA()
@@ -107,7 +109,7 @@ fig = bqplot.Figure(marks = [mark], axes = [color_ax])
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 date_sc = bqplot.DateScale()
 case_sc = bqplot.LogScale()
 
@@ -123,7 +125,7 @@ fig = bqplot.Figure(marks = [lines], axes = [date_ax, case_ax], interaction = in
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 case_counts = states_by_date.groupby("fips")["cases"].max().to_dict()
 
 proj = bqplot.AlbersUSA()
@@ -164,15 +166,15 @@ interval_selector.observe(on_selection_change, "selected")
 display(ipywidgets.VBox([fig_map, fig_line]))
 ```
 
-```{code-cell} ipython3
+```python
 mark.interactions = {'click': 'select'}
 ```
 
-```{code-cell} ipython3
+```python
 mark.selected
 ```
 
-```{code-cell} ipython3
+```python
 case_counts = states_by_date.groupby("fips")["cases"].max().to_dict()
 
 proj = bqplot.AlbersUSA()

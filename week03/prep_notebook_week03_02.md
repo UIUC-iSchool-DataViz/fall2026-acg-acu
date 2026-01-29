@@ -1,19 +1,21 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: Color Fundamentals
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: Color Fundamentals
 ---
 
 # Color Fundamentals
@@ -22,11 +24,11 @@ This notebook describes a few fundamental aspects of how we perceive colors, and
 
 We will start by describing the color matching function, then the response function of the three cones in a human eye.  Links to data are included.  Following this, we'll demonstrate how colormaps fit into the spectrum, and how to use the package [palettable](https://jiffyclub.github.io/palettable/).
 
-```{code-cell} ipython3
+```python
 %matplotlib inline
 ```
 
-```{code-cell} ipython3
+```python
 import matplotlib.pyplot as plt
 import csv
 import numpy as np
@@ -41,7 +43,7 @@ We'll load up the Stiles & Burch 1955 2-degree color matching functions, via htt
 
 This will give us the chromatic responses for an observer.
 
-```{code-cell} ipython3
+```python
 with open("data/sbrgb2.csv") as f:
     data = [[] for _ in 'Wrgb']
     reader = csv.reader(f)
@@ -54,7 +56,7 @@ with open("data/sbrgb2.csv") as f:
 
 We'll plot them now, so that we can see the wavelength and response.
 
-```{code-cell} ipython3
+```python
 plt.plot(wavelength, data[0], '-r')
 plt.plot(wavelength, data[1], '-g')
 plt.plot(wavelength, data[2], '-b')
@@ -65,7 +67,7 @@ plt.savefig("images/cmf.png")
 
 Now, let's convert these to the sensitivity of LMS.
 
-```{code-cell} ipython3
+```python
 # Now we convert these to LMS; Stockman, MacLeod & Johnson 1993
 coeffs = np.array([
     [0.214808, 0.751035, 0.045156],
@@ -79,7 +81,7 @@ L, M, S = (data[0] * coeffs[i,0]
 
 We'll plot these now.
 
-```{code-cell} ipython3
+```python
 plt.plot(wavelength, L, '-r')
 plt.plot(wavelength, M, '-g')
 plt.plot(wavelength, S, '-b')
@@ -92,7 +94,7 @@ Now we'll convert wavelength to RGB; this code was heavily borrowed  from http:/
 
 Note that this isn't necessarily the *best* way to generate RGB curves; in fact, it does not cover the full spectrum of colors expressible in RGB.  We'll demonstrate that below.
 
-```{code-cell} ipython3
+```python
 wavelength = np.mgrid[wavelength[0]:wavelength[-1]:1024j]
 gamma = 0.8
 
@@ -132,7 +134,7 @@ G[i6] = 0.0
 B[i6] = 0.0
 ```
 
-```{code-cell} ipython3
+```python
 plt.plot(wavelength, R, '-r')
 plt.plot(wavelength, G, '-g')
 plt.plot(wavelength, B, '-b')
@@ -140,7 +142,7 @@ plt.plot(wavelength, B, '-b')
 
 Above, you can see the RGB values as a line plot.  Below, we'll plot the RGB as a color, across these wavelengths.
 
-```{code-cell} ipython3
+```python
 im = np.ones((wavelength.size, wavelength.size, 4))
 im[:,:,0] *= R
 im[:,:,1] *= G
@@ -153,11 +155,11 @@ plt.imshow(im, extent = [0.0, 1.0, 0.0, 1.0], aspect = 1.0/5)
 
 What do some of our colormaps look like?  We'll check out viridis, which is a pretty awesome colormap.
 
-```{code-cell} ipython3
+```python
 import matplotlib.cm as cm
 ```
 
-```{code-cell} ipython3
+```python
 viridis = cm.viridis(np.mgrid[0.0:1.0:256j])[:,:3]
 im = np.ones((viridis.shape[0], viridis.shape[0], 4))
 im[...,:3] *= viridis[None,:,:]
@@ -170,7 +172,7 @@ plt.imshow(im, extent = [0.0, 1.0, 0.0, 1.0], aspect = 1.0/5)
 
 Now that is a nice looking colormap!  So what happens if we try to restrict this to the RGB values we've identified in our image above, when we generated the rainbow?  We'll try to find the "nearest" RGB values by looking at the L2 norm of the distance.
 
-```{code-cell} ipython3
+```python
 # Now we need to get our reversal to wavelength from an RGB value.
 # We don't have that many wavelengths, so let's just do an L2 norm for each.
 
@@ -184,7 +186,7 @@ def get_rgb(cmap_name):
 rgbi = get_rgb("viridis")
 ```
 
-```{code-cell} ipython3
+```python
 im = np.ones((rgbi.size, rgbi.size, 4))
 im[:,:,0] *= R[rgbi]
 im[:,:,1] *= G[rgbi]
@@ -197,11 +199,10 @@ plt.imshow(im, extent = [0.0, 1.0, 0.0, 1.0])
 
 Yuck!  Not quite as nice.  The way we've generated the spectra here, where we varied a reasonably simple function along one dimension, doesn't allow for the expressiveness that we need for really nice looking colors.
 
-+++
 
 We'll take a look at a couple colormaps now, to see what they look like in both color and RGB space.  The plots you'll see will have the colormap at the bottom, and in the top panel they'll show the R, G, B lines from 0 to 1, to show the relative composition.
 
-```{code-cell} ipython3
+```python
 def plot_rgb(cmap_name):
     N = 256
     colors = cm.cmap_d[cmap_name](np.mgrid[0.0:1.0:N * 1j])[:,:3]
@@ -229,37 +230,37 @@ def plot_rgb(cmap_name):
 
 viridis is the new default colormap in matplotlib.  For a great description of how this was developed and why, see Stefan Van der Walt's [talk from SciPy 2015](https://www.youtube.com/watch?v=xAoljeRJ3lU).
 
-```{code-cell} ipython3
+```python
 plot_rgb('viridis')
 ```
 
 Let's also take a look at 'jet'.  For a long time, jet was the default colormap; part of this stems from the similairites between the API for matplotlib and matlab, long ago.  We'll explore some of the odd quirks in jet in another notebook.
 
-```{code-cell} ipython3
+```python
 plot_rgb("jet")
 ```
 
 This is the gray colormap, which just grows linearly from 0..1 simultaneously in all three channels.
 
-```{code-cell} ipython3
+```python
 plot_rgb("gray")
 ```
 
 This is a colormap called "GIST Stern."  According to https://gist.github.com/endolith/2719900 , this came from the Yorick package, and before that, IDL.  I used to use this one a lot in astronomy.  I'm not a huge fan anymore.
 
-```{code-cell} ipython3
+```python
 plot_rgb("gist_stern")
 ```
 
 Don't use this colormap.  I mean, there might be reasons one could hazard to use it but ... I don't know of any good ones.
 
-```{code-cell} ipython3
+```python
 plot_rgb("flag")
 ```
 
 Magma is another good, new colormap from matplotlib designed for accessibility and perceptual uniformity.
 
-```{code-cell} ipython3
+```python
 plot_rgb("magma")
 ```
 
@@ -271,13 +272,13 @@ We're going to talk about basically three different ways of thinking of palettes
 
 In general, qualitative are for situations where you wish to express different categories, diverging when you wish to express deviation from a baseline value, and sequential when the baseline is moved away from only in one direction.
 
-```{code-cell} ipython3
+```python
 import palettable
 ```
 
 First, the qualitative colormaps.  Note how they don't work that well as continuous images!
 
-```{code-cell} ipython3
+```python
 from palettable.colorbrewer.qualitative import Set1_9
 Set1_9.show_discrete_image(size=(12,2))
 Set1_9.show_continuous_image(size=(12,2))
@@ -285,7 +286,7 @@ Set1_9.show_continuous_image(size=(12,2))
 
 Let's write some simple functions so that we can play with the colormaps via widgets.  We'll write one for each type of colormap.
 
-```{code-cell} ipython3
+```python
 def get_cb_diverging(name = "Spectral", number = 9):
     number = min(number, max(int(_) for _ in palettable.colorbrewer.COLOR_MAPS["Diverging"][name]))
     m = palettable.colorbrewer.get_map(name, map_type="diverging", number=number)
@@ -293,7 +294,7 @@ def get_cb_diverging(name = "Spectral", number = 9):
     m.show_continuous_image(size=(12,2))
 ```
 
-```{code-cell} ipython3
+```python
 def get_cb_qualitative(name = "Set1", number = 9):
     number = min(number, max(int(_) for _ in palettable.colorbrewer.COLOR_MAPS["Qualitative"][name]))
     m = palettable.colorbrewer.get_map(name, map_type="qualitative", number=number)
@@ -301,7 +302,7 @@ def get_cb_qualitative(name = "Set1", number = 9):
     m.show_continuous_image(size=(12,2))
 ```
 
-```{code-cell} ipython3
+```python
 def get_cb_sequential(name = "Blues", number = 9):
     number = min(number, max(int(_) for _ in palettable.colorbrewer.COLOR_MAPS["Sequential"][name]))
     m = palettable.colorbrewer.get_map(name, map_type="sequential", number=number)
@@ -311,28 +312,28 @@ def get_cb_sequential(name = "Blues", number = 9):
 
 As you look at these next few cells, note how things change with each colormap as well as with each count and type of colormap.
 
-```{code-cell} ipython3
+```python
 import ipywidgets
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.interact(get_cb_diverging, name = list(palettable.colorbrewer.COLOR_MAPS["Diverging"].keys()),  number = (1, 12))
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.interact(get_cb_qualitative, name = list(palettable.colorbrewer.COLOR_MAPS["Qualitative"].keys()),  number = (1, 12))
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.interact(get_cb_sequential, name = list(palettable.colorbrewer.COLOR_MAPS["Sequential"].keys()),  number = (1, 12))
 ```
 
 Finally, cubehelix is a nice colormap for when you need to print out and get the same perceptual look as when its viewed in color.
 
-```{code-cell} ipython3
+```python
 palettable.cubehelix.classic_16.show_continuous_image(size=(10,2))
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

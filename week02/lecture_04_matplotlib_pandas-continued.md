@@ -1,28 +1,30 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: Some basics
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: Some basics
 ---
 
-```{code-cell} ipython3
+```python
 # ! pip install matplotlib
 # ! pip install pandas
 # ! pip install numpy
 ```
 
-```{code-cell} ipython3
+```python
 import matplotlib.pyplot as plt # The plotting library
 import numpy as np 
 import pandas as pd # Library for working with tabular data, such as CSV and TSV
@@ -33,20 +35,20 @@ import pandas as pd # Library for working with tabular data, such as CSV and TSV
 
 # Some basics
 
-```{code-cell} ipython3
+```python
 # Create a figure 
 # fig, ax OR plt.plot()
 
 plt.plot() # Create an empty figure
 ```
 
-```{code-cell} ipython3
+```python
 # Create a figure 
 # fig, ax OR plt.plot()
 fig, ax = plt.subplots() # Create an empty figure
 ```
 
-```{code-cell} ipython3
+```python
 # Create a figure having two horizonal subplots.
 fig, ax = plt.subplots(1, 2, figsize=(10, 5))
 
@@ -55,7 +57,7 @@ fig, ax = plt.subplots(1, 2, figsize=(10, 5))
 # figsize=(10, 5) indicates this is an 10 inch by 5 inch figure
 ```
 
-```{code-cell} ipython3
+```python
 # Create a figure having two vertical subplots.
 fig, ax = plt.subplots(2, 1, figsize=(5, 10))
 
@@ -64,14 +66,14 @@ fig, ax = plt.subplots(2, 1, figsize=(5, 10))
 # figsize=(5, 10) indicates this is an 5 inch by 10 inch figure
 ```
 
-```{code-cell} ipython3
+```python
 # Create a figure having four subplots.
 fig, ax = plt.subplots(2, 2)
 
 # subplots(2, 2) tells matplotlib to draw a figure with 2 by 2 subplots in it.
 ```
 
-```{code-cell} ipython3
+```python
 # plot a line
 
 x = [1, 2, 3, 4] # x coordinates
@@ -83,7 +85,7 @@ ax.plot(x, y) # draw a line on the figure. The line is drawn from the x and y co
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # plot two lines in one figure
 x = [1, 2, 3, 4]
 y = [4, 3, 4, 3]
@@ -97,7 +99,7 @@ ax.plot(x, y1, linewidth=10) # Plot the second line using the x and y1 coordinat
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # plot two lines in two subplots (1*2)
 
 fig, ax = plt.subplots(1, 2)
@@ -113,7 +115,7 @@ ax[1].plot(x, y1)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # plot lines in subplots (2*2)
 
 fig, ax = plt.subplots(2, 2)
@@ -138,13 +140,13 @@ plt.show()
 
 # Pandas
 
-```{code-cell} ipython3
+```python
 !wget https://uiuc-ischool-dataviz.github.io/spring2019online/week02/building_inventory.csv
     
 # This is for downloading the CSV file
 ```
 
-```{code-cell} ipython3
+```python
 # Read file
 
 df = pd.read_csv('building_inventory.csv', sep=',') 
@@ -154,13 +156,13 @@ df = pd.read_csv('building_inventory.csv', sep=',')
 df.head() # Show the fisrt 5 row in the CSV file
 ```
 
-```{code-cell} ipython3
+```python
 # Number of rows and columns
 
 df.shape # returns the number of rows and columns (n_rows, n_cols)
 ```
 
-```{code-cell} ipython3
+```python
 # Assign ID to each building
 
 df = df.reset_index() # reset the index as a colum
@@ -168,7 +170,7 @@ df = df.rename(columns={'index':'Building ID'}) # rename the "index" colum we ju
 df.head()
 ```
 
-```{code-cell} ipython3
+```python
 # Summary of a DataFrame.
 
 df.info() 
@@ -177,13 +179,13 @@ df.info()
 # Non-Null Count shows the number of row that is not null (i.e., have values)
 ```
 
-```{code-cell} ipython3
+```python
 # Descriptive statistics of the numerical columns
 
 df.describe()
 ```
 
-```{code-cell} ipython3
+```python
 # Covert data type
 
 df['Zip code'] = df['Zip code'].astype(str) 
@@ -193,18 +195,18 @@ df['Zip code'] = df['Zip code'].astype(str)
 df.info()
 ```
 
-```{code-cell} ipython3
+```python
 # Missing values
 df.isna().sum() 
 # isna() select the rows having null values (i.e., missing values), and sum() counts the number of rows having null values.
 ```
 
-```{code-cell} ipython3
+```python
 # Unique values in a column
 df['Year Acquired'].unique()
 ```
 
-```{code-cell} ipython3
+```python
 # Arithmetic operation
 
 df['Age at Acqusition'] = df['Year Acquired'] - df['Year Constructed']
@@ -213,7 +215,7 @@ df['Age at Acqusition'] = df['Year Acquired'] - df['Year Constructed']
 df.head()
 ```
 
-```{code-cell} ipython3
+```python
 # Filter by relationship
 
 fiter_1 = df['Year Acquired'] > 0 
@@ -241,7 +243,7 @@ print(df.shape) # print n_rows, n_cols in the original dataframe
 print(df_filtered.shape) # print n_rows, n_cols in the new dataframe (the selected one)
 ```
 
-```{code-cell} ipython3
+```python
 # Filter by relationship, set based
 
 rows_in_2004_2006 = df.loc[df['Year Acquired'].isin([2004, 2006])]
@@ -252,14 +254,14 @@ print(rows_in_2004_2006['Year Acquired'].unique()) # unique values in the Year A
 rows_in_2004_2006.head()
 ```
 
-```{code-cell} ipython3
+```python
 # Sampling, by number
 df.sample(30) # Get a sample that has 30 records.
 ```
 
 # Histogram
 
-```{code-cell} ipython3
+```python
 # A hist draw from 'Age at Acquisition' column
 
 fig, ax = plt.subplots() # make an empty figure
@@ -271,7 +273,7 @@ ax.hist(df_filtered['Age at Acqusition'], bins=5) # .hist() draws a histogram
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # log scale
 
 fig, ax = plt.subplots()
@@ -284,7 +286,7 @@ ax.hist(df_filtered['Age at Acqusition'], bins=10, log=True) # .hist() draw a hi
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # non-uniform bins
 
 fig, ax = plt.subplots()
@@ -305,7 +307,7 @@ plt.show()
 
 # Bar chart
 
-```{code-cell} ipython3
+```python
 # A bar chart with groups using 'Bldg Status' column
 # Group by categories, count 
 
@@ -331,7 +333,7 @@ df2draw # show the result
 # 8523 buildings have building status as In Use
 ```
 
-```{code-cell} ipython3
+```python
 # Make a bar chart
 fig, ax = plt.subplots() # Make an empty plot
 
@@ -347,7 +349,7 @@ ax.set_ylabel('Number of buildings') # Set the y label
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots()
 
 ax.bar(df2draw.index, df2draw['Building ID'], log=True) # Same as above, but make y as log scale
@@ -358,7 +360,7 @@ ax.set_ylabel('Number of buildings') # Set the y label
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # Group by categories, sum 
 
 df2draw = df_filtered.groupby(df_filtered['Bldg Status'])[['Square Footage']].sum()
@@ -373,7 +375,7 @@ df2draw = df_filtered.groupby(df_filtered['Bldg Status'])[['Square Footage']].su
 df2draw # show the result
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots()
 
 ax.bar(df2draw.index, df2draw['Square Footage'])
@@ -387,7 +389,7 @@ ax.set_ylabel('Total Square Footage') # Set y label
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # Group by categories, mean 
 
 df2draw = df_filtered.groupby(df_filtered['Bldg Status'])[['Square Footage']].mean()
@@ -401,7 +403,7 @@ df2draw = df_filtered.groupby(df_filtered['Bldg Status'])[['Square Footage']].me
 df2draw # shows the result
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots()
 
 ax.bar(df2draw.index, df2draw['Square Footage'])
@@ -419,7 +421,7 @@ plt.show()
 [matplotlib.markers](https://matplotlib.org/stable/api/markers_api.html)    
 [linestyle](https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html)
 
-```{code-cell} ipython3
+```python
 # Draw a scatter plot by using plt.plot 
 x = [1, 2, 3, 4]
 y = [4, 3, 4, 2]
@@ -433,7 +435,7 @@ ax.plot(x, y, marker='o', linestyle='')
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # Draw a scatter plot by using .scatter()
 
 fig, ax = plt.subplots() # create an empty figure
@@ -443,7 +445,7 @@ ax.scatter(x, y) # .scatter() draw a scatter plot using the x and y values
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # Without cleaning the data...
 
 x = df['Year Constructed']
@@ -456,7 +458,7 @@ ax.scatter(x, y)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # Cleaned data
 
 x = df_filtered['Year Constructed']
@@ -474,7 +476,7 @@ plt.show()
 
 # Line plot
 
-```{code-cell} ipython3
+```python
 # Number of buldings along year constructed
 
 df2draw = df_filtered.groupby(df_filtered['Year Constructed'])[['Building ID']].count()
@@ -488,7 +490,7 @@ df2draw = df_filtered.groupby(df_filtered['Year Constructed'])[['Building ID']].
 df2draw # Shows the result
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots()
 
 ax.plot(df2draw.index, df2draw['Building ID'])
@@ -504,7 +506,7 @@ plt.show()
 
 # Color, marker, and size
 
-```{code-cell} ipython3
+```python
 # We can iterate over the groups
 
 # .group() returns a group object
@@ -512,7 +514,7 @@ groups = df_filtered.groupby(df_filtered['Bldg Status'])
 type(groups)
 ```
 
-```{code-cell} ipython3
+```python
 # We can iterate over the groups
 
 for name, group in groups:
@@ -521,7 +523,7 @@ for name, group in groups:
     # group return the rows belonging to a group
 ```
 
-```{code-cell} ipython3
+```python
 # Color by group
 
 groups = df_filtered.groupby(df_filtered['Bldg Status'])
@@ -543,7 +545,7 @@ for name, group in groups: # Iterate over groups
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # Marks by group
 groups = df_filtered.groupby(df_filtered['Bldg Status'])
 
@@ -565,7 +567,7 @@ for name, group in groups:
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # Size by group
 
 groups = df_filtered.groupby(df_filtered['Bldg Status'])
@@ -587,6 +589,6 @@ for name, group in groups:
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

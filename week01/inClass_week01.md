@@ -1,33 +1,34 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
-layout: notebook
-title: In Class Notebook, Week 01
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+  layout: notebook
+  title: In Class Notebook, Week 01
 ---
 
 # In Class Notebook, Week 01
 
-+++
 
 You can **maybe** paste the URL of this notebook (https://github.com/UIUC-iSchool-DataViz/is445_bcubcg_fall2024/blob/master/week01/inClass_week01.ipynb ) into the nbviewer interface for a plain-text rendering:
 
 https://kokes.github.io/nbviewer.js/viewer.html
 
-```{code-cell} ipython3
+```python
 
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

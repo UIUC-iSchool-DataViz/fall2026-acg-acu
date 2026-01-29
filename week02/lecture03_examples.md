@@ -1,130 +1,132 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: Lecture03 Examples
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: Lecture03 Examples
 ---
 
 ![]( https://uiuc-ischool-dataviz.github.io/spring2019online/week01/images/stitch_reworked.png)
 
-```{code-cell} ipython3
+```python
 !wget https://uiuc-ischool-dataviz.github.io/spring2019online/week01/images/stitch_reworked.png
 ```
 
-```{code-cell} ipython3
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 import PIL.Image
 ```
 
-```{code-cell} ipython3
+```python
 %matplotlib inline
 ```
 
-```{code-cell} ipython3
+```python
 plt.plot([1, 2, 3, 5], [4, 1, 2, 9])
 ```
 
-```{code-cell} ipython3
+```python
 im = PIL.Image.open("stitch_reworked.png")
 ```
 
-```{code-cell} ipython3
+```python
 im
 ```
 
-```{code-cell} ipython3
+```python
 type(im)
 ```
 
-```{code-cell} ipython3
+```python
 im_data = np.array(im)
 ```
 
-```{code-cell} ipython3
+```python
 im_data.shape
 ```
 
-```{code-cell} ipython3
+```python
 im_data.dtype
 ```
 
-```{code-cell} ipython3
+```python
 im_data[240, 210, 0]
 ```
 
-```{code-cell} ipython3
+```python
 im_data[240, 210, :]
 ```
 
-```{code-cell} ipython3
+```python
 im_data[ 230:240, 210, 1 ]
 ```
 
-```{code-cell} ipython3
+```python
 arr = np.arange(100)
 ```
 
-```{code-cell} ipython3
+```python
 arr
 ```
 
-```{code-cell} ipython3
+```python
 arr[4:10]
 ```
 
-```{code-cell} ipython3
+```python
 arr[:5]
 ```
 
-```{code-cell} ipython3
+```python
 arr[4:10:2]
 ```
 
-```{code-cell} ipython3
+```python
 arr[::-1]
 ```
 
-```{code-cell} ipython3
+```python
 PIL.Image.fromarray(im_data[:250:-1, :, :])
 ```
 
-```{code-cell} ipython3
+```python
 im_data.shape
 ```
 
-```{code-cell} ipython3
+```python
 im_data.reshape(-1, im_data.shape[2]).shape
 ```
 
-```{code-cell} ipython3
+```python
 483*430
 ```
 
-```{code-cell} ipython3
+```python
 np.unique([1, 2, 3, 1, 1, 1])
 ```
 
-```{code-cell} ipython3
+```python
 np.unique(im_data.reshape(-1, im_data.shape[2]), axis=0)
 ```
 
-```{code-cell} ipython3
+```python
 plt.imshow(im_data)
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(figsize = (5,5))
 ax.set_facecolor("gray")
 ax.imshow(im_data)
@@ -132,6 +134,6 @@ ax.imshow(im_data)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

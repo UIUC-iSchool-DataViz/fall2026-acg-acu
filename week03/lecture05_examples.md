@@ -1,64 +1,66 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Environment (conda_conda)
-  language: python
-  name: conda_conda
-layout: notebook
-title: Lecture05 Examples
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Environment (conda_conda)
+    language: python
+    name: conda_conda
+  layout: notebook
+  title: Lecture05 Examples
 ---
 
-```{code-cell} ipython3
+```python
 %matplotlib inline
 ```
 
-```{code-cell} ipython3
+```python
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 ```
 
-```{code-cell} ipython3
+```python
 X = np.linspace(0, 4*np.pi, 1000)
 Y1 = np.sin(X)
 Y2 = np.cos(X)
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots()
 lines1 = ax.plot(X, Y1)
 lines2 = ax.plot(X, Y2)
 ```
 
-```{code-cell} ipython3
+```python
 sin_line = lines1[0]
 cos_line = lines2[0]
 ```
 
-```{code-cell} ipython3
+```python
 sin_line.properties()
 sin_line.set_linestyle("-.")
 ```
 
-```{code-cell} ipython3
+```python
 fig
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots()
 lines1 = ax.plot(X, Y1, linestyle = ':')
 lines2 = ax.plot(X, Y2, color = "red", linewidth = 10.0)
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots()
 X = np.random.normal(size = 100)
 Y = np.random.normal(size = 100)
@@ -66,7 +68,7 @@ ax.scatter(X, Y, marker="x")
 ax.text(0.5, 0.5, "Hello!", transform = ax.transAxes)
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(1, 2)
 X1 = np.linspace(0, 4.0*np.pi, 1000)
 Y1 = np.sin(X1)
@@ -80,7 +82,7 @@ ax[1].scatter(X, Y)
 ax[0].text(0.5, 1.0, "Figure!", transform = ax[0].transAxes)
 ```
 
-```{code-cell} ipython3
+```python
 df = pd.read_csv("building_inventory.csv",
                  na_values = {'Year Acquired': 0,
                               'Year Constructed': 0,
@@ -88,20 +90,20 @@ df = pd.read_csv("building_inventory.csv",
                 )
 ```
 
-```{code-cell} ipython3
+```python
 footage_per_year = df.groupby("Year Acquired")["Square Footage"].sum()
 ```
 
-```{code-cell} ipython3
+```python
 total_footage_owned = footage_per_year.cumsum()
 ```
 
-```{code-cell} ipython3
+```python
 import matplotlib.patches as patches
 import matplotlib.transforms as transforms
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(dpi = 150)
 ax.plot(total_footage_owned.index, total_footage_owned)
 ax.set_yscale("log")
@@ -118,7 +120,7 @@ uiuc_annotation2 = patches.Rectangle(
 ax.add_patch(uiuc_annotation2)
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(dpi = 150)
 ax.plot(total_footage_owned.index, total_footage_owned)
 ax.set_yscale("log")
@@ -133,7 +135,7 @@ uiuc_annotation = patches.Rectangle(
 ax.add_patch(uiuc_annotation)
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(dpi = 150)
 ax.semilogy(total_footage_owned.index, total_footage_owned)
 ax.set_ylabel("Square Footage (cumulative)")
@@ -147,11 +149,11 @@ uiuc_annotation = patches.Rectangle(
 ax.add_patch(uiuc_annotation)
 ```
 
-```{code-cell} ipython3
+```python
 plt.style.available
 ```
 
-```{code-cell} ipython3
+```python
 with plt.style.context("bmh"):
     fig, ax = plt.subplots()
     X1 = np.linspace(0, 4.0*np.pi, 1000)
@@ -162,7 +164,7 @@ with plt.style.context("bmh"):
     ax.plot(X1, Y2)
 ```
 
-```{code-cell} ipython3
+```python
 with plt.style.context("ggplot"):
     fig, ax = plt.subplots()
     X1 = np.linspace(0, 4.0*np.pi, 1000)
@@ -173,7 +175,7 @@ with plt.style.context("ggplot"):
     ax.plot(X1, Y2)
 ```
 
-```{code-cell} ipython3
+```python
 with plt.style.context("fivethirtyeight"):
     fig, ax = plt.subplots()
     X1 = np.linspace(0, 4.0*np.pi, 1000)
@@ -184,7 +186,7 @@ with plt.style.context("fivethirtyeight"):
     ax.plot(X1, Y2)
 ```
 
-```{code-cell} ipython3
+```python
 with plt.style.context("fivethirtyeight"):
     fig, ax = plt.subplots(2, 2)
     X1 = np.linspace(0, 4.0*np.pi, 1000)
@@ -195,7 +197,7 @@ with plt.style.context("fivethirtyeight"):
     ax[1,1].plot(X1, Y2)
 ```
 
-```{code-cell} ipython3
+```python
 with plt.style.context("bmh"):
     fig, ax = plt.subplots(2, 2)
     X1 = np.linspace(0, 4.0*np.pi, 1000)
@@ -206,7 +208,7 @@ with plt.style.context("bmh"):
     ax[1,1].plot(X1, Y2)
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots()
 X1 = np.linspace(0, 4.0*np.pi, 1000)
 Y1 = np.sin(X1)
@@ -216,59 +218,59 @@ ax.plot(X1, Y1)
 ax.plot(X1, Y2)
 ```
 
-```{code-cell} ipython3
+```python
 for tick_label in ax.yaxis.get_ticklabels():
     print(tick_label)
 ```
 
-```{code-cell} ipython3
+```python
 for tick_line in ax.yaxis.get_ticklines():
     print(tick_line)
 ```
 
-```{code-cell} ipython3
+```python
 ax.yaxis.set_ticks([-1, 0, 1])
 ```
 
-```{code-cell} ipython3
+```python
 fig
 ```
 
-```{code-cell} ipython3
+```python
 ax.xaxis.set_ticks([0, 4, 8, 12])
 ```
 
-```{code-cell} ipython3
+```python
 fig
 ```
 
-```{code-cell} ipython3
+```python
 ax.xaxis.set_ticks([0, np.pi, 2*np.pi, 3*np.pi, 4*np.pi])
 ax.xaxis.set_ticklabels(["0", "$\pi$", "$2\pi$", "$3\pi$", "$4\pi$"])
 fig
 ```
 
-```{code-cell} ipython3
+```python
 my_ticks = ax.xaxis.get_ticklabels()
 ```
 
-```{code-cell} ipython3
+```python
 fp = my_ticks[0].properties()['fontproperties']
 ```
 
-```{code-cell} ipython3
+```python
 fp.get_size()
 ```
 
-```{code-cell} ipython3
+```python
 fp.set_size(25)
 ```
 
-```{code-cell} ipython3
+```python
 fig
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots()
 X1 = np.linspace(0, 4.0*np.pi, 1000)
 Y1 = np.sin(X1)
@@ -280,6 +282,6 @@ ax.tick_params(axis = "both", which="major", labelsize = 25, size = 10)
 ax.legend()
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

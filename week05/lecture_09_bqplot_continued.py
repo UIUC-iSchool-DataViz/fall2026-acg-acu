@@ -2,13 +2,14 @@
 # jupyter:
 #   jupytext:
 #     cell_metadata_filter: -all
-#     formats: ipynb,py:percent,md:myst
+#     default_lexer: ipython3
+#     formats: ipynb,py:percent,md
 #     notebook_metadata_filter: layout,title
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.0
+#       jupytext_version: 1.18.1
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -58,7 +59,6 @@ df.head(2)
 # %% [markdown]
 # # Last week: BrushIntervalSelector
 #  - Select an area by X or by Y
-#
 
 # %%
 # Brush, along y
@@ -113,7 +113,6 @@ scatter_fig_annotated = ipywidgets.VBox([selected_range,
                                          num_of_points_selected, 
                                          scatter_fig])
 scatter_fig_annotated
-
 
 # %% [markdown]
 # # BrushSelector: Select by X and Y
@@ -361,6 +360,5 @@ heatmap = bqplot.GridHeatMap(row=heatmap_data.index,
 # Fig
 heatmap_fig = bqplot.Figure(marks=[heatmap], axes=[x_ax, y_ax, c_ax])
 heatmap_fig
-
 
 # %%

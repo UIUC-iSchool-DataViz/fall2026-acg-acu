@@ -1,27 +1,29 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: Lecture13 Examples
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: Lecture13 Examples
 ---
 
-```{code-cell} ipython3
+```python
 import pandas as pd
 import numpy as np
 ```
 
-```{code-cell} ipython3
+```python
 df = pd.read_csv("building_inventory.csv", na_values = {
     "Year Acquired": 0,
     "Year Constructed": 0,
@@ -29,56 +31,56 @@ df = pd.read_csv("building_inventory.csv", na_values = {
 })
 ```
 
-```{code-cell} ipython3
+```python
 df["Year Acquired"] = pd.to_datetime(df["Year Acquired"], format = "%Y")
 df["Year Constructed"] = pd.to_datetime(df["Year Constructed"], format = "%Y")
 ```
 
-```{code-cell} ipython3
+```python
 y_a = df["Year Acquired"]
 ```
 
-```{code-cell} ipython3
+```python
 df.groupby("Year Acquired")["Square Footage"].sum().plot()
 ```
 
-```{code-cell} ipython3
+```python
 !rm -f us-counties.csv ; wget https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv
 ```
 
-```{code-cell} ipython3
+```python
 !rm -f us-states.csv ; wget https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv
 ```
 
-```{code-cell} ipython3
+```python
 states = pd.read_csv("us-states.csv", parse_dates = ["date"])
 ```
 
-```{code-cell} ipython3
+```python
 states.dtypes
 ```
 
-```{code-cell} ipython3
+```python
 states["state"] == "Washington"
 ```
 
-```{code-cell} ipython3
+```python
 states[states["state"] == "Washington"]
 ```
 
-```{code-cell} ipython3
+```python
 pd.to_datetime(states["date"])
 ```
 
-```{code-cell} ipython3
+```python
 illinois_results = states[states["state"] == "Illinois"]
 ```
 
-```{code-cell} ipython3
+```python
 import bqplot
 ```
 
-```{code-cell} ipython3
+```python
 x_sc = bqplot.DateScale()
 y_sc = bqplot.LinearScale()
 
@@ -92,7 +94,7 @@ fig = bqplot.Figure(marks = [lines], axes = [x_ax, y_ax])
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 x_sc = bqplot.DateScale()
 y_sc = bqplot.LinearScale()
 
@@ -108,11 +110,11 @@ fig = bqplot.Figure(marks = [lines], axes = [x_ax, y_ax], interaction = date_sel
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 states
 ```
 
-```{code-cell} ipython3
+```python
 proj = bqplot.AlbersUSA()
 mark = bqplot.Map(map_data = bqplot.topo_load("map_data/USStatesMap.json"),
                   scales = {'projection': proj})
@@ -120,7 +122,7 @@ fig = bqplot.Figure(marks = [mark])
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 case_counts = states.groupby("fips")["cases"].max().to_dict()
 
 proj = bqplot.AlbersUSA()
@@ -135,16 +137,16 @@ fig = bqplot.Figure(marks = [mark], axes = [color_ax])
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 counties = pd.read_csv("us-counties.csv", parse_dates = ["date"],
                        dtype = {'fips': pd.Int32Dtype()})
 ```
 
-```{code-cell} ipython3
+```python
 illinois_by_county = counties[counties["state"] == "Illinois"]
 ```
 
-```{code-cell} ipython3
+```python
 case_counts = illinois_by_county.groupby("fips")["cases"].max().to_dict()
 
 proj = bqplot.AlbersUSA()
@@ -158,21 +160,21 @@ fig = bqplot.Figure(marks = [mark], axes = [color_ax])
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 import ipywidgets
 v = ipywidgets.Label()
 display(v)
 ```
 
-```{code-cell} ipython3
+```python
 def hover_over_county(name, value):
     v.value = "%s" % (value)
 ```
 
-```{code-cell} ipython3
+```python
 mark.on_hover(hover_over_county)
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

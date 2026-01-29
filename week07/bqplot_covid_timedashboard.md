@@ -1,68 +1,70 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
-layout: notebook
-title: Bqplot Covid Timedashboard
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+  layout: notebook
+  title: Bqplot Covid Timedashboard
 ---
 
-```{code-cell} ipython3
+```python
 import pandas as pd
 ```
 
-```{code-cell} ipython3
+```python
 df = pd.read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/refs/heads/master/us-states.csv",
                 parse_dates=["date"])
 ```
 
-```{code-cell} ipython3
+```python
 df
 ```
 
-```{code-cell} ipython3
+```python
 df.dtypes
 ```
 
-```{code-cell} ipython3
+```python
 cases_by_date = df.set_index("date")
 ```
 
-```{code-cell} ipython3
+```python
 cases_by_date.iloc[10]
 ```
 
-```{code-cell} ipython3
+```python
 cases_by_date.loc["January 01, 2022":"February 28, 2023"]
 ```
 
-```{code-cell} ipython3
+```python
 us_cases_by_date = cases_by_date.groupby("date")["cases"].sum()
 us_cases_by_date
 ```
 
-```{code-cell} ipython3
+```python
 import bqplot
 ```
 
-```{code-cell} ipython3
+```python
 us_cases_by_date.values
 ```
 
-```{code-cell} ipython3
+```python
 import numpy as np
 ```
 
-```{code-cell} ipython3
+```python
 x_sc = bqplot.DateScale()
 y_sc = bqplot.LinearScale()
 
@@ -76,11 +78,11 @@ figure = bqplot.Figure(marks = [line], axes = [x_ax, y_ax], interaction = pan_zo
 display(figure)
 ```
 
-```{code-cell} ipython3
+```python
 us_state_map = bqplot.topo_load("map_data/USStatesMap.json")
 ```
 
-```{code-cell} ipython3
+```python
 proj_scale = bqplot.AlbersUSA()
 color_scale = bqplot.ColorScale()
 
@@ -94,11 +96,11 @@ figure = bqplot.Figure(marks = [map_mark], axes = [color_axis])
 display(figure)
 ```
 
-```{code-cell} ipython3
+```python
 import ipywidgets
 ```
 
-```{code-cell} ipython3
+```python
 x_sc = bqplot.DateScale()
 y_sc = bqplot.LinearScale()
 
@@ -138,7 +140,7 @@ hb.layout.height = '100%'
 hb
 ```
 
-```{code-cell} ipython3
+```python
 x_sc = bqplot.DateScale()
 y_sc = bqplot.LinearScale()
 
@@ -183,10 +185,10 @@ hb.layout.height = '100%'
 hb
 ```
 
-```{code-cell} ipython3
+```python
 fi_sel.selected
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

@@ -1,52 +1,54 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: Lecture15 Examples
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: Lecture15 Examples
 ---
 
-```{code-cell} ipython3
+```python
 import cartopy
 import matplotlib.pyplot as plt
 ```
 
-```{code-cell} ipython3
+```python
 fig = plt.figure()
 ax = fig.add_subplot(111, projection=cartopy.crs.Mollweide())
 ax.coastlines()
 ```
 
-```{code-cell} ipython3
+```python
 fig = plt.figure()
 ax = fig.add_subplot(111, projection=cartopy.crs.Mollweide(central_longitude=180))
 ax.coastlines()
 ```
 
-```{code-cell} ipython3
+```python
 fig = plt.figure()
 ax = fig.add_subplot(111, projection=cartopy.crs.Orthographic())
 ax.coastlines()
 ```
 
-```{code-cell} ipython3
+```python
 fig = plt.figure()
 ax = fig.add_subplot(111, projection=cartopy.crs.PlateCarree())
 ax.coastlines()
 ax.gridlines()
 ```
 
-```{code-cell} ipython3
+```python
 c_lat, c_lon = 40.1164, -88.2434
 a_lat, a_lon = -18.8792, 47.5079
 fig = plt.figure(dpi=150)
@@ -57,7 +59,7 @@ ax.gridlines()
 ax.set_global()
 ```
 
-```{code-cell} ipython3
+```python
 c_lat, c_lon = 40.1164, -88.2434
 a_lat, a_lon = -18.8792, 47.5079
 fig = plt.figure(dpi=150)
@@ -69,16 +71,16 @@ ax.gridlines()
 ax.set_global()
 ```
 
-```{code-cell} ipython3
+```python
 import numpy as np
 vals = np.random.random((128, 128))
 ```
 
-```{code-cell} ipython3
+```python
 plt.imshow(vals)
 ```
 
-```{code-cell} ipython3
+```python
 c_lat, c_lon = 40.1164, -88.2434
 a_lat, a_lon = -18.8792, 47.5079
 fig = plt.figure(dpi=150)
@@ -91,27 +93,27 @@ ax.gridlines()
 ax.set_global()
 ```
 
-```{code-cell} ipython3
+```python
 import pandas as pd
 ```
 
-```{code-cell} ipython3
+```python
 !rm -f us-counties.csv ; wget https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv
 ```
 
-```{code-cell} ipython3
+```python
 !rm -f us-states.csv ; wget https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv
 ```
 
-```{code-cell} ipython3
+```python
 states = pd.read_csv("us-states.csv", parse_dates = ["date"])
 ```
 
-```{code-cell} ipython3
+```python
 import bqplot
 ```
 
-```{code-cell} ipython3
+```python
 proj = bqplot.AlbersUSA()
 mark = bqplot.Map(map_data = bqplot.topo_load("map_data/USStatesMap.json"),
                   scales = {'projection': proj})
@@ -119,7 +121,7 @@ fig = bqplot.Figure(marks = [mark])
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 case_counts = states.groupby("fips")["cases"].max().to_dict()
 
 proj = bqplot.AlbersUSA()
@@ -133,15 +135,15 @@ fig = bqplot.Figure(marks = [mark], axes = [color_ax])
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 total_cases = states.groupby("date").sum()
 ```
 
-```{code-cell} ipython3
+```python
 total_cases["cases"]
 ```
 
-```{code-cell} ipython3
+```python
 x_sc = bqplot.DateScale()
 y_sc = bqplot.LogScale()
 
@@ -157,14 +159,14 @@ fig = bqplot.Figure(marks = [lines], axes = [x_ax, y_ax], interaction = interval
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 interval_selector.selected
 ```
 
-```{code-cell} ipython3
+```python
 total_cases.loc[interval_selector.selected[0]:interval_selector.selected[1]]
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

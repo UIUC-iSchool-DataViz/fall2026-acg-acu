@@ -1,28 +1,30 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: CSV
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: CSV
 ---
 
-```{code-cell} ipython3
+```python
 # ! pip install matplotlib
 # ! pip install numpy
 # ! pip install h5py
 ```
 
-```{code-cell} ipython3
+```python
 import json
 import h5py
 import numpy as np
@@ -30,11 +32,11 @@ import numpy as np
 
 # CSV
 
-```{code-cell} ipython3
+```python
 !wget https://think.cs.vt.edu/corgis/datasets/csv/airlines/airlines.csv
 ```
 
-```{code-cell} ipython3
+```python
 f = 'airlines.csv'
 
 with open(f, 'r') as fin:
@@ -43,50 +45,50 @@ with open(f, 'r') as fin:
 print(len(data))
 ```
 
-```{code-cell} ipython3
+```python
 data[0]
 ```
 
-```{code-cell} ipython3
+```python
 data[1]
 ```
 
-```{code-cell} ipython3
+```python
 data[2]
 ```
 
-```{code-cell} ipython3
+```python
 data[-1]
 ```
 
-```{code-cell} ipython3
+```python
 line = data[1].split(',')
 line
 ```
 
-```{code-cell} ipython3
+```python
 print(line[0])
 ```
 
-```{code-cell} ipython3
+```python
 print(type(line[0]))
 ```
 
-```{code-cell} ipython3
+```python
 print(line[6])
 ```
 
-```{code-cell} ipython3
+```python
 print(type(line[6]))
 ```
 
 # JSON
 
-```{code-cell} ipython3
+```python
 !wget https://think.cs.vt.edu/corgis/datasets/json/airlines/airlines.json
 ```
 
-```{code-cell} ipython3
+```python
 f = 'airlines.json'
 
 with open(f, 'r') as fin:
@@ -95,28 +97,28 @@ with open(f, 'r') as fin:
 print(len(data))
 ```
 
-```{code-cell} ipython3
+```python
 data[0]
 ```
 
-```{code-cell} ipython3
+```python
 data[:3]
 ```
 
-```{code-cell} ipython3
+```python
 type(data[0])
 ```
 
-```{code-cell} ipython3
+```python
 one_record = data[0]
 one_record.get('Airport')
 ```
 
-```{code-cell} ipython3
+```python
 print(type(one_record.get('Airport')))
 ```
 
-```{code-cell} ipython3
+```python
 total_number_of_delays = 0
 
 for d in data:
@@ -130,45 +132,45 @@ total_number_of_delays
 
 # HDF5
 
-```{code-cell} ipython3
+```python
 !wget https://raw.githubusercontent.com/TK-Hsiao/TK-Hsiao.github.io/master/data/airlines.h5
 ```
 
-```{code-cell} ipython3
+```python
 def printname(name):
     print(name)
 ```
 
-```{code-cell} ipython3
+```python
 hf = h5py.File('airlines.h5', 'r')
 print(type(hf))
 ```
 
-```{code-cell} ipython3
+```python
 hf.visit(printname)
 ```
 
-```{code-cell} ipython3
+```python
 ord_airport = hf.get('ORD')
 print(ord_airport)
 ```
 
-```{code-cell} ipython3
+```python
 ord_airport.visit(printname)
 ```
 
-```{code-cell} ipython3
+```python
 print(ord_airport.get('delays_in_2003'))
 ```
 
-```{code-cell} ipython3
+```python
 print(np.array(ord_airport.get('delays_in_2003')))
 ```
 
-```{code-cell} ipython3
+```python
 hf.close()
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

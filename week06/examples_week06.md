@@ -1,39 +1,41 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: Examples Week06
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: Examples Week06
 ---
 
-```{code-cell} ipython3
+```python
 import bqplot.market_map
 import bqplot
 import numpy as np
 import pandas as pd
 ```
 
-```{code-cell} ipython3
+```python
 df = pd.read_csv("../data/building_inventory.csv",
             na_values = {'Year Acquired': 0, 'Year Constructed': 0, 'Square Footage': 0}
 )
 ```
 
-```{code-cell} ipython3
+```python
 import ipywidgets
 ```
 
-```{code-cell} ipython3
+```python
 building_gb = df.groupby("Congressional Full Name").agg(
     {'Square Footage': ['count', 'sum']}
 )['Square Footage']
@@ -82,7 +84,7 @@ fig = bqplot.Figure(marks = [acquired_footage], axes = [x_ax, y_ax])
 display(ipywidgets.VBox([my_map, fig]))
 ```
 
-```{code-cell} ipython3
+```python
 building_gb = df.groupby("Congressional Full Name").agg(
     {'Square Footage': ['count', 'sum']}
 )['Square Footage']
@@ -135,6 +137,6 @@ fast_int_sel.observe(update_colors, ['selected'])
 display(ipywidgets.VBox([my_map, fig]))
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

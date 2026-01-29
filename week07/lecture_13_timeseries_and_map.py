@@ -2,13 +2,14 @@
 # jupyter:
 #   jupytext:
 #     cell_metadata_filter: -all
-#     formats: ipynb,py:percent,md:myst
+#     default_lexer: ipython3
+#     formats: ipynb,py:percent,md
 #     notebook_metadata_filter: layout,title
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.0
+#       jupytext_version: 1.18.1
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -365,7 +366,6 @@ for entry in us_map_data['objects']['subunits']['geometries']:
     fips = entry['id']
     print(fips, entry['properties'])
 
-
 # %% [markdown]
 # ## Coropleth map
 
@@ -567,7 +567,6 @@ line_fig.layout.width = '500px'
 # Dashboard
 my_dashboard = ipywidgets.HBox([us_map_fig, line_fig])
 my_dashboard
-
 
 # %% [markdown]
 # ## A Dashboard with three plots

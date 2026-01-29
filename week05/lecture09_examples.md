@@ -1,27 +1,29 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Environment (conda_conda)
-  language: python
-  name: conda_conda
-layout: notebook
-title: Lecture09 Examples
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Environment (conda_conda)
+    language: python
+    name: conda_conda
+  layout: notebook
+  title: Lecture09 Examples
 ---
 
-```{code-cell} ipython3
+```python
 import bqplot
 import numpy as np
 ```
 
-```{code-cell} ipython3
+```python
 x = np.arange(100)
 y = np.random.random(100) + 5
 
@@ -40,7 +42,7 @@ fig = bqplot.Figure(marks = [lines], axes = [ax_x, ax_y])
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 x = np.arange(100)
 y = x**2 + np.random.random(100) * 10
 
@@ -53,7 +55,7 @@ fig = bqplot.Figure(marks = [lines], axes = [ax_x, ax_y])
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 x = np.arange(100)
 y = np.random.random(100) + 5
 
@@ -71,7 +73,7 @@ fig = bqplot.Figure(marks = [lines], axes = [ax_x, ax_y], interaction = pan_zoom
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 x = np.arange(100)
 y = np.random.random(100) + 5
 
@@ -89,12 +91,12 @@ fig = bqplot.Figure(marks = [lines], axes = [ax_x, ax_y], interaction = interval
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 import ipywidgets
 import traitlets
 ```
 
-```{code-cell} ipython3
+```python
 x = np.arange(100)
 y = np.random.random(100) + 5
 
@@ -125,7 +127,7 @@ fig = bqplot.Figure(marks = [lines], axes = [ax_x, ax_y], interaction = interval
 display(ipywidgets.VBox([label_lower, label_upper, fig]))
 ```
 
-```{code-cell} ipython3
+```python
 x = np.arange(100)
 y1 = np.random.random(100) + 5
 y2 = x**2 + np.random.random(100) * 10
@@ -161,7 +163,7 @@ fig2 = bqplot.Figure(marks = [lines2], axes = [ax_x, ax_y2], interaction = inter
 display(ipywidgets.VBox([label_lower, label_upper, ipywidgets.HBox([fig1, fig2])]))
 ```
 
-```{code-cell} ipython3
+```python
 x = np.arange(100)
 y1 = np.random.random(100) + 5
 y2 = x**2 + np.random.random(100) * 10
@@ -208,7 +210,7 @@ display(ipywidgets.VBox([label_lower, label_upper,
                          fig3]))
 ```
 
-```{code-cell} ipython3
+```python
 x = np.arange(100)
 y1 = np.random.random(100) + 5
 y2 = x**2 + np.random.random(100) * 10
@@ -256,10 +258,10 @@ display(ipywidgets.VBox([label_lower, label_upper,
                          fig2]))
 ```
 
-```{code-cell} ipython3
+```python
 scatter.selected_style = {'stroke': 'black', 'fill': 'orange'}
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

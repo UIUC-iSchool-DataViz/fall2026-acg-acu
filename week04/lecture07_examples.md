@@ -1,123 +1,125 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Environment (conda_conda)
-  language: python
-  name: conda_conda
-layout: notebook
-title: Lecture07 Examples
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Environment (conda_conda)
+    language: python
+    name: conda_conda
+  layout: notebook
+  title: Lecture07 Examples
 ---
 
-```{code-cell} ipython3
+```python
 import traitlets
 import ipywidgets
 ```
 
-```{code-cell} ipython3
+```python
 class Band(traitlets.HasTraits):
     name = traitlets.Unicode()
     age = traitlets.Int()
 ```
 
-```{code-cell} ipython3
+```python
 weezer = Band(name = "Weezer", age = 26)
 ```
 
-```{code-cell} ipython3
+```python
 weezer.name
 ```
 
-```{code-cell} ipython3
+```python
 weezer.age
 ```
 
-```{code-cell} ipython3
+```python
 weezer.name
 ```
 
-```{code-cell} ipython3
+```python
 def name_changed(change):
     print("Band name has changed from {} to {}".format(
         change['old'], change['new']))
 ```
 
-```{code-cell} ipython3
+```python
 weezer.observe(name_changed, ['name'])
 ```
 
-```{code-cell} ipython3
+```python
 weezer.name
 ```
 
-```{code-cell} ipython3
+```python
 weezer.name = "White Stripes"
 ```
 
-```{code-cell} ipython3
+```python
 weezer.unobserve_all()
 ```
 
-```{code-cell} ipython3
+```python
 def trait_changed(change):
     print("The trait {name} has changed from {old} to {new}".format(
         **change))
 ```
 
-```{code-cell} ipython3
+```python
 weezer = Band(name = "Weezer", age = 26)
 weezer.observe(trait_changed, ['name', 'age'])
 ```
 
-```{code-cell} ipython3
+```python
 weezer.age = 10
 ```
 
-```{code-cell} ipython3
+```python
 weezer.name = "Something Else"
 ```
 
-```{code-cell} ipython3
+```python
 weezer.name = "Something Else"
 ```
 
-```{code-cell} ipython3
+```python
 class Record(traitlets.HasTraits):
     band_name = traitlets.Unicode()
 ```
 
-```{code-cell} ipython3
+```python
 some_record = Record(band_name = "")
 ```
 
-```{code-cell} ipython3
+```python
 traitlets.link( (weezer, 'name'), (some_record, 'band_name') )
 ```
 
-```{code-cell} ipython3
+```python
 some_record.band_name
 ```
 
-```{code-cell} ipython3
+```python
 weezer.name = "Weezer"
 ```
 
-```{code-cell} ipython3
+```python
 some_record.band_name
 ```
 
-```{code-cell} ipython3
+```python
 some_record.band_name = "TMBG"
 ```
 
-```{code-cell} ipython3
+```python
 @ipywidgets.interact(name = ['Weezer', 'Nerf Herder', 'Mustard Plug'],
                     age = (0, 100, 5),
                     message = "hi")
@@ -125,281 +127,281 @@ def print_bandname(name = "Mustard Plug", age = 10, message = "hi"):
     print(name, age, message)
 ```
 
-```{code-cell} ipython3
+```python
 fs = ipywidgets.FloatSlider()
 ```
 
-```{code-cell} ipython3
+```python
 display(fs)
 ```
 
-```{code-cell} ipython3
+```python
 fs.max = 50
 ```
 
-```{code-cell} ipython3
+```python
 fs.min = 10.
 ```
 
-```{code-cell} ipython3
+```python
 display(fs)
 ```
 
-```{code-cell} ipython3
+```python
 fs.value
 ```
 
-```{code-cell} ipython3
+```python
 def print_value(change):
     print("Trait changed from {old} to {new}".format(**change))
 fs.observe(print_value, ['value'])
 ```
 
-```{code-cell} ipython3
+```python
 fs.unobserve_all()
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.IntRangeSlider()
 ```
 
-```{code-cell} ipython3
+```python
 log_slider = ipywidgets.FloatLogSlider()
 ```
 
-```{code-cell} ipython3
+```python
 display(log_slider)
 ```
 
-```{code-cell} ipython3
+```python
 log_slider.value = 1e3
 ```
 
-```{code-cell} ipython3
+```python
 pbar = ipywidgets.FloatProgress()
 ```
 
-```{code-cell} ipython3
+```python
 display(pbar)
 ```
 
-```{code-cell} ipython3
+```python
 import time
 ```
 
-```{code-cell} ipython3
+```python
 for i in range(100):
     pbar.value = i
     time.sleep(0.1)
 ```
 
-```{code-cell} ipython3
+```python
 bft = ipywidgets.BoundedFloatText(min = 25.0, max = 53.0, value = 25.1)
 ```
 
-```{code-cell} ipython3
+```python
 bft
 ```
 
-```{code-cell} ipython3
+```python
 traitlets.link((bft, 'value'), (log_slider, 'value'))
 ```
 
-```{code-cell} ipython3
+```python
 my_display = ipywidgets.HTML()
 ```
 
-```{code-cell} ipython3
+```python
 my_display
 ```
 
-```{code-cell} ipython3
+```python
 my_display.value = "hi there <b>this is bold</b>"
 ```
 
-```{code-cell} ipython3
+```python
 text_entry = ipywidgets.Textarea()
 text_display = ipywidgets.HTML()
 
 traitlets.link( (text_entry, "value"), (text_display, "value") )
 ```
 
-```{code-cell} ipython3
+```python
 display(text_entry)
 ```
 
-```{code-cell} ipython3
+```python
 display(text_display)
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.HBox([text_entry, text_display])
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.VBox([text_entry, text_display])
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.HBox([
     ipywidgets.VBox([text_entry, text_display]),
     ipywidgets.IntSlider()
 ])
 ```
 
-```{code-cell} ipython3
+```python
 slider = ipywidgets.SelectionSlider(options = ["Weezer", "Nerf Herder", "Mustard Plug"])
 ```
 
-```{code-cell} ipython3
+```python
 slider
 ```
 
-```{code-cell} ipython3
+```python
 slider.index
 ```
 
-```{code-cell} ipython3
+```python
 slider.value
 ```
 
-```{code-cell} ipython3
+```python
 rb = ipywidgets.RadioButtons(options = ["This", "That", "The Other"])
 display(rb)
 ```
 
-```{code-cell} ipython3
+```python
 rb.index
 ```
 
-```{code-cell} ipython3
+```python
 rb.value
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.Checkbox(description="Enabled")
 ```
 
-```{code-cell} ipython3
+```python
 @ipywidgets.interact(message = ipywidgets.Textarea())
 def print_message(message):
     print(message)
 ```
 
-```{code-cell} ipython3
+```python
 button = ipywidgets.Button(description = "Does Something")
 display(button)
 ```
 
-```{code-cell} ipython3
+```python
 def button_clicked(obj):
     print(obj)
 button.on_click(button_clicked)
 ```
 
-```{code-cell} ipython3
+```python
 class SomeRandomValue(traitlets.HasTraits):
     value1 = traitlets.Float()
     value2 = traitlets.Float()
 srv = SomeRandomValue()
 ```
 
-```{code-cell} ipython3
+```python
 button1 = ipywidgets.Button(description = "Change value1")
 button2 = ipywidgets.Button(description = "Change value2")
 ```
 
-```{code-cell} ipython3
+```python
 value1_floatslider = ipywidgets.FloatSlider()
 value2_floatslider = ipywidgets.FloatSlider()
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.HBox([
     ipywidgets.VBox([button1, button2]),
     ipywidgets.VBox([value1_floatslider, value2_floatslider])
 ])
 ```
 
-```{code-cell} ipython3
+```python
 import random
 ```
 
-```{code-cell} ipython3
+```python
 def change_value1(button):
     srv.value1 = random.randrange(0.0, 100.0)
 def change_value2(button):
     srv.value2 = random.randrange(0.0, 100.0)
 ```
 
-```{code-cell} ipython3
+```python
 srv.value1, srv.value2
 ```
 
-```{code-cell} ipython3
+```python
 button1.on_click(change_value1)
 button2.on_click(change_value2)
 ```
 
-```{code-cell} ipython3
+```python
 srv.value1
 ```
 
-```{code-cell} ipython3
+```python
 srv.value2
 ```
 
-```{code-cell} ipython3
+```python
 traitlets.link( (value1_floatslider, 'value'), (srv, 'value1') )
 traitlets.link( (value2_floatslider, 'value'), (srv, 'value2') )
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.ColorPicker()
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.Controller()
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.Video()
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.Play()
 ```
 
-```{code-cell} ipython3
+```python
 %matplotlib inline
 ```
 
-```{code-cell} ipython3
+```python
 import matplotlib.pyplot as plt
 ```
 
-```{code-cell} ipython3
+```python
 import numpy as np
 ```
 
-```{code-cell} ipython3
+```python
 x = np.random.random(size = 10000)
 y = np.random.normal(size = 10000)
 ```
 
-```{code-cell} ipython3
+```python
 @ipywidgets.interact(n = (10, 1000))
 def make_plot(n = 100):
     plt.scatter(x[:n], y[:n])
 ```
 
-```{code-cell} ipython3
+```python
 import h5py
 f = h5py.File("single_dicom.h5", mode = "r")
 scan = f["scan"][:]
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(2,2, dpi = 150)
 
 @ipywidgets.interact( x_ind = (0, scan.shape[0]),
@@ -413,6 +415,6 @@ def sliceit(x_ind = 18, y_ind = 256, z_ind = 256):
     return fig
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

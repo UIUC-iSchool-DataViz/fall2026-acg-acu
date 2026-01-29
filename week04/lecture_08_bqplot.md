@@ -1,22 +1,24 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: Dataset
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: Dataset
 ---
 
-```{code-cell} ipython3
+```python
 # In terminal:
 # pip install bqplot
 # jupyter labextension list
@@ -24,7 +26,7 @@ title: Dataset
 # jupyter labextension install bqplot
 ```
 
-```{code-cell} ipython3
+```python
 import pandas as pd
 import numpy as np
 import bqplot
@@ -36,11 +38,11 @@ import ipywidgets
 
 [UFO dataset](https://github.com/planetsig/ufo-reports)
 
-```{code-cell} ipython3
+```python
 # !wget https://github.com/planetsig/ufo-reports/raw/master/csv-data/ufo-scrubbed-geocoded-time-standardized.csv
 ```
 
-```{code-cell} ipython3
+```python
 ufo = pd.read_csv('ufo-scrubbed-geocoded-time-standardized.csv', 
                   names=['date_sighted', 'city', 'state', 'country',
                          'shape', 'duration', 
@@ -52,7 +54,7 @@ ufo = ufo.reset_index().rename(columns={'index':'ufo_id'})
 print(ufo.info())
 ```
 
-```{code-cell} ipython3
+```python
 def find_dirty_data(col):
     for i, val in enumerate(col):
         try:
@@ -61,20 +63,20 @@ def find_dirty_data(col):
             print('Row {} has dirty data: {}'.format(i, [val]))
 ```
 
-```{code-cell} ipython3
+```python
 find_dirty_data(ufo['duration'])
 ```
 
-```{code-cell} ipython3
+```python
 find_dirty_data(ufo['latitude'])
 ```
 
-```{code-cell} ipython3
+```python
 ufo = ufo.loc[~ufo.index.isin([27822, 35692, 58591, 43782])]
 df = ufo.sample(n=1000, random_state=5)
 ```
 
-```{code-cell} ipython3
+```python
 df['date_sighted'] = df['date_sighted'].astype(str).str.replace('24:00', '00:00')
 df['date_sighted'] = pd.to_datetime(df['date_sighted'])
 
@@ -85,21 +87,20 @@ df.info()
 
 # Basic plot types
 
-+++
 
 # Lines: Number of UFOs sighted in each year
 
-```{code-cell} ipython3
+```python
 df.head(2)
 ```
 
-```{code-cell} ipython3
+```python
 # Prep data
 line_data = df.groupby(df['date_sighted'].dt.year)[['ufo_id']].count()
 line_data
 ```
 
-```{code-cell} ipython3
+```python
 # A line plot 
 
 # Scale
@@ -120,17 +121,17 @@ line_fig = bqplot.Figure(marks=[lines], axes=[x_ax, y_ax])
 line_fig
 ```
 
-```{code-cell} ipython3
+```python
 # See what can be controlled in Marks
 lines.traits()
 ```
 
-```{code-cell} ipython3
+```python
 # See what can be controlled in Axis
 x_ax.traits()
 ```
 
-```{code-cell} ipython3
+```python
 # A line plot 
 # - Add points to line
 # - Change color
@@ -150,7 +151,7 @@ line_fig.title = 'My Line Plot'
 line_fig
 ```
 
-```{code-cell} ipython3
+```python
 # We can also do these things inline
 
 # Scale
@@ -176,13 +177,13 @@ line_fig
 
 # Bars: Shapes of UFOs
 
-```{code-cell} ipython3
+```python
 # Prep Data
 bar_data = df.groupby(['shape'])[['ufo_id']].count()
 bar_data
 ```
 
-```{code-cell} ipython3
+```python
 # A Bar Chart
 
 # Scale
@@ -204,7 +205,7 @@ bar_fig
 
 # Historgram: Duration in seconds
 
-```{code-cell} ipython3
+```python
 # A Hist
 
 # Scale
@@ -227,7 +228,7 @@ hist_fig
 
 # Scatter: Year sighted and Year reported
 
-```{code-cell} ipython3
+```python
 # A basic one
 
 # Scale
@@ -249,7 +250,7 @@ scatter_fig = bqplot.Figure(marks=[scatter], axes=[x_ax, y_ax])
 scatter_fig
 ```
 
-```{code-cell} ipython3
+```python
 # A scatter plot colored by duration in seconds
 
 # Scale
@@ -280,17 +281,16 @@ scatter_fig = bqplot.Figure(marks=[scatter], axes=[x_ax, y_ax, c_ax])
 scatter_fig
 ```
 
-```{code-cell} ipython3
+```python
 np.log10(df['duration'].max())
 ```
 
 # Interaction
 
-+++
 
 # Pan-zoom
 
-```{code-cell} ipython3
+```python
 # Add pan-zoom to line plot
 
 # Scale
@@ -322,12 +322,12 @@ line_fig
 
 # Tooltip
 
-```{code-cell} ipython3
+```python
 # See what can be controlled in lines
 lines.traits()
 ```
 
-```{code-cell} ipython3
+```python
 # Add tooptip to line plot
 
 # Scale
@@ -365,20 +365,20 @@ line_fig
 
 # Regenerating hist: Take user input as the number of bins
 
-```{code-cell} ipython3
+```python
 # Interactively changing number of bins
 
 # See what can be controlled in hist
 hist.traits()
 ```
 
-```{code-cell} ipython3
+```python
 # Change number of bins
 hist.bins = 3
 hist_fig
 ```
 
-```{code-cell} ipython3
+```python
 # ipywidgets.Text
 # ipywidgets.Button
 
@@ -386,16 +386,16 @@ text_area = ipywidgets.Text()
 text_area
 ```
 
-```{code-cell} ipython3
+```python
 text_area.value
 ```
 
-```{code-cell} ipython3
+```python
 my_button = ipywidgets.Button(description='Regenerate!')
 my_button
 ```
 
-```{code-cell} ipython3
+```python
 # Change number of bins by user input
 
 # Scale
@@ -431,7 +431,7 @@ hist_fig_regen
 
 # Brush selection: Selet an area in a scatter plot
 
-```{code-cell} ipython3
+```python
 # Brush, along x
 
 # Scale
@@ -484,7 +484,7 @@ scatter_fig_annotated = ipywidgets.VBox([selected_range,
 scatter_fig_annotated
 ```
 
-```{code-cell} ipython3
+```python
 # Brush, along y
 
 # Scale
@@ -538,6 +538,6 @@ scatter_fig_annotated = ipywidgets.VBox([selected_range,
 scatter_fig_annotated
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

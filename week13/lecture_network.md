@@ -1,26 +1,28 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-layout: notebook
-title: Drawing a network using Bqplot
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  layout: notebook
+  title: Drawing a network using Bqplot
 ---
 
-```{code-cell} ipython3
+```python
 #!pip install igraph
 ```
 
-```{code-cell} ipython3
+```python
 import igraph
 import bqplot
 import pandas as pd
@@ -31,7 +33,7 @@ import ipywidgets
 
 ## Example: Force-directed graph is not deterministic
 
-```{code-cell} ipython3
+```python
 n_nodes = 10
 edges = [[0, 1], [0, 2], [0, 3], [2, 3], [1, 3], [3, 4], [3, 5], [3, 7], 
          [4, 5], [6, 7], [7, 8], [8, 9]]
@@ -49,7 +51,7 @@ igraph.plot(network,
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # Compared to ring layout
 
 fig, ax = plt.subplots(figsize=(5, 5))
@@ -65,7 +67,7 @@ plt.show()
 
 # Drawing a network using Bqplot
 
-```{code-cell} ipython3
+```python
 # Only nodes
 
 # Node data
@@ -86,7 +88,7 @@ fig = bqplot.Figure(marks=[dc_net])
 fig
 ```
 
-```{code-cell} ipython3
+```python
 # Add tooltip and set colors
 #dc_net.traits()
 
@@ -98,7 +100,7 @@ dc_net.tooltip = dc_tooltip
 fig
 ```
 
-```{code-cell} ipython3
+```python
 # Add edges between the good characters
 
 edge_data = [
@@ -112,19 +114,19 @@ dc_net.link_data = edge_data
 fig
 ```
 
-```{code-cell} ipython3
+```python
 # make links as straight lines
 dc_net.link_type = 'line'
 fig
 ```
 
-```{code-cell} ipython3
+```python
 # make graph as undirected
 dc_net.directed = False
 fig
 ```
 
-```{code-cell} ipython3
+```python
 # Putting things together
 
 # Nodes and edges
@@ -159,7 +161,7 @@ fig
 
 # iGraph basics
 
-```{code-cell} ipython3
+```python
 # Construct a undirected network
 n_node = 4
 edges = [[0, 1], [0, 2]]
@@ -167,7 +169,7 @@ undirected_net = igraph.Graph(n=n_node, edges=edges)
 print(undirected_net)
 ```
 
-```{code-cell} ipython3
+```python
 # Construct a directed network
 n_node = 4
 edges = [[0, 1], [0, 2]]
@@ -175,29 +177,29 @@ directed_net = igraph.Graph(n=n_node, edges=edges, directed=True)
 print(directed_net)
 ```
 
-```{code-cell} ipython3
+```python
 # Adjacency Matrix - Undirected
 print(undirected_net.get_adjacency())
 ```
 
-```{code-cell} ipython3
+```python
 # Adjacency Matrix - directed
 print(directed_net.get_adjacency())
 ```
 
-```{code-cell} ipython3
+```python
 # Add node
 undirected_net.add_vertices(2)
 print(undirected_net)
 ```
 
-```{code-cell} ipython3
+```python
 # Add edge
 undirected_net.add_edges([[3, 4]])
 print(undirected_net)
 ```
 
-```{code-cell} ipython3
+```python
 # Plot the network
 fig, ax = plt.subplots(figsize=(5, 5))
 igraph.plot(undirected_net, 
@@ -205,19 +207,19 @@ igraph.plot(undirected_net,
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # Node and edge attributes. For example, get Node IDs
 print(undirected_net.vs)
 print(undirected_net.vs.indices)
 print(undirected_net.es)
 ```
 
-```{code-cell} ipython3
+```python
 # Get edge list
 undirected_net.get_edgelist()
 ```
 
-```{code-cell} ipython3
+```python
 # Add attributes
 undirected_net.vs['names'] = ['batman', 'superman', 'aquaman', 'joker', 'riddler', 'ivy']
 undirected_net.vs['age'] = [40, 100, 35, 25, 45, 30]
@@ -225,12 +227,12 @@ undirected_net.vs['is_villain'] = [False, False, False, True, True, True]
 print(undirected_net)
 ```
 
-```{code-cell} ipython3
+```python
 # Access attribute values
 undirected_net.vs['names']
 ```
 
-```{code-cell} ipython3
+```python
 # Setting colors, size, etc by attributes
 
 fig, ax = plt.subplots(figsize=(5, 5))
@@ -244,24 +246,24 @@ plt.show()
 
 # iGraph and Pandas
 
-```{code-cell} ipython3
+```python
 !wget https://databank.illinois.edu/datafiles/1dvfq/download -O article_attr.csv
 !wget https://databank.illinois.edu/datafiles/5r2ds/download -O inclusion_net.csv
 ```
 
-```{code-cell} ipython3
+```python
 # Edge file
 edge_file = pd.read_csv('inclusion_net.csv')
 edge_file
 ```
 
-```{code-cell} ipython3
+```python
 # Nodes and Node attribute file
 node_file = pd.read_csv('article_attr.csv')
 node_file
 ```
 
-```{code-cell} ipython3
+```python
 # Generate nodes and edges from dataframe
 nodes = node_file[['ID']].to_dict('records')
 edges = edge_file.to_dict('records')
@@ -269,7 +271,7 @@ print('First 3 nodes:', nodes[:3])
 print('First 3 edges:', edges[:3])
 ```
 
-```{code-cell} ipython3
+```python
 # Build a network
 net = igraph.Graph.DictList(vertices = nodes, 
                             edges = edges, 
@@ -279,7 +281,7 @@ net = igraph.Graph.DictList(vertices = nodes,
 print(net)
 ```
 
-```{code-cell} ipython3
+```python
 # Plot the net
 fig, ax = plt.subplots(figsize=(10, 10))
 igraph.plot(net,
@@ -289,14 +291,14 @@ igraph.plot(net,
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # Add node attributes
 net.vs['publication_type'] = node_file['Type']
 net.vs['publication_year'] = node_file['year']
 print(net)
 ```
 
-```{code-cell} ipython3
+```python
 # Color by publication_type
 node_clr = []
 for pt in net.vs['publication_type']:
@@ -314,7 +316,7 @@ igraph.plot(net,
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 # Node size by ciation counts
 net.vs['citation_count'] = net.degree(mode='in')
 
@@ -331,7 +333,7 @@ plt.show()
 
 # Get subgraph
 
-```{code-cell} ipython3
+```python
 # Select Nodes in the node file: Systematic reviews published in 2011
 filter_py = node_file['year'] == 2011
 filter_pt = node_file['Type'] == 'Systematic Review'
@@ -339,7 +341,7 @@ selected_nodes = node_file[(filter_py)&(filter_pt)]['ID'].tolist()
 print(selected_nodes)
 ```
 
-```{code-cell} ipython3
+```python
 # Selected edges by the nodes
 selected_egdes = net.es.select(citing_ID_in = selected_nodes)
 print(selected_egdes)
@@ -347,13 +349,13 @@ for e in selected_egdes:
     print(e)
 ```
 
-```{code-cell} ipython3
+```python
 # Get subgraph
 sub_net = net.subgraph_edges(selected_egdes)
 print(sub_net)
 ```
 
-```{code-cell} ipython3
+```python
 # Plot the subgraph
 # Nodes labelled by publication year
 # Edges colored by the citing source
@@ -373,6 +375,6 @@ igraph.plot(sub_net,
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

@@ -2,13 +2,14 @@
 # jupyter:
 #   jupytext:
 #     cell_metadata_filter: -all
-#     formats: ipynb,py:percent,md:myst
+#     default_lexer: ipython3
+#     formats: ipynb,py:percent,md
 #     notebook_metadata_filter: layout,title
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.0
+#       jupytext_version: 1.18.1
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -25,7 +26,6 @@ import ipywidgets
 a = ipywidgets.IntSlider()
 b = ipywidgets.IntText()
 traitlets.link((a, 'value'), (b, 'value'))
-
 
 # %%
 a

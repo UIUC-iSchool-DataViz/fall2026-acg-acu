@@ -1,65 +1,67 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
-layout: notebook
-title: Fonts a lot bigger
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+  layout: notebook
+  title: Fonts a lot bigger
 ---
 
 # Fonts a lot bigger
 
-```{code-cell} ipython3
+```python
 import traitlets
 ```
 
-```{code-cell} ipython3
+```python
 class MusicAlbum(traitlets.HasTraits):
     name = traitlets.Unicode()
     artist = traitlets.Unicode()
     year = traitlets.Int()
 ```
 
-```{code-cell} ipython3
+```python
 t1989 = MusicAlbum(name = "1989 (Taylor's Version)", artist = "Taylor Swift", year = 2023)
 ```
 
-```{code-cell} ipython3
+```python
 t1989.name
 ```
 
-```{code-cell} ipython3
+```python
 def name_changed(change):
     print("The name has changed from ", change['old'], " to ", change['new'])
 t1989.observe(name_changed, ["name"])
 ```
 
-```{code-cell} ipython3
+```python
 t1989.name = "1989 (Taylor's Version (Taylor's Version))"
 ```
 
-```{code-cell} ipython3
+```python
 t1989.name
 ```
 
-```{code-cell} ipython3
+```python
 t1989.name = "1989 (Taylor's Version)"
 ```
 
-```{code-cell} ipython3
+```python
 import random
 ```
 
-```{code-cell} ipython3
+```python
 class Student(traitlets.HasTraits):
     name = traitlets.Unicode()
     row_and_seat = traitlets.Tuple(
@@ -73,132 +75,132 @@ class Student(traitlets.HasTraits):
                 random.randint(1, 15))
 ```
 
-```{code-cell} ipython3
+```python
 s1 = Student(name = "Matt")
 s2 = Student(name = "Esther")
 s3 = Student(name = "Unknown")
 ```
 
-```{code-cell} ipython3
+```python
 s1.row_and_seat
 ```
 
-```{code-cell} ipython3
+```python
 s2.row_and_seat
 ```
 
-```{code-cell} ipython3
+```python
 s3.row_and_seat
 ```
 
-```{code-cell} ipython3
+```python
 s4 = Student()
 ```
 
-```{code-cell} ipython3
+```python
 traitlets.link( (s1, "name"), (s4, "name") )
 ```
 
-```{code-cell} ipython3
+```python
 s4.name
 ```
 
-```{code-cell} ipython3
+```python
 s1.name = "Not Matt"
 ```
 
-```{code-cell} ipython3
+```python
 s1.name
 ```
 
-```{code-cell} ipython3
+```python
 s4.name
 ```
 
-```{code-cell} ipython3
+```python
 s4.name = "Matt"
 ```
 
-```{code-cell} ipython3
+```python
 s1.name
 ```
 
-```{code-cell} ipython3
+```python
 import ipywidgets
 ```
 
-```{code-cell} ipython3
+```python
 @ipywidgets.interact( winner = ["Philadelphia", "Kansas City"] )
 def say_winner(winner):
     print("The winner was: ", winner)
 ```
 
-```{code-cell} ipython3
+```python
 @ipywidgets.interact( winner = ["Philadelphia", "Kansas City"], phil_score = (0, 100), kc_score = (0, 100) )
 def say_winner(winner, phil_score, kc_score):
     print("The winner was: ", winner, "with a final score of ", phil_score, "to", kc_score)
 ```
 
-```{code-cell} ipython3
+```python
 import matplotlib.pyplot as plt
 ```
 
-```{code-cell} ipython3
+```python
 @ipywidgets.interact(style = plt.style.available)
 def make_plot(style):
     with plt.style.context(style):
         plt.plot([1,2,3,4], [5,6,7,5])
 ```
 
-```{code-cell} ipython3
+```python
 intslider = ipywidgets.IntSlider()
 ```
 
-```{code-cell} ipython3
+```python
 intslider
 ```
 
-```{code-cell} ipython3
+```python
 intslider.value
 ```
 
-```{code-cell} ipython3
+```python
 intslider
 ```
 
-```{code-cell} ipython3
+```python
 inttext = ipywidgets.IntText()
 ```
 
-```{code-cell} ipython3
+```python
 inttext
 ```
 
-```{code-cell} ipython3
+```python
 traitlets.link( ( inttext, "value"), (intslider, "value"))
 ```
 
-```{code-cell} ipython3
+```python
 intslider.max = 1000
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.SelectionSlider(options = ["hi", "option", "choice", "thing"])
 ```
 
-```{code-cell} ipython3
+```python
 ta = ipywidgets.Textarea()
 ```
 
-```{code-cell} ipython3
+```python
 ta
 ```
 
-```{code-cell} ipython3
+```python
 ta
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.HBox( [
   ipywidgets.Textarea(),
     ipywidgets.VBox([
@@ -208,150 +210,150 @@ ipywidgets.HBox( [
 ])
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.HTML(
     "<table><tr><td>Cell 1</td><td>Cell 2</td></tr><tr><td>Row 2 Cell 1</td><td>Row 2 Cell 2</td></tr></table>"
 )
 ```
 
-```{code-cell} ipython3
+```python
 html = ipywidgets.HTML()
 ```
 
-```{code-cell} ipython3
+```python
 html
 ```
 
-```{code-cell} ipython3
+```python
 ta = ipywidgets.Textarea()
 ```
 
-```{code-cell} ipython3
+```python
 traitlets.link((ta, "value"), (html, "value"))
 ```
 
-```{code-cell} ipython3
+```python
 ta
 ```
 
-```{code-cell} ipython3
+```python
 button = ipywidgets.Button(description="Increment")
 ```
 
-```{code-cell} ipython3
+```python
 pbar = ipywidgets.IntProgress()
 ```
 
-```{code-cell} ipython3
+```python
 def increment_progress(event):
     pbar.value = pbar.value + 1
 button.on_click(increment_progress)
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.HBox([pbar, button])
 ```
 
-```{code-cell} ipython3
+```python
 pbar.value
 ```
 
-```{code-cell} ipython3
+```python
 pbar.value = 90
 ```
 
-```{code-cell} ipython3
+```python
 import time
 ```
 
-```{code-cell} ipython3
+```python
 for i in range(101):
     pbar.value = i
     time.sleep(0.1)
 ```
 
-```{code-cell} ipython3
+```python
 import bqplot
 ```
 
-```{code-cell} ipython3
+```python
 import numpy as np
 ```
 
-```{code-cell} ipython3
+```python
 x = np.mgrid[0.0:10.0:256j]
 y = np.sin(x)
 ```
 
-```{code-cell} ipython3
+```python
 x_sc = bqplot.LinearScale()
 y_sc = bqplot.LinearScale()
 ```
 
-```{code-cell} ipython3
+```python
 x_ax = bqplot.Axis(scale = x_sc)
 y_ax = bqplot.Axis(scale = y_sc, orientation = 'vertical')
 ```
 
-```{code-cell} ipython3
+```python
 lines = bqplot.Lines(x = x, y = y, scales = {'x': x_sc, 'y': y_sc})
 ```
 
-```{code-cell} ipython3
+```python
 fig = bqplot.Figure(marks = [lines], axes = [x_ax, y_ax])
 ```
 
-```{code-cell} ipython3
+```python
 fig
 ```
 
-```{code-cell} ipython3
+```python
 tv = ipywidgets.Text()
 ```
 
-```{code-cell} ipython3
+```python
 traitlets.link((tv, "value"), (x_ax, "label"))
 ```
 
-```{code-cell} ipython3
+```python
 tv
 ```
 
-```{code-cell} ipython3
+```python
 lines.y = np.cos(x)
 ```
 
-```{code-cell} ipython3
+```python
 fig
 ```
 
-```{code-cell} ipython3
+```python
 fis = bqplot.interacts.FastIntervalSelector(scale = x_sc)
 ```
 
-```{code-cell} ipython3
+```python
 fig = bqplot.Figure(marks = [lines], axes = [x_ax, y_ax], interaction = fis)
 ```
 
-```{code-cell} ipython3
+```python
 fig
 ```
 
-```{code-cell} ipython3
+```python
 fis.selected
 ```
 
-```{code-cell} ipython3
+```python
 import pandas as pd
 ```
 
-```{code-cell} ipython3
+```python
 df = pd.read_csv("building_inventory.csv",
                  na_values = {'Year Acquired': 0, 'Year Constructed': 0},
                  parse_dates = ["Year Acquired", "Year Constructed"])
 ```
 
-```{code-cell} ipython3
+```python
 x_sc = bqplot.DateScale()
 y_sc = bqplot.LinearScale()
 x_ax = bqplot.Axis(scale = x_sc)
@@ -364,42 +366,42 @@ x_sc.min = df["Year Acquired"].min()
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 h = ipywidgets.HTML()
 display(h)
 ```
 
-```{code-cell} ipython3
+```python
 fis = bqplot.interacts.FastIntervalSelector(scale = x_sc)
 ```
 
-```{code-cell} ipython3
+```python
 fig.interaction = fis
 ```
 
-```{code-cell} ipython3
+```python
 def on_change_selection(change):
     h.value = str(df["Square Footage"][((df["Year Acquired"] > fis.selected[0]) & (df["Year Acquired"] < fis.selected[1]))].sum())
 fis.observe(on_change_selection, ["selected"])
 ```
 
-```{code-cell} ipython3
+```python
 fis.selected
 ```
 
-```{code-cell} ipython3
+```python
 df["Square Footage"][((df["Year Acquired"] > fis.selected[0]) & (df["Year Acquired"] < fis.selected[1]))].sum()
 ```
 
-```{code-cell} ipython3
+```python
 fig
 ```
 
-```{code-cell} ipython3
+```python
 ipywidgets.HBox([fig, fig])
 ```
 
-```{code-cell} ipython3
+```python
 x_sc = bqplot.DateScale()
 y_sc = bqplot.LinearScale()
 x_ax = bqplot.Axis(scale = x_sc)
@@ -412,6 +414,6 @@ x_sc.min = df["Year Acquired"].min()
 display(fig)
 ```
 
-```{code-cell} ipython3
+```python
 
 ```

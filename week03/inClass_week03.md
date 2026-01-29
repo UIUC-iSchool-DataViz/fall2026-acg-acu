@@ -1,24 +1,25 @@
 ---
-jupytext:
-  cell_metadata_filter: -all
-  formats: ipynb,py:percent,md:myst
-  notebook_metadata_filter: layout,title
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
-layout: notebook
-title: In Class Notebook, Week 03
+jupyter:
+  jupytext:
+    cell_metadata_filter: -all
+    default_lexer: ipython3
+    formats: ipynb,py:percent,md
+    notebook_metadata_filter: layout,title
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+  layout: notebook
+  title: In Class Notebook, Week 03
 ---
 
 # In Class Notebook, Week 03
 
-+++
 
 You can access this notebook in near-realy time by going here:
 
@@ -28,121 +29,121 @@ Or by pasting that URL into the nbviewer interface for a plain-text rendering:
 
 https://kokes.github.io/nbviewer.js/viewer.html
 
-```{code-cell} ipython3
+```python
 import pandas as pd
 ```
 
-```{code-cell} ipython3
+```python
 buildings = pd.read_csv('https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/building_inventory.csv')
 ```
 
-```{code-cell} ipython3
+```python
 buildings
 ```
 
-```{code-cell} ipython3
+```python
 buildings.index
 ```
 
-```{code-cell} ipython3
+```python
 buildings.iloc[5:8]
 ```
 
-```{code-cell} ipython3
+```python
 buildings.iloc[5:8]["Agency Name"]
 ```
 
-```{code-cell} ipython3
+```python
 buildings['Agency Name'].nunique()
 ```
 
-```{code-cell} ipython3
+```python
 buildings['Bldg Status'].unique()
 ```
 
-```{code-cell} ipython3
+```python
 buildings.describe() # for R users this is like the "summary"
 ```
 
-```{code-cell} ipython3
+```python
 buildings['Square Footage'] == 0
 ```
 
-```{code-cell} ipython3
+```python
 buildings.loc[buildings['Square Footage']==0]
 ```
 
-```{code-cell} ipython3
+```python
 import matplotlib.pyplot as plt
 ```
 
-```{code-cell} ipython3
+```python
 buildings['Square Footage'].plot()
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 buildings['Square Footage'].plot(figsize=(10,3))
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 buildings.plot(x='Address', y='Square Footage', figsize=(10,3), rot=90)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 ax = buildings.plot(x='Year Acquired', y='Square Footage', 
                     figsize=(10,3),kind='scatter')
 ax.set_xlim(1750,2020)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 buildings = pd.read_csv('https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/building_inventory.csv',
                        na_values = {'Square Footage':0,
                                    'Year Acquired':0,
                                    'Year Constructed':0})
 ```
 
-```{code-cell} ipython3
+```python
 ax = buildings.plot(x='Year Acquired', y='Square Footage', 
                     figsize=(10,3),kind='scatter')
 #ax.set_xlim(1750,2020)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 buildings.describe()
 ```
 
-```{code-cell} ipython3
+```python
 buildings['Bldg Status'].unique()
 ```
 
-```{code-cell} ipython3
+```python
 buildings.groupby('Bldg Status')
 ```
 
-```{code-cell} ipython3
+```python
 for group in buildings.groupby('Bldg Status'):
     print(group)
 ```
 
-```{code-cell} ipython3
+```python
 for group_name, group_df in buildings.groupby('Bldg Status'):
     print(group_name, group_df.shape)
 ```
 
-```{code-cell} ipython3
+```python
 buildings2 = buildings.sort_values("Year Constructed")
 ```
 
-```{code-cell} ipython3
+```python
 buildings2.iloc[0]
 ```
 
-```{code-cell} ipython3
+```python
 agg = buildings.groupby("Year Acquired")['Square Footage'].sum()
 # for each Year Acquired, what is the total (sum) of the Square Footage
 
@@ -150,27 +151,27 @@ agg = buildings.groupby("Year Acquired")['Square Footage'].sum()
 # for each Year Acquired, what is the average (mean) of the Square Footage
 ```
 
-```{code-cell} ipython3
+```python
 agg
 ```
 
-```{code-cell} ipython3
+```python
 type(agg)
 ```
 
-```{code-cell} ipython3
+```python
 type(buildings)
 ```
 
-```{code-cell} ipython3
+```python
 agg.index
 ```
 
-```{code-cell} ipython3
+```python
 agg.values
 ```
 
-```{code-cell} ipython3
+```python
 fig, ax = plt.subplots(figsize=(15,4))
 
 ax.plot(agg.index, agg.values)
@@ -180,79 +181,79 @@ ax.set_ylabel('Total (sum) Square Footage')
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 agg.plot()
 ```
 
-```{code-cell} ipython3
+```python
 stats = buildings.groupby('Year Acquired')['Square Footage'].describe()
 ```
 
-```{code-cell} ipython3
+```python
 stats
 ```
 
-```{code-cell} ipython3
+```python
 type(stats)
 ```
 
-```{code-cell} ipython3
+```python
 stats.plot(y='count')
 ```
 
-```{code-cell} ipython3
+```python
 stats.columns
 ```
 
-```{code-cell} ipython3
+```python
 buildings
 ```
 
-```{code-cell} ipython3
+```python
 buildings['Zip code'].value_counts()
 ```
 
-```{code-cell} ipython3
+```python
 buildings['Zip code'].value_counts().iloc[0:5]
 ```
 
-```{code-cell} ipython3
+```python
 buildings['Zip code'].value_counts().iloc[0:5].index # 5 most common zipcodes in my dataframe
 ```
 
-```{code-cell} ipython3
+```python
 most_common_zips = buildings['Zip code'].value_counts().iloc[0:5].index
 most_common_zips
 ```
 
-```{code-cell} ipython3
+```python
 # Check out the ".isin" function for some examples that might be useful <-- HINT
 ```
 
-```{code-cell} ipython3
+```python
 gb1 = buildings.groupby('Bldg Status')['Year Acquired'].min()
 ```
 
-```{code-cell} ipython3
+```python
 gb1
 ```
 
-```{code-cell} ipython3
+```python
 fig_gb1, ax_gb1 = plt.subplots()
 gb1.plot(kind='bar', ax=ax_gb1)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 fig_gb1, ax_gb1 = plt.subplots()
 ax_gb1.bar(gb1.index, gb1.values)
 plt.show()
 ```
 
-```{code-cell} ipython3
+```python
 ax_gb1.bar?
 ```
 
-```{code-cell} ipython3
+```python
 
 ```
