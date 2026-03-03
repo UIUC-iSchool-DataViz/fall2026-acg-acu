@@ -4,25 +4,25 @@ visible: true
 icon: undraw_version_control_9bpv.svg
 notitle: true
 examples:
-- filename: inClass_week02.ipynb
+- filename: inClass_week02
   type: ipynb
   title: Week 02 In-Class
   description: Our in-class work from class
-- filename: lecture03_examples.ipynb
+- filename: lecture03_examples
   type: ipynb
   title: Loading and Displaying Image Data
   description: A little bit of loading image data, displaying that image data, and
     using matplotlib
-- filename: lecture_03_data_format.ipynb
+- filename: lecture_03_data_format
   type: ipynb
   title: Data Formats
   description: In-depth look at different data formats and organization
-- filename: lecture04_examples.ipynb
+- filename: lecture04_examples
   type: ipynb
   title: First steps with Pandas
   description: Loading the building inventory and filtering, mutating, splitting and
     plotting some of its data
-- filename: lecture_04_matplotlib_pandas-continued.ipynb
+- filename: lecture_04_matplotlib_pandas-continued
   type: ipynb
   title: Pandas and Matplotlib
   description: Continued exploration of Pandas and Matplotlib concepts

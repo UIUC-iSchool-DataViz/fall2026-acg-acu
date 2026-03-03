@@ -9,53 +9,53 @@ tags:
 - colormaps
 - transformations
 examples:
-- filename: lecture05_examples.ipynb
+- filename: lecture05_examples
   type: ipynb
   title: Matplotlib specifics
   description: This goes over some very specific aspects of matplotlib, and how to
     apply data transformations to patches and annotations, as well as modifying properties
     of the plot.
-- filename: lecture06_examples.ipynb
+- filename: lecture06_examples
   type: ipynb
   title: Colormaps
   description: We load in a brain scan and try some basics of colormapping in matplotlib.
-- filename: prep_notebook_week03.ipynb
+- filename: prep_notebook_week03
   type: ipynb
   title: Prep Notebook, Week 3
   description: Prep notebook for this week
-- filename: inClass_week03_previous.ipynb
+- filename: inClass_week03_previous
   type: ipynb
   title: In class notebook, Week 3, Previous Semester
   description: In class work from a previous semester week 03
-- filename: inClass_week03.ipynb
+- filename: inClass_week03
   type: ipynb
   title: In class notebook, Week 3
   description: In-class notebook for this week
-- filename: prep_notebook_week03_01.ipynb
+- filename: prep_notebook_week03_01
   type: ipynb
   title: Prep Notebook Week 3 Part 1
   description: Extra notebook from 2019 class
-- filename: prep_notebook_week03_02.ipynb
+- filename: prep_notebook_week03_02
   type: ipynb
   title: Prep Notebook Week 3 Part 2
   description: Extra notebook from 2019 class
-- filename: prep_notebook_week03_03.ipynb
+- filename: prep_notebook_week03_03
   type: ipynb
   title: Prep Notebook Week 3 Part 3
   description: Extra notebook from 2019 class
-- filename: fall2019_prep_notebook_furtherExamples_01.ipynb
+- filename: fall2019_prep_notebook_furtherExamples_01
   type: ipynb
   title: Further Examples 1 (Fall 2019)
   description: Extra notebook from 2019 class
-- filename: fall2019_prep_notebook_furtherExamples_02.ipynb
+- filename: fall2019_prep_notebook_furtherExamples_02
   type: ipynb
   title: Further Examples 2 (Fall 2019)
   description: Extra notebook from 2019 class
-- filename: fall2019_prep_notebook_furtherExamples_03.ipynb
+- filename: fall2019_prep_notebook_furtherExamples_03
   type: ipynb
   title: Further Examples 3 (Fall 2019)
   description: Extra notebook from 2019 class
-- filename: examples_week_03.ipynb
+- filename: examples_week_03
   type: ipynb
   title: Week 3 Examples
   description: More examples for transformations and colors

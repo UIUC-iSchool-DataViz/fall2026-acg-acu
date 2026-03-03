@@ -3,7 +3,7 @@ layout: week
 visible: true
 notitle: true
 examples:
-  - filename: examples_week10.ipynb
+  - filename: examples_week10
     type: ipynb
     title: Week 10 Examples
     description: Finishing our lab and exploring other chart types

@@ -4,7 +4,7 @@ visible: true
 icon: undraw_programmer_imem.svg
 notitle: true
 examples: 
-  - filename: lecture_17_Geopandas.ipynb
+  - filename: lecture_17_Geopandas
     type: ipynb
     title: GeoPandas Intro
     description: Introduction to GeoPandas and geospatial data analysis in Python

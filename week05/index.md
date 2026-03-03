@@ -4,15 +4,15 @@ visible: true
 icon: undraw_data_reports_706v.svg
 notitle: true
 examples:
-  - filename: inClass_week05.ipynb
+  - filename: inClass_week05
     type: ipynb
     title: In-class Examples
     description: We review a bqplot intro, then build out interactivity on it.
-  - filename: lecture09_examples.ipynb
+  - filename: lecture09_examples
     type: ipynb
     title: bqplot with interactivity
     description: We review last time's bqplot intro, then build out linked views with the interval selector
-  - filename: lecture_09_bqplot_continued.ipynb
+  - filename: lecture_09_bqplot_continued
     type: ipynb
     title: bqplot Continued
     description: More advanced bqplot examples and interactivity

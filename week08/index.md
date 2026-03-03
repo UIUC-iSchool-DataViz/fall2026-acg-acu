@@ -4,11 +4,11 @@ visible: true
 icon: undraw_Around_the_world_re_n353.svg
 notitle: true
 examples:
-  - filename: lecture15_examples.ipynb
+  - filename: lecture15_examples
     type: ipynb
     title: Dashboards and a few maps
     description: We show a little bit of cartopy, then move on to our dashboard again.
-  - filename: lecture16_examples.ipynb
+  - filename: lecture16_examples
     type: ipynb
     title: Expanding our dashboard with subselection
     description: We build out some pandas skills and use that to do filtering and linking

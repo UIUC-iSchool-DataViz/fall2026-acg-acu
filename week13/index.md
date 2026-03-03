@@ -8,7 +8,7 @@ tags:
   - javascript
   - svelte
 examples:
-  - filename: lecture_network.ipynb
+  - filename: lecture_network
     type: ipynb
     title: Network Visualization in D3
     description: Developing dynamic D3 visualizations and interactivity

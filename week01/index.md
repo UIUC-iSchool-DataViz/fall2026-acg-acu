@@ -4,19 +4,19 @@ visible: true
 icon: undraw_data_trends_b0wg.svg
 notitle: true
 examples:
-- filename: prep_notes_week01.ipynb
+- filename: prep_notes_week01
   type: ipynb
   title: Prep Notebook, Week 1
   description: Prep notebook for this week
-- filename: prep_notebook_week01.ipynb
+- filename: prep_notebook_week01
   type: ipynb
   title: Prep Notebook (alternate)
   description: Alternate prep notebook
-- filename: inClass_week01.ipynb
+- filename: inClass_week01
   type: ipynb
   title: In class week 1 notebook
   description: Intro to python, plotting
-- filename: lecture02_examples.ipynb
+- filename: lecture02_examples
   type: ipynb
   title: Lecture 02 Examples
   description: More Python and plotting examples from lecture 2

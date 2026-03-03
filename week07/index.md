@@ -9,23 +9,23 @@ tags:
   - cartopy
   - maps
 examples:
-  - filename: bqplot_covid_timedashboard.ipynb
+  - filename: bqplot_covid_timedashboard
     type: ipynb
     title: COVID Time Series Maps
     description: An example visualization of COVID cases with bqplot and time interval selection
-  - filename: lecture07_examples.ipynb
+  - filename: lecture07_examples
     type: ipynb
     title: 2024 Time Series and Maps
     description: We start out making some time series visualizations in bqplot, then begin moving to overlay them on maps.
-  - filename: inClass_week07.ipynb
+  - filename: inClass_week07
     type: ipynb
     title: Maps and time series
     description: We start out making some time series visualizations in bqplot, then begin moving to overlay them on maps.
-  - filename: lecture13_examples.ipynb
+  - filename: lecture13_examples
     type: ipynb
     title: More Time Series and Maps
     description: Advanced map overlays and time series integration
-  - filename: lecture_13_timeseries_and_map.ipynb
+  - filename: lecture_13_timeseries_and_map
     type: ipynb
     title: Time Series and Maps (continued)
     description: Continued look at geospatial visualizations

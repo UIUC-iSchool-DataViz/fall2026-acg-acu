@@ -99,7 +99,7 @@ layout: default
               <p>
                 {% if example.type == "ipynb" %}
                 <a
-                  href="{{f.dir | append: example.filename | replace: '.ipynb', '.html' | relative_url }}"
+                  href="{{f.dir | append: example.filename | relative_url }}.html"
                   >{{example.title}}</a
                 >
                 {% else %}

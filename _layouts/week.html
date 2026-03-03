@@ -46,8 +46,8 @@ layout: default
             <div class="media-content">
                 <p>
                     {% if example.type == "ipynb" %}
-                    <a href="{{example.filename | replace: '.ipynb', '.html' | relative_url }}">{{example.title}}</a> - 
-                    (<a href="{{example.filename | relative_url}}">download</a>)
+                    <a href="{{example.filename | relative_url }}.html">{{example.title}}</a> - 
+                    (<a href="{{example.filename | relative_url}}.ipynb">download</a>)
                     {% else %}
                     <a href="{{page.dir | append: example.filename | relative_url }}">{{example.title}}</a>
                     {% endif %}

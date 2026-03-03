@@ -4,11 +4,11 @@ visible: true
 icon: undraw_metrics_gtu7.svg
 notitle: true
 examples:
-  - filename: examples_week06.ipynb
+  - filename: examples_week06
     type: ipynb
     title: Week 06 Examples
     description: Evaluating visualization engines and more vega-lite
-  - filename: example_bqplot_object.ipynb
+  - filename: example_bqplot_object
     type: ipynb
     title: bqplot objects and dashboards
     description: How to set up a stateful object as a dashboard
