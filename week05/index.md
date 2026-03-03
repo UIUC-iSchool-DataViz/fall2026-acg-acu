@@ -4,7 +4,7 @@ visible: true
 icon: undraw_data_reports_706v.svg
 notitle: true
 examples:
-  - filename: lecture05_inclass.ipynb
+  - filename: inClass_week05.ipynb
     type: ipynb
     title: In-class Examples
     description: We review a bqplot intro, then build out interactivity on it.
@@ -12,6 +12,10 @@ examples:
     type: ipynb
     title: bqplot with interactivity
     description: We review last time's bqplot intro, then build out linked views with the interval selector
+  - filename: lecture_09_bqplot_continued.ipynb
+    type: ipynb
+    title: bqplot Continued
+    description: More advanced bqplot examples and interactivity
   - filename: vega_example_1.html
     type: vega-lite
     title: vega-lite example 1

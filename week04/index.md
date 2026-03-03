@@ -4,10 +4,10 @@ visible: true
 icon: undraw_under_construction_46pa.svg
 notitle: true
 examples:
-  - filename: week04-inclass.ipynb
+  - filename: inClass_week04.ipynb
     type: ipynb
     title: In Class Examples from Previous Semesters
-  - filename: week04-inclass-02.ipynb
+  - filename: inClass_week04_02.ipynb
     type: ipynb
     title: In Class Examples from Previous Semesters part 2
   - filename: lecture04_examples.ipynb
@@ -29,6 +29,10 @@ examples:
     type: ipynb
     title: Basic bqplot
     description: This shows some basics of bqplot, and how it works with traits and widgets
+  - filename: lecture_08_bqplot.ipynb
+    type: ipynb
+    title: bqplot Continued
+    description: More advanced bqplot examples and interactivity
 ---
 
 # Basics of Interaction and Engines of Visualization

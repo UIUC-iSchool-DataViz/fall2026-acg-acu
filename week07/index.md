@@ -17,10 +17,18 @@ examples:
     type: ipynb
     title: 2024 Time Series and Maps
     description: We start out making some time series visualizations in bqplot, then begin moving to overlay them on maps.
-  - filename: lecture07_inclass.ipnyb
+  - filename: inClass_week07.ipynb
     type: ipynb
     title: Maps and time series
     description: We start out making some time series visualizations in bqplot, then begin moving to overlay them on maps.
+  - filename: lecture13_examples.ipynb
+    type: ipynb
+    title: More Time Series and Maps
+    description: Advanced map overlays and time series integration
+  - filename: lecture_13_timeseries_and_map.ipynb
+    type: ipynb
+    title: Time Series and Maps (continued)
+    description: Continued look at geospatial visualizations
 ---
 
 # Time Series and Maps

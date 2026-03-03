@@ -28,28 +28,35 @@ examples:
   - filename: inClass_week03.ipynb
     type: ipynb
     title: In class notebook, Week 3
-    description: Prep notebook for this week
+    description: In-class notebook for this week
+  - filename: prep_notebook_week03_01.ipynb
+    type: ipynb
+    title: Prep Notebook Week 3 Part 1
+    description: Extra notebook from 2019 class
+  - filename: prep_notebook_week03_02.ipynb
+    type: ipynb
+    title: Prep Notebook Week 3 Part 2
+    description: Extra notebook from 2019 class
+  - filename: prep_notebook_week03_03.ipynb
+    type: ipynb
+    title: Prep Notebook Week 3 Part 3
+    description: Extra notebook from 2019 class
   - filename: fall2019_prep_notebook_furtherExamples_01.ipynb
     type: ipynb
-    title: fall2019_prep_notebook_furtherExamples_01.ipynb
+    title: Further Examples 1 (Fall 2019)
     description: Extra notebook from 2019 class
   - filename: fall2019_prep_notebook_furtherExamples_02.ipynb
     type: ipynb
-    title: fall2019_prep_notebook_furtherExamples_02.ipynb
+    title: Further Examples 2 (Fall 2019)
     description: Extra notebook from 2019 class
   - filename: fall2019_prep_notebook_furtherExamples_03.ipynb
     type: ipynb
-    title: fall2019_prep_notebook_furtherExamples_03.ipynb
+    title: Further Examples 3 (Fall 2019)
     description: Extra notebook from 2019 class
-  - filename: spring2019_prep_notebook_furtherExamples_week03.ipynb
+  - filename: examples_week_03.ipynb
     type: ipynb
-    title: spring2019_prep_notebook_furtherExamples_week03.ipynb
-  - filename: spring2019_prep_notebook_week03_part1.ipynb
-    type: ipynb
-    title: spring2019_prep_notebook_week03_part1.ipynb
-  - filename: spring2019_prep_notebook_week03_part2.ipynb
-    type: ipynb
-    title: spring2019_prep_notebook_week03_part2.ipynb
+    title: Week 3 Examples
+    description: More examples for transformations and colors
 data:
   - filename: building_inventory.csv
     type: dataLink

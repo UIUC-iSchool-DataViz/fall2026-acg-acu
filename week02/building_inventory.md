@@ -1,6 +1,6 @@
 ---
 title: Demonstrating Relationships
-#layout: assignment
+layout: assignment
 description: Show relationships between two variables using the building inventory
 ---
 

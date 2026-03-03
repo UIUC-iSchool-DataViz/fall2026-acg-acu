@@ -1,6 +1,12 @@
 ---
 layout: week
 visible: true
+notitle: true
+examples:
+  - filename: examples_week10.ipynb
+    type: ipynb
+    title: Week 10 Examples
+    description: Finishing our lab and exploring other chart types
 ---
 
 # Finishing our lab, and types of charts

@@ -8,10 +8,18 @@ examples:
     type: ipynb
     title: Prep Notebook, Week 1
     description: Prep notebook for this week
+  - filename: prep_notebook_week01.ipynb
+    type: ipynb
+    title: Prep Notebook (alternate)
+    description: Alternate prep notebook
   - filename: inClass_week01.ipynb
     type: ipynb
     title: In class week 1 notebook
     description: Intro to python, plotting
+  - filename: lecture02_examples.ipynb
+    type: ipynb
+    title: Lecture 02 Examples
+    description: More Python and plotting examples from lecture 2
 data:
   - filename: GDP.csv
     type: dataLink

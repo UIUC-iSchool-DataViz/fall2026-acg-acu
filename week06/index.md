@@ -4,6 +4,10 @@ visible: true
 icon: undraw_metrics_gtu7.svg
 notitle: true
 examples:
+  - filename: examples_week06.ipynb
+    type: ipynb
+    title: Week 06 Examples
+    description: Evaluating visualization engines and more vega-lite
   - filename: example_bqplot_object.ipynb
     type: ipynb
     title: bqplot objects and dashboards
