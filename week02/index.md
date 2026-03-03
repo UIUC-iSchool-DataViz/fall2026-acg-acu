@@ -3,44 +3,49 @@ layout: week
 visible: true
 icon: undraw_version_control_9bpv.svg
 notitle: true
-examples: 
-  - filename: inClass_week02.ipynb
-    type: ipynb
-    title: Week 02 In-Class
-    description: Our in-class work from class
-  - filename: lecture03_examples.ipynb
-    type: ipynb
-    title: Loading and Displaying Image Data
-    description: A little bit of loading image data, displaying that image data, and using matplotlib
-  - filename: lecture_03_data_format.ipynb
-    type: ipynb
-    title: Data Formats
-    description: In-depth look at different data formats and organization
-  - filename: lecture04_examples.ipynb
-    type: ipynb
-    title: First steps with Pandas
-    description: Loading the building inventory and filtering, mutating, splitting and plotting some of its data
-  - filename: lecture_04_matplotlib_pandas-continued.ipynb
-    type: ipynb
-    title: Pandas and Matplotlib
-    description: Continued exploration of Pandas and Matplotlib concepts
+examples:
+- filename: inClass_week02.ipynb
+  type: ipynb
+  title: Week 02 In-Class
+  description: Our in-class work from class
+- filename: lecture03_examples.ipynb
+  type: ipynb
+  title: Loading and Displaying Image Data
+  description: A little bit of loading image data, displaying that image data, and
+    using matplotlib
+- filename: lecture_03_data_format.ipynb
+  type: ipynb
+  title: Data Formats
+  description: In-depth look at different data formats and organization
+- filename: lecture04_examples.ipynb
+  type: ipynb
+  title: First steps with Pandas
+  description: Loading the building inventory and filtering, mutating, splitting and
+    plotting some of its data
+- filename: lecture_04_matplotlib_pandas-continued.ipynb
+  type: ipynb
+  title: Pandas and Matplotlib
+  description: Continued exploration of Pandas and Matplotlib concepts
 data:
-  - filename: building_inventory.csv
-    type: dataLink
-    title: Buildings dataset
-    description: Illinois buildings dataset
-    link: https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/building_inventory.csv
-  - filename: littleCorgiInHat.png
-    type: dataLink
-    title: Corgi in Hat
-    description: Image of a corgi in a hat
-    link: https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/littleCorgiInHat.png
-  - filename: stitch_reworked.png
-    type: dataLink
-    title: Stitch Image
-    description: Three-color image of stitch
-    link: https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/stitch_reworked.png
+- filename: building_inventory.csv
+  type: dataLink
+  title: Buildings dataset
+  description: Illinois buildings dataset
+  link: https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/building_inventory.csv
+- filename: littleCorgiInHat.png
+  type: dataLink
+  title: Corgi in Hat
+  description: Image of a corgi in a hat
+  link: https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/littleCorgiInHat.png
+- filename: stitch_reworked.png
+  type: dataLink
+  title: Stitch Image
+  description: Three-color image of stitch
+  link: https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/stitch_reworked.png
 ---
+
+
+
 
 # Data Storage and Manipulation
 
