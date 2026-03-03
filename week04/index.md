@@ -4,36 +4,39 @@ visible: true
 icon: undraw_under_construction_46pa.svg
 notitle: true
 examples:
-  - filename: inClass_week04
-    type: ipynb
-    title: In Class Examples from Previous Semesters
-  - filename: inClass_week04_02
-    type: ipynb
-    title: In Class Examples from Previous Semesters part 2
-  - filename: lecture04_examples
-    type: ipynb
-    title: Supplemental Examples 1
-  - filename: ipywidgets_intro
-    type: ipynb
-    title: Intro to ipywidgets
-    description: Supplemental Examples 2
-  - filename: bqplot_intro
-    type: ipynb
-    title: bqplot examples
-    description: Supplemental Examples 3
-  - filename: lecture07_examples
-    type: ipynb
-    title: Traitlets and Widgets
-    description: We start with some traitlets, linking and widgets stuff, and then move toward matplotlib and linking multiple widgets together
-  - filename: lecture08_examples
-    type: ipynb
-    title: Basic bqplot
-    description: This shows some basics of bqplot, and how it works with traits and widgets
-  - filename: lecture_08_bqplot
-    type: ipynb
-    title: bqplot Continued
-    description: More advanced bqplot examples and interactivity
+- filename: inClass_week04
+  type: ipynb
+  title: In Class Examples from Previous Semesters
+- filename: ipywidgets_intro
+  type: ipynb
+  title: Intro to ipywidgets
+  description: Supplemental Examples 2
+- filename: lecture_08_bqplot
+  type: ipynb
+  title: bqplot Continued
+  description: More advanced bqplot examples and interactivity
+unused:
+- type: ipynb
+  title: bqplot examples
+  description: Supplemental Examples 3
+- type: ipynb
+  title: In Class Examples from Previous Semesters part 2
+- type: ipynb
+  title: Supplemental Examples 1
+- type: ipynb
+  title: Traitlets and Widgets
+  description: We start with some traitlets, linking and widgets stuff, and then move
+    toward matplotlib and linking multiple widgets together
+- type: ipynb
+  title: Basic bqplot
+  description: This shows some basics of bqplot, and how it works with traits and
+    widgets
 ---
+
+
+
+
+
 
 # Basics of Interaction and Engines of Visualization
 

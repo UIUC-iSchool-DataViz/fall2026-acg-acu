@@ -4,28 +4,16 @@ visible: true
 icon: undraw_version_control_9bpv.svg
 notitle: true
 examples:
-- filename: inClass_week02
-  type: ipynb
-  title: Week 02 In-Class
-  description: Our in-class work from class
 - filename: lecture03_examples
   type: ipynb
   title: Loading and Displaying Image Data
   description: A little bit of loading image data, displaying that image data, and
     using matplotlib
-- filename: lecture_03_data_format
-  type: ipynb
-  title: Data Formats
-  description: In-depth look at different data formats and organization
 - filename: lecture04_examples
   type: ipynb
   title: First steps with Pandas
   description: Loading the building inventory and filtering, mutating, splitting and
     plotting some of its data
-- filename: lecture_04_matplotlib_pandas-continued
-  type: ipynb
-  title: Pandas and Matplotlib
-  description: Continued exploration of Pandas and Matplotlib concepts
 data:
 - filename: building_inventory.csv
   type: dataLink
@@ -42,7 +30,21 @@ data:
   title: Stitch Image
   description: Three-color image of stitch
   link: https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/stitch_reworked.png
+unused:
+- type: ipynb
+  title: Week 02 In-Class
+  description: Our in-class work from class
+- type: ipynb
+  title: Data Formats
+  description: In-depth look at different data formats and organization
+- type: ipynb
+  title: Pandas and Matplotlib
+  description: Continued exploration of Pandas and Matplotlib concepts
 ---
+
+
+
+
 
 
 
@@ -71,3 +73,4 @@ Also, more about numpy.reshape (and what the -1 means): https://stackoverflow.co
  5. <a href="https://github.com/jnaiman/IS-452AO-Fall2019/blob/master/Lectures/Week-10-JSONandCSV.ipynb">IS452's intro to CSV files (bottom of page)</a> 
  6. <a href="https://github.com/jnaiman/IS-452AO-Fall2019/blob/master/Lectures/Week-09-Dictionaries.ipynb">IS452's Intro to Dictionaries</a> 
  7. <a href="https://pandas.pydata.org/pandas-docs/stable/">Pandas Docs</a> & <a href="https://docs.scipy.org/doc/numpy/reference/">NumPy Docs</a> 
+- [Inclass Week02](inClass_week02)

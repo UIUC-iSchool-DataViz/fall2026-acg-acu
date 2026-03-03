@@ -4,18 +4,6 @@ visible: true
 icon: undraw_data_trends_b0wg.svg
 notitle: true
 examples:
-- filename: prep_notes_week01
-  type: ipynb
-  title: Prep Notebook, Week 1
-  description: Prep notebook for this week
-- filename: prep_notebook_week01
-  type: ipynb
-  title: Prep Notebook (alternate)
-  description: Alternate prep notebook
-- filename: inClass_week01
-  type: ipynb
-  title: In class week 1 notebook
-  description: Intro to python, plotting
 - filename: lecture02_examples
   type: ipynb
   title: Lecture 02 Examples
@@ -31,7 +19,18 @@ data:
   title: Stitch Image
   description: Three-color image of stitch
   link: https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/stitch_reworked.png
+unused:
+- type: ipynb
+  title: Prep Notebook (alternate)
+  description: Alternate prep notebook
+- type: ipynb
+  title: Prep Notebook, Week 1
+  description: Prep notebook for this week
 ---
+
+
+
+
 
 
 

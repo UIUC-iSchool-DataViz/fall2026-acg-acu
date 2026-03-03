@@ -19,18 +19,6 @@ examples:
   type: ipynb
   title: Colormaps
   description: We load in a brain scan and try some basics of colormapping in matplotlib.
-- filename: prep_notebook_week03
-  type: ipynb
-  title: Prep Notebook, Week 3
-  description: Prep notebook for this week
-- filename: inClass_week03_previous
-  type: ipynb
-  title: In class notebook, Week 3, Previous Semester
-  description: In class work from a previous semester week 03
-- filename: inClass_week03
-  type: ipynb
-  title: In class notebook, Week 3
-  description: In-class notebook for this week
 - filename: prep_notebook_week03_01
   type: ipynb
   title: Prep Notebook Week 3 Part 1
@@ -43,10 +31,6 @@ examples:
   type: ipynb
   title: Prep Notebook Week 3 Part 3
   description: Extra notebook from 2019 class
-- filename: fall2019_prep_notebook_furtherExamples_01
-  type: ipynb
-  title: Further Examples 1 (Fall 2019)
-  description: Extra notebook from 2019 class
 - filename: fall2019_prep_notebook_furtherExamples_02
   type: ipynb
   title: Further Examples 2 (Fall 2019)
@@ -55,10 +39,6 @@ examples:
   type: ipynb
   title: Further Examples 3 (Fall 2019)
   description: Extra notebook from 2019 class
-- filename: examples_week_03
-  type: ipynb
-  title: Week 3 Examples
-  description: More examples for transformations and colors
 data:
 - filename: building_inventory.csv
   type: dataLink
@@ -81,7 +61,34 @@ library:
   title: Palette Colors (palette_colors.py)
   description: Python library, save to notebook folder or modify your path if you
     know how to do that
+unused:
+- type: ipynb
+  title: Week 3 Examples
+  description: More examples for transformations and colors
+- type: ipynb
+  title: Further Examples 1 (Fall 2019)
+  description: Extra notebook from 2019 class
+- '- [Fall2019 Prep Notebook Furtherexamples 01](fall2019_prep_notebook_furtherExamples_01)'
+- type: ipynb
+  title: In class notebook, Week 3
+  description: In-class notebook for this week
+- type: ipynb
+  title: In class notebook, Week 3, Previous Semester
+  description: In class work from a previous semester week 03
+- type: ipynb
+  title: Prep Notebook, Week 3
+  description: Prep notebook for this week
 ---
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -124,3 +131,4 @@ Developed and available at [github.com/matplotlib/cheatsheets](https://github.co
 - [Handout for Beginners](handout-beginner.png)
 - [Handout for Intermediate Users](handout-intermediate.png)
 - [Handout with Tips](handout-tips.png)
+- [Prep Notebook Week03](prep_notebook_week03)

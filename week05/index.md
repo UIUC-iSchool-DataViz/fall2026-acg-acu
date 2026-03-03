@@ -4,35 +4,37 @@ visible: true
 icon: undraw_data_reports_706v.svg
 notitle: true
 examples:
-  - filename: inClass_week05
-    type: ipynb
-    title: In-class Examples
-    description: We review a bqplot intro, then build out interactivity on it.
-  - filename: lecture09_examples
-    type: ipynb
-    title: bqplot with interactivity
-    description: We review last time's bqplot intro, then build out linked views with the interval selector
-  - filename: lecture_09_bqplot_continued
-    type: ipynb
-    title: bqplot Continued
-    description: More advanced bqplot examples and interactivity
-  - filename: vega_example_1.html
-    type: vega-lite
-    title: vega-lite example 1
-    description: A bar chart with some scaling and aggregation
-  - filename: vega_example_2.html
-    type: vega-lite
-    title: vega-lite example 2
-    description: Manually supplied data values for a circle chart
-  - filename: vega_example_3.html
-    type: vega-lite
-    title: vega-lite example 3
-    description: Filtered horsepower cars chart
-  - filename: vega_example_4.html
-    type: vega-lite
-    title: vega-lite example 4
-    description: Interactive IMDB charts
+- filename: inClass_week05
+  type: ipynb
+  title: In-class Examples
+  description: We review a bqplot intro, then build out interactivity on it.
+- filename: lecture09_examples
+  type: ipynb
+  title: bqplot with interactivity
+  description: We review last time's bqplot intro, then build out linked views with
+    the interval selector
+- filename: vega_example_1.html
+  type: vega-lite
+  title: vega-lite example 1
+  description: A bar chart with some scaling and aggregation
+- filename: vega_example_2.html
+  type: vega-lite
+  title: vega-lite example 2
+  description: Manually supplied data values for a circle chart
+- filename: vega_example_3.html
+  type: vega-lite
+  title: vega-lite example 3
+  description: Filtered horsepower cars chart
+- filename: vega_example_4.html
+  type: vega-lite
+  title: vega-lite example 4
+  description: Interactive IMDB charts
+unused:
+- type: ipynb
+  title: bqplot Continued
+  description: More advanced bqplot examples and interactivity
 ---
+
 
 # Exploring More Interactivity
 
