@@ -357,7 +357,7 @@ We have a CampusWire instance for peer-to-peer discussion and questions about as
 
 We're going to be using [PrairieLearn](https://us.prairielearn.com/) this semester. You can find our course instance at:
 
-https://us.prairielearn.com/pl/course_instance/208117
+https://us.prairielearn.com/pl/course_instance/228874
 
 We'll try it out today and you can see how we can use it for in-class coding as well as for assignments.
 
