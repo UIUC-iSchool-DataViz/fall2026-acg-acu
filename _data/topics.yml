@@ -1,28 +1,28 @@
 - id: foundations
   name: Foundations
   description: Principles of visualization, data abstraction, and basic storage.
-  weeks: [1, 3]
+  weeks: [1, 2]
 - id: encoding
   name: Marks & Encoding
   description: How data maps to visuals using marks, channels, and color.
-  weeks: [4, 6]
+  weeks: [3]
 - id: interactivity
   name: Interactivity & Dashboards
   description: Reactive programming, widgets, and building interactive displays.
-  weeks: [5, 7, 10]
+  weeks: [4, 5, 6, 14]
 - id: spatial
   name: Spatial & Geospatial Viz
-  description: Mapping libraries including cartopy, ipyleaflet, and bqplot maps.
-  weeks: [8]
+  description: Mapping libraries including cartopy, geopandas, and bqplot maps.
+  weeks: [7, 8, 9]
 - id: web_viz
   name: Modern Web Visualization
-  description: Vega-Lite, Altair, and Streamlit for web-based data apps.
-  weeks: [11, 12, 13]
+  description: Vega-Lite for building and updating charts and dashboards on the web.
+  weeks: [10]
 - id: science_publishing
-  name: Science & Publishing
-  description: Scientific visualization (SciViz) and publishing with Jekyll/GitHub Pages.
-  weeks: [14, 15]
+  name: Science Viz & D3
+  description: Scientific visualization and an introduction to D3 and Starboard.
+  weeks: [11, 12]
 - id: relational
   name: Networks & Structural Data
-  description: Network visualization, hierarchies, and word clouds.
-  weeks: [16]
+  description: Viz validation, dynamic D3/Svelte, and network visualization.
+  weeks: [13]

@@ -108,7 +108,7 @@ introduction to several Python packages (e.g. Pandas) will be presented during t
 # Course Materials
 
 There is no required textbook for this course. All course materials will be posted to
-the GitHub repository at https://github.com/UIUC-iSchool-DataViz/spr2026-acg-acu/ .
+the GitHub repository at https://github.com/UIUC-iSchool-DataViz/fall2026-acg-acu/ .
 **Optional** textbook [Visualization Analysis and Design by Tamara Munzner](https://www.amazon.com/gp/product/1466508914/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1). You can find a lot of the concepts from this textbook on [the books webpage](https://www.cs.ubc.ca/~tmm/vadbook/) and the [associated lecture slides](https://www.cs.ubc.ca/~tmm/talks.html#vadallslides).
 
 As the course progresses, a list of recommended readings will be generated for
@@ -136,7 +136,7 @@ that are of particular interest will be emphasized.
 
 - <a href="https://www.amazon.com/Visualization-Analysis-Design-AK-Peters/dp/1466508914/ref=sr_1_2?crid=1WC409BVX1489&keywords=visualization+analysis+and+design&qid=1580082878&sprefix=visualization%2Caps%2C158&sr=8-2">Visualization Analysis & Design, Tamara Munzner</a>. You can find a lot of the concepts from this textbook on [the books webpage](https://www.cs.ubc.ca/~tmm/vadbook/) and the [associated lecture slides](https://www.cs.ubc.ca/~tmm/talks.html#vadallslides).
 - Edward Tufte wrote a series of visualization books that are often thought of as foundational to the field. These include <a href="https://www.amazon.com/Visual-Display-Quantitative-Information/dp/0961392142/ref=sr_1_1?keywords=edward+tufte+books&qid=1580082986&sr=8-1">The Visual Display of Quantitative Information</a>, <a href="https://www.amazon.com/Beautiful-Evidence-Edward-R-Tufte/dp/0961392177/ref=sr_1_2?keywords=edward+tufte+books&qid=1580082986&sr=8-2">Beautiful Evidence</a>, <a href="https://www.amazon.com/Envisioning-Information-Edward-R-Tufte/dp/0961392118/ref=sr_1_3?keywords=edward+tufte+books&qid=1580082986&sr=8-3">Envisioning Information</a>, and <a href="https://www.amazon.com/Visual-Explanations-Quantities-Evidence-Narrative/dp/0961392126/ref=sr_1_4?keywords=edward+tufte+books&qid=1580082986&sr=8-4">Visual Explanations: Images and Quantities, Evidence and Narrative<a>
-- There is a free online book, <a href="https://serialmentor.com/dataviz/">Fundamentals of Data Visualization by Claus O. Wilke</a> that provies a lot of nice examples and serves as an intro to Tamara Munzner's book. It has an <a href="https://serialmentor.com/dataviz/bibliography.html">annotated bibliography at the end</a> that gives a few references for books in data viz that include programming. It is built from the linked <a href="https://github.com/clauswilke/dataviz">GitHub repo</a>. Note that this book is focused on static (not interactive) visualizations.
+- There is a free online book, <a href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualization by Claus O. Wilke</a> that provies a lot of nice examples and serves as an intro to Tamara Munzner's book. It has an <a href="https://clauswilke.com/dataviz/bibliography.html">annotated bibliography at the end</a> that gives a few references for books in data viz that include programming. It is built from the linked <a href="https://github.com/clauswilke/dataviz">GitHub repo</a>. Note that this book is focused on static (not interactive) visualizations.
 - Additional references will be added as needed.
 
 Acronyms for books:
@@ -153,7 +153,7 @@ Acronyms for books:
 **Reading**:
 
 1. VAD, Ch. 1: What's Viz, and Why Do It?
-2. [FDV, Ch. 1: Introduction](https://serialmentor.com/dataviz/introduction.html) & [FDV, Ch. 17: The principle of proportional ink](https://serialmentor.com/dataviz/proportional-ink.html)
+2. [FDV, Ch. 1: Introduction](https://clauswilke.com/dataviz/introduction.html) & [FDV, Ch. 17: The principle of proportional ink](https://clauswilke.com/dataviz/proportional-ink.html)
 3. [Same Data, Multiple Perspectives](https://medium.com/multiple-views-visualization-research-explained/same-data-multiple-perspectives-curse-of-knowledge-in-visual-data-communication-d827c381f936)
 4. [Intro to Jupyter Notebook Video](https://www.youtube.com/watch?v=3C9E2yPBw7s)
 
@@ -162,38 +162,33 @@ Acronyms for books:
 **Reading**:
 
 1. VAD, Ch. 2: What: Data Abstraction
-2. [FDV, Ch. 2: Visualizing data: Mapping data onto aesthetics](https://serialmentor.com/dataviz/aesthetic-mapping.html)
+2. [FDV, Ch. 2: Visualizing data: Mapping data onto aesthetics](https://clauswilke.com/dataviz/aesthetic-mapping.html)
 3. VAD, Ch. 13: Reduce Items and Attributes
-4. [FDV, Ch. 27: Understanding the most commonly used image file formats](https://serialmentor.com/dataviz/image-file-formats.html)
+4. [FDV, Ch. 27: Understanding the most commonly used image file formats](https://clauswilke.com/dataviz/image-file-formats.html)
 5. [IS452's intro to CSV files (bottom of page)](https://github.com/jnaiman/IS-452AO-Fall2019/blob/master/Lectures/Week-10-JSONandCSV.ipynb)
 6. [IS452's Intro to Dictionaries](https://github.com/jnaiman/IS-452AO-Fall2019/blob/master/Lectures/Week-09-Dictionaries.ipynb)
 7. [Pandas Docs](https://pandas.pydata.org/pandas-docs/stable/) & [NumPy Docs](https://docs.scipy.org/doc/numpy/reference/)
 
-### <a name="week3"></a>Week 3: Types of Viz
+### <a name="week3"></a>Week 3: Transformations and Colors
 
 **Reading**:
 
 1. VAD, Ch. 5: Marks and Channels
+2. VAD, Ch. 10: Map Color and Other Channels
+3. [FDV, Ch. 4: Color scales](https://clauswilke.com/dataviz/color-basics.html)
+4. [Perception in Visualization (pay extra attention to the parts about color)](https://www.csc2.ncsu.edu/faculty/healey/PP/)
+5. [Palettable Docs](https://jiffyclub.github.io/palettable/#documentation)
 
-### <a name="week4"></a>Week 4: Choosing Colors
-
-**Reading**:
-
-1. VAD, Ch. 10: Map Color and Other Channels
-2. [FDV, Ch. 4: Color scales](https://serialmentor.com/dataviz/color-basics.html)
-3. [Perception in Visualization (pay extra attention to the parts about color)](https://www.csc2.ncsu.edu/faculty/healey/PP/)
-4. [Palettable Docs](https://jiffyclub.github.io/palettable/#documentation)
-
-### <a name="week5"></a>Week 5: Beginning Interactivity
+### <a name="week4"></a>Week 4: Beginning Interactivity: Traitlets, Widgets & bqplot
 
 **Reading**:
 
 1. [Intro to ipywidgets](https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Basics.html)
 2. [Example Widgets Notebooks](https://github.com/jupyter-widgets/ipywidgets/blob/master/docs/source/examples/Index.ipynb)
 3. VAD Ch. 7: Arrange Tables
-4. [FDV, Ch. 7: Visualizing distributions: Histograms and density plots](https://serialmentor.com/dataviz/histograms-density-plots.html)
+4. [FDV, Ch. 7: Visualizing distributions: Histograms and density plots](https://clauswilke.com/dataviz/histograms-density-plots.html)
 
-### <a name="week6"></a>Week 6: Distributions, Engines
+### <a name="week5"></a>Week 5: More Interactivity: bqplot & Intro to Vega-Lite
 
 **Reading**:
 
@@ -201,87 +196,77 @@ Acronyms for books:
 2. [An introduction to Grammar of Graphics](https://towardsdatascience.com/a-comprehensive-guide-to-the-grammar-of-graphics-for-effective-visualization-of-multi-dimensional-1f92b4ed4149)
 3. [ipywidgets Docs](https://ipywidgets.readthedocs.io/en/latest/); [Traitlets Docs](https://traitlets.readthedocs.io/en/stable/); [bqplot Docs](https://bqplot.readthedocs.io/en/latest/)
 
-### <a name="week7"></a>Week 7: Dashboards & Maps with bqplot
+### <a name="week6"></a>Week 6: Viz Platforms and more Vega-Lite
+
+**Reading**:
+
+1. [vega-lite docs](https://vega.github.io/vega-lite/docs/)
+2. [FDV, Ch. 5: Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
+
+### <a name="week7"></a>Week 7: Time Series and Maps with bqplot
 
 **Reading**:
 
 1. VAD Ch. 8.1-8.3: Arrange Spatial Data
 2. VAD Ch. 11.1-11.5: Manipulate View
-3. [FDV, Ch. 15: Visualizing geospatial data](https://serialmentor.com/dataviz/geospatial-data.html)
+3. [FDV, Ch. 15: Visualizing geospatial data](https://clauswilke.com/dataviz/geospatial-data.html)
 
-### <a name="week8"></a>Week 8: More with maps - bqplot, cartopy, ipyleaflet, geopandas
+### <a name="week8"></a>Week 8: More Maps - projections, cartopy, and dashboards
 
 **Reading**:
 
 1. VAD Ch. 8.1-8.3: Arrange Spatial Data
-2. [FDV, Ch. 15: Visualizing geospatial data](https://serialmentor.com/dataviz/geospatial-data.html)
+2. [FDV, Ch. 15: Visualizing geospatial data](https://clauswilke.com/dataviz/geospatial-data.html)
 3. VAD, Ch. 13.4.2: Reduce Items and Attributes
-4. [Cartopy docs](https://scitools.org.uk/cartopy/docs/latest/); [ipyleaflet docs](https://ipyleaflet.readthedocs.io/en/latest/); [Geopandas Docs](https://geopandas.org/)
+4. [Cartopy docs](https://scitools.org.uk/cartopy/docs/latest/)
 
-### <a name="week9"></a>Week 9: Spring break!
-
-**Reading**: No class, enjoy!
-
-### <a name="week10"></a>Week 10: Designing for the web with vega-lite & Altair & Streamlit
+### <a name="week9"></a>Week 9: GeoPandas & Intermediate Vega-Lite
 
 **Reading**:
 
-1. [vega-lite docs](https://vega.github.io/vega-lite/docs/)
-2. [Altair docs](https://altair-viz.github.io/gallery/index.html) - in particular [Encoding Data Types](https://altair-viz.github.io/user_guide/encoding.html#encoding-data-types), [Vegalite-Altair conversions](https://altair-viz.github.io/user_guide/internals.html#converting-vega-lite-to-altair), [Binning](https://altair-viz.github.io/user_guide/transform/bin.html#bin-transforms), [Filter transforms](https://altair-viz.github.io/user_guide/transform/filter.html) and [interactive examples](https://altair-viz.github.io/gallery/interactive_cross_highlight.html#interactive-chart-with-cross-highlight)
-3. [FDV, Ch. 5: Directory of visualizations](https://serialmentor.com/dataviz/directory-of-visualizations.html)
+1. [Geopandas Docs](https://geopandas.org/)
+2. [vega-lite docs](https://vega.github.io/vega-lite/docs/) - in particular [Filter transforms](https://vega.github.io/vega-lite/docs/filter.html) and [parameters](https://vega.github.io/vega-lite/docs/parameter.html)
 
-### <a name="week11"></a>Week 11: Web dev with Streamlit + HuggingFace; Considering your audience
+### <a name="week10"></a>Week 10: Choosing Charts; Finishing the Vega-Lite Lab
+
+**Reading**:
+
+1. [FDV, Ch. 5: Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
+2. [Altair docs](https://altair-viz.github.io/gallery/index.html) - in particular [Encoding Data Types](https://altair-viz.github.io/user_guide/encoding.html#encoding-data-types), [Binning](https://altair-viz.github.io/user_guide/transform/bin.html#bin-transforms), and [Filter transforms](https://altair-viz.github.io/user_guide/transform/filter.html)
+
+### <a name="week11"></a>Week 11: Updating Data; Intro to D3 & Starboard
 
 **Reading**:
 
 1. [Same Data, Multiple Perspectives](https://medium.com/multiple-views-visualization-research-explained/same-data-multiple-perspectives-curse-of-knowledge-in-visual-data-communication-d827c381f936)
-2. [FDV, Ch. 29: Telling a story and making a point](https://serialmentor.com/dataviz/telling-a-story.html)
-3. [Streamlit docs](https://streamlit.io/) - in particular the [the Main Concepts](https://docs.streamlit.io/get-started/fundamentals/main-concepts) and [Make an App](https://docs.streamlit.io/get-started/tutorials/create-an-app) tutorials, and the docs for [text](https://docs.streamlit.io/develop/api-reference/text), [layout](https://docs.streamlit.io/develop/api-reference/layout) and [image](https://docs.streamlit.io/develop/api-reference/media/st.image) API elements
-4. [Streamlit on HuggingFace](https://huggingface.co/docs/hub/en/spaces-sdks-streamlit)
-5. [Altair Docs](https://altair-viz.github.io/gallery/index.html) - in particular [Including Indexes](https://altair-viz.github.io/user_guide/data.html#including-index-data), [Interactivity & Selections](https://altair-viz.github.io/altair-tutorial/notebooks/06-Selections.html), [Multi-line tooltips](https://altair-viz.github.io/gallery/multiline_tooltip.html#multi-line-tooltip), [Interactive Binning](https://altair-viz.github.io/user_guide/interactions.html#bindings-selections-conditions-making-charts-interactive), [Filter Transformations](https://altair-viz.github.io/user_guide/transform/filter.html#filter-transform)
+2. [FDV, Ch. 29: Telling a story and making a point](https://clauswilke.com/dataviz/telling-a-story.html)
+3. [D3 docs](https://d3js.org/)
 
-### <a name="week12"></a>Week 12: Web dev with Streamlit + HuggingFace
+### <a name="week12"></a>Week 12: Scientific Visualization & D3
 
 **Reading**:
 
-1. [Streamlit docs](https://streamlit.io/) - in particular [matplotlib plots](https://docs.streamlit.io/develop/api-reference/charts/st.pyplot)
-2. [Streamlit on HuggingFace](https://huggingface.co/docs/hub/en/spaces-sdks-streamlit)
-3. [Altair Docs](https://altair-viz.github.io/gallery/index.html) - in particular [Including Indexes](https://altair-viz.github.io/user_guide/data.html#including-index-data), [Interactivity & Selections](https://altair-viz.github.io/altair-tutorial/notebooks/06-Selections.html), [Multi-line tooltips](https://altair-viz.github.io/gallery/multiline_tooltip.html#multi-line-tooltip), [Interactive Binning](https://altair-viz.github.io/user_guide/interactions.html#bindings-selections-conditions-making-charts-interactive), [Filter Transformations](https://altair-viz.github.io/user_guide/transform/filter.html#filter-transform)
+1. VAD Ch. 8.4-8.6: Arrange Spatial Data
+2. VAD Ch. 11.6: Manipulate View
+3. [yt docs](https://yt-project.org/)
+4. [yt Volume Rendering Tutorial](https://yt-project.org/doc/visualizing/volume_rendering.html)
+5. [Chapter 5: Dimensions of Visual Misinformation in the Emerging Media Landscape in the book "Misinformation and Mass Audiences"](https://books.google.com/books?hl=en&lr=&id=jUw7DwAAQBAJ&oi=fnd&pg=PA91&dq=scientific+visualization+misinformation&ots=Cv0QmoCdM2&sig=7xycURu8Um_C9VtHqf-aWg4qaEo#v=onepage&q=scientific%20visualization%20misinformation&f=false)
 
-### <a name="week13"></a>Week 13: More web dev with Streamlit & Altair
-
-**Reading**:
-
-1. [Streamlit docs](https://streamlit.io/)
-2. [Streamlit on HuggingFace](https://huggingface.co/docs/hub/en/spaces-sdks-streamlit)
-
-### <a name="week14"></a>Week 14: Jekyll, Altair & vega-lite, Publishing Viz, Intro to SciViz
-
-**Reading**:
-
-1. [Jekyll Tutorials (hit "Next" to see them at bottom)](https://jekyllrb.com/tutorials/home/)
-2. [Chapter 5: Dimensions of Visual Misinformation in the Emerging Media Landscape in the book "Misinformation and Mass Audiences"](https://books.google.com/books?hl=en&lr=&id=jUw7DwAAQBAJ&oi=fnd&pg=PA91&dq=scientific+visualization+misinformation&ots=Cv0QmoCdM2&sig=7xycURu8Um_C9VtHqf-aWg4qaEo#v=onepage&q=scientific%20visualization%20misinformation&f=false)
-
-### <a name="week15"></a>Week 15: Even more with Jekyll & Altair & vega-lite + Guest lecture about scientific & cinematic viz from [NASA SVS](https://svs.gsfc.nasa.gov/)
-
-**Reading**:
-
-1. [Altair Docs](https://altair-viz.github.io/gallery/index.html) - in particular [Including Indexes](https://altair-viz.github.io/user_guide/data.html#including-index-data), [Interactivity & Selections](https://altair-viz.github.io/altair-tutorial/notebooks/06-Selections.html), [Multi-line tooltips](https://altair-viz.github.io/gallery/multiline_tooltip.html#multi-line-tooltip), [Interactive Binning](https://altair-viz.github.io/user_guide/interactions.html#bindings-selections-conditions-making-charts-interactive), [Filter Transformations](https://altair-viz.github.io/user_guide/transform/filter.html#filter-transform), [Geographic plots](https://altair-viz.github.io/altair-tutorial/notebooks/09-Geographic-plots.html), and [Fold Transformations](https://altair-viz.github.io/user_guide/transform/fold.html)
-2. VAD Ch. 8.4-8.6: Arrange Spatial Data
-3. VAD Ch. 11.6: Manipulate View
-4. [yt docs](https://yt-project.org/)
-5. [yt Volume Rendering Tutorial](https://yt-project.org/doc/visualizing/volume_rendering.html)
-
-### <a name="week16"></a>Week 16: Network Viz & Word cloud Viz; Class summary
+### <a name="week13"></a>Week 13: Viz Validation; Dynamic D3 & Svelte
 
 **Reading**:
 
 1. VAD Ch. 9: Arrange Networks and Trees
 2. VAD, Ch. 13.4.3.1: Reduce Items and Attributes
 3. VAD, Ch. 6: Rules of Thumb
-4. [FDV, Ch. 28: Choosing the right visualization software](https://serialmentor.com/dataviz/choosing-visualization-software.html)
-5. [FDV, Ch. 26: Don't go 3D](https://serialmentor.com/dataviz/no-3d.html)
-6. [FDV, Ch. 25: Avoid line drawings](https://serialmentor.com/dataviz/avoid-line-drawings.html)
+
+### <a name="week14"></a>Week 14: Putting It All Together
+
+**Reading**:
+
+1. [FDV, Ch. 28: Choosing the right visualization software](https://clauswilke.com/dataviz/choosing-visualization-software.html)
+2. [FDV, Ch. 26: Don't go 3D](https://clauswilke.com/dataviz/no-3d.html)
+3. [FDV, Ch. 25: Avoid line drawings](https://clauswilke.com/dataviz/avoid-line-drawings.html)
 
 # Assignments and Evaluation
 
@@ -389,6 +374,7 @@ the process.  "Correctness" in this case indicates that the code runs without
 issue, results are produced, and each component of the assignment is completed.
 The narrative description of the process will be graded on grammar minimally and
 more so on completeness and thoughtfulness.
+-->
 
 ### Grading Policy
 
