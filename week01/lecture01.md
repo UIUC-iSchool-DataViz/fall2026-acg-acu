@@ -42,9 +42,9 @@ https://uiuc-ischool-dataviz.github.io/fall2026-acg-acu/
 ## Summary of Locations
 
 - Grades and assignment links will be on [Canvas](https://canvas.illinois.edu/).
-- PrairieLearn: https://us.prairielearn.com/pl/course_instance/208117 where assignments will be completed.
+- PrairieLearn: https://us.prairielearn.com/pl/course_instance/228874 where assignments will be completed.
 - Course repo is at [UIUC-iSchool-DataViz/fall2026-acg-acu](https://github.com/UIUC-iSchool-DataViz/fall2026-acg-acu/), automatically built at [uiuc-ischool-dataviz.github.io/fall2026-acg-acu/](https://uiuc-ischool-dataviz.github.io/fall2026-acg-acu/). Lecture notes, notebooks, data and course info will be placed there.
-- CampusWire: https://campuswire.com/c/G194FC743 - the best place to ask questions in a channel either about the homework or about the general discussion of a language or framework.
+- CampusWire: https://campuswire.com/c/GFCB12F47 - the best place to ask questions in a channel either about the homework or about the general discussion of a language or framework.
 
 You are invited to clone the repo, fork and submit changes (typos, etc!), and to use any information in it in the future.
 
