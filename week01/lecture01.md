@@ -24,14 +24,14 @@ Website.](https://chancellor.illinois.edu/land_acknowledgement.html)
 
 ## Basics
 
-9:00AM-11:50AM, 126 iSchool (501 E Daniel)
+9:00AM-11:50AM, 106B1 Engineering Hall
 
 ### Instructors & TAs
 
 Matthew Turk - `mjturk@illinois.edu`  
 Office Hours: **By appointment**
 
-- Hunter DeMeyer - `demeyer3@illinois.edu`
+- Yilin Xia - `yilinx2@illinois.edu`
 
 https://uiuc-ischool-dataviz.github.io/fall2026-acg-acu/
 
