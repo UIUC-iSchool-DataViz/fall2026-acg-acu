@@ -9,7 +9,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.0
+      jupytext_version: 1.19.5
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -128,7 +128,7 @@ import numpy as np
 
 Let's put our time delimiter in units of YEAR MONTH DAY, which will naturally sort our data.
 
-*NOTE: for the online class, this can be copied and pasted into chat window, for in-person class, can be copied and pasted into CampusWire*
+*NOTE: if someone has a question about this, it can be copied and pasted into CampusWire*
 
 ```python
 time = [
@@ -287,10 +287,10 @@ def converter(v):
 
 Where is my file located?  One way to do this is open a terminal to look, or use a file browser.  But it is likely wherever downloads usually get stored on your local machine!
 
-**Note:** if you are on a windows, you will have a different filepath: Can someone with a windows machine post in CampusWire what their filepath looks like so folks can see it?
+**Note:** if you are on Windows, your filepath will look different (something like `C:\Users\yourname\Downloads\GDP.csv`) -- if you're unsure, ask on CampusWire.
 
 ```python
-myFredFile = "/Users/jnaiman/Downloads/GDP.csv"
+myFredFile = "/Users/yourname/Downloads/GDP.csv"
 ```
 
 We're going to use loadtxt to load this file from `numpy`, but we want give each column a name & data type:
@@ -818,10 +818,13 @@ I had to run this to "fix" the colors of this image, but you shouldn't have to d
 # Also, I think there is a way to do it using the GUI, but I've never used the Anaconda GUI to install things before
 import PIL.Image as Image
 
-# data = np.array(Image.open("https://uiuc-ischool-dataviz.github.io/spring2019online/week01/images/stitch_nobg_tilted.png", "r"))
-im = Image.open(
-    "/Users/jnaiman/is445_spring2022/week02/images/stitch_nobg_tilted.png", "r"
+import io
+import requests
+
+response = requests.get(
+    "https://uiuc-ischool-dataviz.github.io/spring2019online/week01/images/stitch_nobg_tilted.png"
 )
+im = Image.open(io.BytesIO(response.content))
 
 # lets check out our figure
 fig, ax = plt.subplots(figsize=(10, 10))
@@ -890,7 +893,7 @@ np.unique(data[:, :, 0])
 
 ```python
 # save zee image
-# im.save("/Users/jnaiman/spring2019online/week01/images/stitch_reworked.png")
+# im.save("stitch_reworked.png")
 ```
 
 ## ------- DONE REWORKING IMAGE ------
@@ -903,7 +906,10 @@ np.unique(data[:, :, 0])
 ```python
 import PIL.Image as Image
 
-im = Image.open("/Users/jnaiman/Downloads/stitch_reworked.png", "r")
+response = requests.get(
+    "https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/stitch_reworked.png"
+)
+im = Image.open(io.BytesIO(response.content))
 
 data = np.array(im)
 ```

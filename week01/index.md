@@ -21,9 +21,11 @@ data:
   link: https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/stitch_reworked.png
 unused:
 - type: ipynb
+  filename: prep_notes_week01
   title: Prep Notebook (alternate)
-  description: Alternate prep notebook
+  description: Alternate, more detailed prep notebook
 - type: ipynb
+  filename: prep_notebook_week01
   title: Prep Notebook, Week 1
   description: Prep notebook for this week
 ---
@@ -40,7 +42,7 @@ This week, we went over the structure of the course, as well as some basics of
 why we visualize, who we visualize for, and how to think about our relationship
 with our data.
 
- * [Mark Newman's Election Maps](http://www-personal.umich.edu/~mejn/election/2008/)
+ * [Mark Newman's Election Maps](http://web.archive.org/web/20231121191032/https://www-personal.umich.edu/~mejn/election/2008/)
  * [Lilo & Stitch](https://www.netflix.com/title/60022989)
  * [Peg + Cat: The Three Friends Problem](http://www.pbs.org/parents/peg/episode-119-the-big-dog-problem-the-three-friends-problem/)
  * [FRED](https://fred.stlouisfed.org)
@@ -55,6 +57,6 @@ We will be using several Python packages that you need to install.
 ## Optional Reading List (See syllabus for acronyms)
 
  1. VAD, Ch. 1: What's Viz, and Why Do It? 
- 2. <a href="https://serialmentor.com/dataviz/introduction.html">FDV, Ch. 1: Introduction</a> & <a href="https://serialmentor.com/dataviz/proportional-ink.html">FDV, Ch. 17: The principle of proportional ink</a> 
+ 2. <a href="https://clauswilke.com/dataviz/introduction.html">FDV, Ch. 1: Introduction</a> & <a href="https://clauswilke.com/dataviz/proportional-ink.html">FDV, Ch. 17: The principle of proportional ink</a> 
  3. <a href="https://medium.com/multiple-views-visualization-research-explained/same-data-multiple-perspectives-curse-of-knowledge-in-visual-data-communication-d827c381f936">Same Data, Multiple Perspectives</a> 
  4. [Intro to Jupyter Notebook Video](https://www.youtube.com/watch?v=3C9E2yPBw7s)

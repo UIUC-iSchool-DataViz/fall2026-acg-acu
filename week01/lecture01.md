@@ -8,7 +8,7 @@ description: >-
   The syllabus for the course, along with discussions about "what"
   visualizations are, why we make them, and how to orient yourself in the
   course.
-date: 2026-01-20
+date: 2026-08-24
 ---
 
 ## Land Acknowledgment
@@ -24,7 +24,7 @@ Website.](https://chancellor.illinois.edu/land_acknowledgement.html)
 
 ## Basics
 
-3:30PM-4:50PM, 126 iSchool (501 E Daniel)
+9:00AM-11:50AM, 126 iSchool (501 E Daniel)
 
 ### Instructors & TAs
 
@@ -33,7 +33,7 @@ Office Hours: **By appointment**
 
 - Hunter DeMeyer - `demeyer3@illinois.edu`
 
-https://uiuc-ischool-dataviz.github.io/spr2026-acg-acu/
+https://uiuc-ischool-dataviz.github.io/fall2026-acg-acu/
 
 ---
 
@@ -43,7 +43,7 @@ https://uiuc-ischool-dataviz.github.io/spr2026-acg-acu/
 
 - Grades and assignment links will be on [Canvas](https://canvas.illinois.edu/).
 - PrairieLearn: https://us.prairielearn.com/pl/course_instance/208117 where assignments will be completed.
-- Course repo is at [UIUC-iSchool-DataViz/spr2026-acg-acu](https://github.com/UIUC-iSchool-DataViz/spr2026-acg-acu/), automatically built at [uiuc-ischool-dataviz.github.io/spr2026-acg-acu/](https://uiuc-ischool-dataviz.github.io/spr2026-acg-acu/). Lecture notes, notebooks, data and course info will be placed there.
+- Course repo is at [UIUC-iSchool-DataViz/fall2026-acg-acu](https://github.com/UIUC-iSchool-DataViz/fall2026-acg-acu/), automatically built at [uiuc-ischool-dataviz.github.io/fall2026-acg-acu/](https://uiuc-ischool-dataviz.github.io/fall2026-acg-acu/). Lecture notes, notebooks, data and course info will be placed there.
 - CampusWire: https://campuswire.com/c/G194FC743 - the best place to ask questions in a channel either about the homework or about the general discussion of a language or framework.
 
 You are invited to clone the repo, fork and submit changes (typos, etc!), and to use any information in it in the future.
@@ -71,7 +71,7 @@ On your laptop, open a notepad or scratch text editor. Answer these questions:
 
 ## "Quiz"!
 
-**In a group of about 4 or 5 people**, visualize the results of your group's collective "data.""
+**In a group of about 4 or 5 people**, visualize the results of your group's collective "data."
 
 - What are the most memorable movies you saw over the last year?
 - Do you prefer cats or dogs?
@@ -86,7 +86,7 @@ And, be sure to say hi to each other!
 
 If you want to use your own Python setup, I recommend:
 
-1. Download Anaconda: [anaconda.com/download](anaconda.com/download)
+1. Download Anaconda: [anaconda.com/download](https://www.anaconda.com/download)
 1. Ensure that Jupyterlab is installed and working
 1. Ensure that you have matplotlib, pandas and numpy installed and working.
 
@@ -97,13 +97,13 @@ However, we encourage you to use PrairieLearn for in-class work.
 ## Syllabus
 
 - Week 1 (Today) - Introduction
-- Week 2 - Data Storage and Operations
-- Week 3 - Types of Viz
-- Week 4 - Choosing Colors
-- Week 5 - Beginning interactivity
-- Week 6 - Continuing interactivity with bqplot
-- Week 7 - More with dashboards & Map Viz (**this class might be "flipped"**)
-- Week 8 - Maps, maps and more maps; Streamlit and Intro to Vega-lite/Altair
+- Week 2 - Data Storage and Operations; Image Data
+- Week 3 - Transformations and Colors
+- Week 4 - Beginning Interactivity: Traitlets, Widgets & bqplot
+- Week 5 - More Interactivity: bqplot & intro to vega-lite
+- Week 6 - Viz Platforms and more vega-lite
+- Week 7 - Time Series and Maps with bqplot (**this class might be "flipped"**)
+- Week 8 - More Maps: projections, cartopy and dashboards
 
 notes:
 This is a rough syllabus! These are many of the topics we will cover, but
@@ -121,14 +121,12 @@ We might start getting into javascript earlier, depending on how we are doing.
 
 ## Syllabus, cont
 
-- Week 9 - Spring break, no class!
-- Week 10 - Viz Audience; More Streamlit, Vega-lite (possible JavaScript)
-- Week 11 - Streamlit Apps in HuggingFace
-- Week 12 - A few more Streamlit+HuggingFace things; Publishing Viz
-- Week 13 - Intro to Jekyll
-- Week 14 - More Jekyll+Altair+vega-lite things
-- Week 15 - Scientific Viz & AVL Guest lecture (**partially flipped class**)
-- Week 16 - Network Visualization & Word clouds (**flipped class**)
+- Week 9 - GeoPandas & Intermediate vega-lite
+- Week 10 - Choosing Charts; finishing the vega-lite lab
+- Week 11 - Updating Data; Intro to D3 & Starboard
+- Week 12 - Scientific Viz & D3
+- Week 13 - Viz Validation; Dynamic D3 & Svelte
+- Week 14 - Putting It All Together (**partially flipped class**)
 
 ---
 
@@ -136,7 +134,7 @@ We might start getting into javascript earlier, depending on how we are doing.
 
 - Weeks 1-5: Basics of visualization (Python)
 - Weeks 6-10: Interactivity and Viz Types (Python and HTML)
-- Weeks 11-16: Platforms and dimensionality (Python, HTML/Javascript, Web-dev methods)
+- Weeks 11-14: Platforms and dimensionality (Python, HTML/Javascript, Web-dev methods)
 
 notes:
 This is a rough syllabus! These are many of the topics we will cover, but
@@ -169,7 +167,7 @@ representing data in different ways.
 
 ---
 
-## Weeks 11-15
+## Weeks 11-14
 
 - Scientific Visualization
 - Alternative visualization platforms
@@ -244,9 +242,8 @@ This is an _introduction_ to data visualization - we will focus on the _fundamen
 
 ## Structure of Class
 
-- Topic introduction and lecture (60-80 minutes, usually Monday)
-- Hands-on, in-class coding (Monday and Wednesday)
-- Lab time (usually Wednesday)
+- Topic introduction and lecture (60-90 minutes)
+- Hands-on, in-class coding and lab time
 - Wrap-up (as needed)
 
 This isn't the first time we've taught this course, but we are always trying new things. This semester, we're going to be focusing much more on separating apart the theory and the practice of visualization, and we're also going to be using PrairieLearn so that we can try out different tools.
@@ -360,7 +357,7 @@ We have a CampusWire instance for peer-to-peer discussion and questions about as
 
 We're going to be using [PrairieLearn](https://us.prairielearn.com/) this semester. You can find our course instance at:
 
-https://us.prairielearn.com/pl/course_instance/192343
+https://us.prairielearn.com/pl/course_instance/208117
 
 We'll try it out today and you can see how we can use it for in-class coding as well as for assignments.
 
@@ -382,9 +379,7 @@ There'll be a few more along the way.
 
 ## CampusWire
 
-We will be sharing a Campuswire channel with the in-person class, so feel free to converse with them as well!
-
-- CampusWire channel at [https://campuswire.com/c/G194FC743](https://campuswire.com/p/G194FC743)
+- CampusWire channel at [https://campuswire.com/c/G194FC743](https://campuswire.com/c/G194FC743)
   - `#general` : General announcements, place to ask questions
   - `#misc` : see a cool viz you want to share? This is the place!
   - `#introduce-yourself` : where you want to "say hi" for Homework #1
@@ -463,7 +458,7 @@ Strategy:
 # Pause to check out Homework \#1
 
 notes:
-at this stage - go over the "log onto CampusLearn", "syllabus quiz" and "intake survey" parts of the assignment
+at this stage - go over the "log onto Canvas", "syllabus quiz" and "intake survey" parts of the assignment
 
 we will get to the Python notebook "Introduction to PrairieLearn" sections next section
 
@@ -762,7 +757,7 @@ This famous example shows 4 datasets with the exact same mean, variance and corr
 Statistics can be useful, but visualization generated context!
 
 <a title="Anscombe.svg: Schutz
-(label using subscripts): Avenue / CC BY-SA (https://creativecommons.org/licenses/by-sa/3.0)" href="https://commons.wikimedia.org/wiki/File:Anscombe%27s_quartet_3.svg"><img width="768px" alt="Anscombe&#039;s quartet 3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Anscombe%27s_quartet_3.svg/1000px-Anscombe%27s_quartet_3.svg.png"></a>
+(label using subscripts): Avenue / CC BY-SA (https://creativecommons.org/licenses/by-sa/3.0)" href="https://commons.wikimedia.org/wiki/File:Anscombe%27s_quartet_3.svg"><img width="768px" alt="Anscombe&#039;s quartet 3" src="https://commons.wikimedia.org/wiki/Special:FilePath/Anscombe%27s_quartet_3.svg?width=1000"></a>
 
 ---
 
@@ -946,14 +941,15 @@ Our choices must be:
 ## Election Maps
 
 Mark Newman of the University of Michigan has created visualizations of the
-election maps from several of the most recent elections. For more information
-and context, see his page http://www-personal.umich.edu/~mejn/election/2008/ .
+election maps from several of the most recent elections. His page is no longer
+live, so these link to Wayback Machine snapshots. For more information
+and context, see his page http://web.archive.org/web/20231121191032/https://www-personal.umich.edu/~mejn/election/2008/ .
 
-- [Map 1](http://www-personal.umich.edu/~mejn/election/2008/statemapredbluer1024.png)
-- [Map 2](http://www-personal.umich.edu/~mejn/election/2008/statepopredblue1024.png)
-- [Map 3](http://www-personal.umich.edu/~mejn/election/2008/countymapredbluer1024.png)
-- [Map 4](http://www-personal.umich.edu/~mejn/election/2008/countymappurpler1024.png)
-- [Map 5](http://www-personal.umich.edu/~mejn/election/2008/countycartpurple1024.png)
+- [Map 1](http://web.archive.org/web/20231121051402/https://www-personal.umich.edu/~mejn/election/2008/statemapredbluer1024.png)
+- [Map 2](http://web.archive.org/web/20230509154758/http://www-personal.umich.edu/~mejn/election/2008/statepopredblue1024.png)
+- [Map 3](http://web.archive.org/web/20231128022219/http://www-personal.umich.edu/~mejn/election/2008/countymapredbluer1024.png)
+- [Map 4](http://web.archive.org/web/20230530022247/http://www-personal.umich.edu/~mejn/election/2008/countymappurpler1024.png)
+- [Map 5](http://web.archive.org/web/20221217021417/http://www-personal.umich.edu/~mejn/election/2008/countycartpurple1024.png)
 
 notes:
 These are great, but some criticisms might be that the color red is more apparent to the human eye than the color blue. And in the population-to-area adjusted maps, it's difficult to read for people used to geographic accuracy.
