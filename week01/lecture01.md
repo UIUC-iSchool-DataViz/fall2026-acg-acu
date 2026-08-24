@@ -530,9 +530,11 @@ Data Viz is **task-oriented**.
 <!-- .slide: data-background-image="https://www.savalli.us/BIO370/Anatomy/AnatomyImages/TyrannosaurusSkeletonLabel.jpg" data-background-size="auto" -->
 
 notes:
+ALT TEXT: This background image is of a Dinosaur skeleton.  It is somewhat informally drawn, but all of the bones are individually labeled, and we assume they have accurate shapes.
+
 I really like this definition because it gives us a sense of purpose - i.e. that our visualization must help a human with a task that has to do with data.
 
-here for example, we might want to know the labels of bones or how they fit together
+Here for example, we might want to know the labels of bones or how they fit together.
 
 ---
 
@@ -541,6 +543,9 @@ here for example, we might want to know the labels of bones or how they fit toge
 Artistic representations are used to convey emotions:
 
 <!-- .slide: data-background-image="https://i.etsystatic.com/5150206/r/il/fe175b/1823842266/il_570xN.1823842266_b9y3.jpg" data-background-size="auto" -->
+
+notes:
+ALT TEXT: This background image is an oil painting of a Dinosaur being approached by a comet or other cosmic projectile.  It has wild colors and frantic brushstrokes.
 
 ---
 
@@ -551,6 +556,8 @@ Movies, comics, or other cinematic representations are used to tell stories:
 <!-- .slide: data-background-image="http://www.dinopit.com/wp-content/uploads/2012/08/funny-dinosaur.jpg" data-background-size="auto" -->
 
 notes:
+ALT TEXT: This background is a humorous set of two dinosaurs, with one saying "I love you this much" and the other saying, "That is not that much. " They're both t-rexes and have tiny arms.
+
 we will be using artistic concepts and elements of storytelling, BUT that is not our focus -- here we are TASK oriented.
 
 ---
@@ -560,6 +567,8 @@ we will be using artistic concepts and elements of storytelling, BUT that is not
 <!-- .slide: data-background-image="images/diagram_for_gradclass.png" data-background-size="auto 75%" -->
 
 notes:
+ALT TEXT: This is a diagram of the libraries we will cover in class.  It includes most of the Python ecosystem and is divided into categories around graphics, charts, etc.
+
 this is another way of looking at this.
 
 here is the overall diagram of the things we'll cover in this class -- you can see there are a lot of topics from different areas and they are all interconnected.
@@ -588,6 +597,8 @@ Peg + Cat:
 https://www.youtube.com/embed/In72QAQJ1tY?rel=0
 
 notes:
+ALT TEXT: This is a childrens' television program where a cartoon cat and a little girl show charts to describe their interactions with a big dog that lives next door.
+
 "There are lots of thing you can compare on a graph / Like who is the shortest
 or the tallest giraffe / You can chart how much you walk / How much that you
 laugh / There are lots of things you can compare on a graph"
@@ -601,7 +612,7 @@ laugh / There are lots of things you can compare on a graph"
 Peg + Cat:
 https://www.youtube.com/embed/In72QAQJ1tY?rel=0
 
-<img src="images/peg_cat1.png" alt="drawing" height="400"/>
+<img src="images/peg_cat1.png" alt="drawing of Peg + Cat showing a graph indicating how much love they have" height="400"/>
 
 "There are lots of thing you can compare on a graph / Like who is the shortest
 or the tallest giraffe..."
@@ -620,7 +631,7 @@ laugh / There are lots of things you can compare on a graph"
 Peg + Cat:
 https://www.youtube.com/embed/In72QAQJ1tY?rel=0
 
-<img src="images/peg_cat2.png" alt="drawing" height="400"/>
+<img src="images/peg_cat2.png" alt="drawing of Peg + Cat showing a graph indicating how much love they have" height="400"/>
 
 "But the one thing you can't chart / Is how you feel in your heart"
 
@@ -636,6 +647,8 @@ laugh / There are lots of things you can compare on a graph"
 <!-- .slide: data-background-image="images/fov.svg" data-background-size="contain" -->
 
 notes:
+ALT TEXT: A diagram of the field of view of human eyes.
+
 Visual information is communicated through our eyes, where it is processed. At
 the most basic level, we can see a range of about 210 degrees horizontally with
 one or both eyes. The region that is covered by both ("binocular") is about
@@ -645,7 +658,7 @@ You can only cram so much information into the human eye.
 
 ---
 
-![](https://upload.wikimedia.org/wikipedia/commons/2/27/AcuityHumanEye.svg)
+![A diagram indicating the acuity of the human eye as a function of angular distance from the fovea.  It is sharply peaked at the fovea and has a steep dropoff very quickly.](https://upload.wikimedia.org/wikipedia/commons/2/27/AcuityHumanEye.svg)
 
 By Vanessa Ezekowitz [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons
 
@@ -667,6 +680,9 @@ _conjunction_ with our field of view.
 
 There are 12 dots, can you count them all at the same time?
 
+notes:
+ALT TEXT: A set of lines and dots that are hard to perceive simultaneously.  They are in a grid.
+
 ---
 
 ## Your brain does interpolation
@@ -676,6 +692,9 @@ There are 12 dots, can you count them all at the same time?
 1. Look at the cross
 1. Close left eye, keep looking at the cross
 1. Slowly move your head toward & away from screen until dot disappears
+
+notes:
+ALT TEXT: An optical illusion of a cross next to a spot.
 
 ---
 
@@ -692,6 +711,7 @@ Your visual cortex is processing information from different parts of this page *
 <!-- .slide: data-background-image="https://www.rd.com/wp-content/uploads/2018/01/Can-You-Spot-the-10-Differences-in-This-Picture-_585659516-Ksenya-Savva.jpg" data-background-size="auto 75%" -->
 
 notes:
+ALT TEXT: Two different images of a little mammal in a cool coastal scene, with many minor differences scattered between the two.
 compare this to how long it would take to spot differences in 2 songs - you'd have to listen to both songs (probably more than once) and compare after! This would be sequential rather than parallel data transfer!
 
 ---
@@ -740,7 +760,7 @@ numbers, and not have as clear an impression. It also takes a lot longer.
 
 ---
 
-![FRED Graph](images/fredgraph.png)
+![FRED Graph that includes the Great Recession of 2008](images/fredgraph.png)
 
 notes:
 You might immediately notice a few things about this image, but one item that
