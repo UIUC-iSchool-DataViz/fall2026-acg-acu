@@ -34,6 +34,11 @@ But even loading the data is only the first step.  To understand how to build re
 
 <!-- .slide: data-background-image="images/viz_diagram.svg" data-background-size="contain"-->
 
+notes:
+
+This is an updated version of our visualization diagram, but contains not much
+new information other than highlighting we are going to be focusing on the data
+aspects for a bit.
 
 ---
 
@@ -330,6 +335,9 @@ additional operations.
 
 <!-- .slide: data-background-image="images/cube.png" data-background-size="auto 50%" data-background-position="right 20% bottom 50%"-->
 
+notes:
+
+The background image here is a cube divided into regular sub-cubes.
 
 ---
 
@@ -341,6 +349,11 @@ additional operations.
 
 <!-- .slide: data-background-image="images/cube_z_slice.png" data-background-size="auto 50%" data-background-position="right 20% bottom 50%"-->
 
+notes:
+
+The background image here is a cube divided into regular sub-cubes.  I have
+highlighted all the cubes at a particular z-value, emphasizing that we can
+"slice" through it and select everything there.
 
 ---
 
@@ -368,6 +381,9 @@ How do we draw an image?
 
 <!-- .slide: data-background-image="images/line.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
 
+notes:
+
+Here is a line drawn inside a box.
 
 ---
 
@@ -384,6 +400,9 @@ width = 1.0
 
 <!-- .element: class="left_abs" style="width: 50%"-->
 
+notes:
+
+Same image.
 
 ---
 
@@ -394,6 +413,9 @@ Convert to an 8x8 image.
 
 <!-- .slide: data-background-image="images/line_grid.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
 
+notes:
+
+Now the line image is discretized on an 8x8 grid.  It's chunky.
 
 ---
 
@@ -404,6 +426,9 @@ Convert to an 8x8 image.
 
 <!-- .slide: data-background-image="images/line_grid_fill.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
 
+notes:
+
+Now the line image is discretized on an 8x8 grid.  It's chunky.
 
 ---
 
@@ -414,6 +439,9 @@ Convert to an 16x16 image.
 
 <!-- .slide: data-background-image="images/line_grid_fine2.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
 
+notes:
+
+Now the line image is discretized on an 8x8 grid.  It's chunky.
 
 ---
 
@@ -423,6 +451,10 @@ Convert to an 16x16 image.
 Convert to an 16x16 image.
 
 <!-- .slide: data-background-image="images/line_grid_fine2_fill.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
+
+notes:
+
+Now the line image is discretized on an 16x16 grid.  It's less chunky than before.
 
 
 ---
@@ -435,6 +467,10 @@ Convert to an 32x32 image.
 <!-- .slide: data-background-image="images/line_grid_fine4.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
 
 
+notes:
+
+Now the line image is discretized on an 32x32 grid.  It's a good bit less chunky than before.
+
 ---
 
 
@@ -443,6 +479,11 @@ Convert to an 32x32 image.
 Convert to an 32x32 image.
 
 <!-- .slide: data-background-image="images/line_grid_fine4_fill.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
+
+
+notes:
+
+Now the line image is discretized on an 32x32 grid.  It's a good bit less chunky than before.
 
 ---
 
@@ -457,6 +498,12 @@ Convert to an 32x32 image.
 src="https://www.youtube.com/embed/qfDxiVpgjiM" frameborder="0"
 allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
+notes:
+
+This is a video of the Star Wars video game from long long ago.  It was notable
+for being done in vector graphics, rather than raster.  Specifically, this
+means that it had sharp, crisp lines everywhere -- but at the expense of things
+like fill and some kinds of detail.
 
 ---
 
@@ -531,12 +578,20 @@ radius = 1.0
 
 <!-- .element: class="left_abs" style="width: 50%"-->
 
+notes:
+
+Now we repeat the exercise with a single circle drawn on a grid.
 
 ---
 
 ## Let's draw many circles.
 
 <!-- .slide: data-background-image="images/dots.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
+
+
+notes:
+
+Now we repeat the exercise with many circles drawn on a grid.
 
 
 ---
@@ -546,6 +601,10 @@ radius = 1.0
 
 <!-- .slide: data-background-image="images/dots_grid.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
 
+notes:
+
+Now we repeat the exercise with many circles drawn on a grid.  We start to see
+that they partially overlap some cells.
 
 ---
 
@@ -554,6 +613,11 @@ radius = 1.0
 
 <!-- .slide: data-background-image="images/dots_grid_fill.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
 
+notes:
+
+Now we repeat the exercise with many circles drawn on a grid.  We start to see
+that they partially overlap some cells.  But, in doing so, they are pretty
+blocky in the grid representation.
 
 ---
 
@@ -562,6 +626,9 @@ radius = 1.0
 
 <!-- .slide: data-background-image="images/dots_grid_fine2.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
 
+notes:
+
+We see the same image but with a finer grid, and we see that this improves the representation.
 
 ---
 
@@ -569,6 +636,11 @@ radius = 1.0
 ## Let's draw many circles.
 
 <!-- .slide: data-background-image="images/dots_grid_fine2_fill.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
+
+
+notes:
+
+We see the same image but with a finer grid, and we see that this improves the representation.
 
 
 ---
@@ -579,6 +651,11 @@ radius = 1.0
 <!-- .slide: data-background-image="images/dots_grid_fine4.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
 
 
+notes:
+
+We see the same image but with an even finer grid, and we see that this
+improves the representation.
+
 ---
 
 
@@ -586,6 +663,11 @@ radius = 1.0
 
 <!-- .slide: data-background-image="images/dots_grid_fine4_fill.svg" data-background-size="auto 75%" data-background-position="right 10% bottom 50%"-->
 
+
+notes:
+
+We see the same image but with an even finer grid, and we see that this
+improves the representation.
 
 ---
 
@@ -631,14 +713,13 @@ fallback fonts available to the rendering engine can be used.
 
 ---
 
-<img src="images/font_A.png">
+<img src="images/font_A.png" alt="Different levels of resolution of the letter A.  With higher resolution we get better representation, but also somewhat qualitatively different results as the engine understands how to 'degrade' lower resolution.">
 
-<img src="images/font_O.png">
+<img src="images/font_O.png" alt="Different levels of resolution of the letter A.  With higher resolution we get better representation, but also somewhat qualitatively different results as the engine understands how to 'degrade' lower resolution.">
 
-<img src="images/font_T.png">
+<img src="images/font_T.png" alt="Different levels of resolution of the letter A.  With higher resolution we get better representation, but also somewhat qualitatively different results as the engine understands how to 'degrade' lower resolution.">
 
-<img src="images/font_X.png">
-
+<img src="images/font_X.png" alt="Different levels of resolution of the letter A.  With higher resolution we get better representation, but also somewhat qualitatively different results as the engine understands how to 'degrade' lower resolution.">
 
 ---
 
@@ -666,7 +747,7 @@ how we draw with it, let's do some things to it.
 
 <div class="left" data-markdown="true">
 
-![](images/palette.svg)<!-- .element: style="height: 20em;" -->
+![Our operation palette of filtering, transforming, and modifying data.](images/palette.svg)<!-- .element: style="height: 20em;" -->
 
 </div>
 
@@ -732,6 +813,11 @@ not without its possible faults, however.
 - $\frac{\Sigma v_i w_i}{\Sigma w_i}$ (weighted average)
 
 
+notes:
+
+The image is of a set of circles falling into a set of grids, to indicate that
+we can place them in regular discrete bins.
+
 ---
 
 ## Splitting Operations
@@ -740,6 +826,11 @@ We can split or group collections of data based on some characteristic.
 
 <!-- .slide: data-background-image="images/split.svg" data-background-size="65% auto" data-background-position="top 10.0em center"-->
 
+notes:
+
+The image shows one dataset composed of multiple colors being split into
+datasets that each contain only one color, to indicate that we can apply
+criteria to map one to many.
 
 ---
 
@@ -750,6 +841,11 @@ We can split or group collections of data based on some characteristic.
 
 <!-- .slide: data-background-image="images/split_finished.svg" data-background-size="65% auto" data-background-position="top 10.0em center"-->
 
+notes:
+
+The image shows one dataset composed of multiple colors being split into
+datasets that each contain only one color, to indicate that we can apply
+criteria to map one to many.
 
 ---
 
@@ -813,6 +909,9 @@ distribution?
 
 <!-- .slide: data-background-image="images/binning_1.svg" data-background-size="75% auto" data-background-position="bottom 30% center"-->
 
+notes:
+
+The image shows circles being put into a one-dimensional continuum.
 
 ---
 
@@ -824,6 +923,10 @@ distribution?
 
 <!-- .slide: data-background-image="images/binning_2.svg" data-background-size="75% auto" data-background-position="bottom 30% center" -->
 
+notes:
+
+The image shows circles being put into a one-dimensional set of bins with
+regular spacing.
 
 ---
 
@@ -841,6 +944,11 @@ bin_id = floor( (value - left_edge ) / bin_width)
 
 <!-- .slide: data-background-image="images/binning_2.svg" data-background-size="75% auto" data-background-position="bottom 30% center" -->
 
+notes:
+
+The image shows circles being put into a one-dimensional set of bins with
+regular spacing.
+
 
 ---
 
@@ -854,6 +962,9 @@ Non-uniform bins require searching.
 
 <!-- .slide: data-background-image="images/binning_3.svg" data-background-size="75% auto" data-background-position="bottom 30% center" -->
 
+notes:
+
+The image shows putting circles into irregularly-spaced bins.
 
 ---
 
@@ -956,6 +1067,10 @@ components of its representation.
 
 <!-- .slide: data-background-image="images/dimensions_1.svg" data-background-size="auto 50%" data-background-position="right 20% bottom 50%"-->
 
+notes:
+
+A graph is shown with circles that are filled and placed at different locations.
+
 
 ---
 
@@ -970,6 +1085,9 @@ components of its representation.
 
 <!-- .slide: data-background-image="images/dimensions_2.svg" data-background-size="auto 50%" data-background-position="right 20% bottom 50%"-->
 
+notes:
+
+Now the circles have different colors.
 
 ---
 
@@ -985,6 +1103,9 @@ components of its representation.
 
 <!-- .slide: data-background-image="images/dimensions_3.svg" data-background-size="auto 50%" data-background-position="right 20% bottom 50%"-->
 
+notes:
+
+Now the circles have different colors *and* sizes.
 
 ---
 
@@ -1001,6 +1122,9 @@ components of its representation.
 
 <!-- .slide: data-background-image="images/dimensions_4.svg" data-background-size="auto 50%" data-background-position="right 20% bottom 50%"-->
 
+notes:
+
+The circles are no longer circles, but instead are stars, diamonds, squares.
 
 ---
 
@@ -1017,3 +1141,8 @@ components of its representation.
 - Relationship
 
 <!-- .slide: data-background-image="images/dimensions_5.svg" data-background-size="auto 50%" data-background-position="right 20% bottom 50%"-->
+
+notes:
+
+Now it's all the same data points but they have lines connecting them along
+with all the different representations.
