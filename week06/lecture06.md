@@ -397,15 +397,15 @@ We will edit files ending in `.vg`, and they can access files we prepare in note
 
 ## Embedding vega-lite
 
-You must include the correct javascript includes to embed vega-lite in the `&lt;head&gt;` section of your HTML.  For instance:
+You must include the correct javascript includes to embed vega-lite in the `<head>` section of your HTML.  For instance:
 
 ```html
- &lt;script src="https://cdn.jsdelivr.net/npm/vega@6.4.0/build/vega.min.js"
-        integrity="sha256-j2o1h8+NT0LH4IEg4+sF0GfnRtVU450tz1KswL1boo8=" crossorigin="anonymous"&gt;&lt;/script&gt;
-    &lt;script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.3/build/vega-lite.min.js"
-        integrity="sha256-NamCHfg4glsFpqc+lBS1h0ehsYMhWDhY7ZA8Zjk6XH4=" crossorigin="anonymous"&gt;&lt;/script&gt;
-    &lt;script src="https://cdn.jsdelivr.net/npm/vega-embed@7.3.0/build/vega-embed.min.js"
-        integrity="sha256-sUVcq6L7GnL7RgJboLoTFuLbx/DdQKP2BAFyv5wIupE=" crossorigin="anonymous"&gt;&lt;/script&gt;
+ <script src="https://cdn.jsdelivr.net/npm/vega@6.4.0/build/vega.min.js"
+        integrity="sha256-j2o1h8+NT0LH4IEg4+sF0GfnRtVU450tz1KswL1boo8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.3/build/vega-lite.min.js"
+        integrity="sha256-NamCHfg4glsFpqc+lBS1h0ehsYMhWDhY7ZA8Zjk6XH4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@7.3.0/build/vega-embed.min.js"
+        integrity="sha256-sUVcq6L7GnL7RgJboLoTFuLbx/DdQKP2BAFyv5wIupE=" crossorigin="anonymous"></script>
 ```
 
 ---
