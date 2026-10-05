@@ -412,11 +412,11 @@ You must include the correct javascript includes to embed vega-lite in the `<hea
 
 ## Embedding vega-lite
 
-Embedding vega-lite requires identification of a DOM element within which to place your visualization as well as providing the specification of that visualization.  For example, we can define a `&lt;div&gt;` like so:
+Embedding vega-lite requires identification of a DOM element within which to place your visualization as well as providing the specification of that visualization.  For example, we can define a `<div>` like so:
 
 ```html
-&lt;div id="viz"&gt;
-&lt;/div&gt;
+<div id="viz">
+</div>
 ```
 
 And then we can utilize the `vegaEmbed` function like so:
