@@ -85,6 +85,14 @@ Chart(df).mark_bar().encode(
 
 <!-- .slide: data-background-image="images/altair_example01.png" data-background-size="30% auto" data-background-position="right 20% bottom 20%" -->
 
+notes:
+
+The background image is a bar chart titled "Number of Records" vs
+"BIN(precipitation)".  Precipitation values are binned in increments of 5, and
+the bar heights fall off sharply after the first bin -- the vast majority of
+records have precipitation near zero, with only a handful of taller
+precipitation events.
+
 ---
 
 ## Evaluation: Costs
@@ -143,6 +151,7 @@ vega-lite has numerous different `mark` types.  We can break these down by the t
 - `area` & `line`
 - `bar` & `rect`
 - `point` & `circle` & `square`
+- `arc` (pie/donut charts)
 - `rule` & `text`
 - `tick`
 - `geoshape`
@@ -154,11 +163,11 @@ We will demonstrate several of these using our datasets, but first we need to le
 
 ## vega-lite transformations
 
-At the `view`-level of your definition, you can specify transformations that modify, filter, or reshape the data.
+At the `view`-level of your definition, you can specify transformations that modify, filter, aggregate, or reshape the data.
 
-At the top level, we specify a transformation.  We can transform data within a given dataset (by specifying a new attribute of each data point) or by reshaping the data.
+At the top level, we specify a transformation as a *list* -- transforms are applied in order, and each one can build on the fields created by the ones before it.
 
-The types of transformations we will cover today are `filter` and `calculate`.
+The types of transformations we will cover today are `filter`, `calculate`, `bin`, `aggregate`, `window`, and `fold`.
 
 
 ---
@@ -201,30 +210,96 @@ We can also compute a new field using the `calculate` transform.  This is an exp
 ]
 ```
 
+---
+
+## vega-lite binning
+
+`bin` is usually something you ask for right on an encoding channel (`"bin": true`), but you can also run it as its own transform step to produce a reusable field -- handy when you want the binned field in a tooltip, or in more than one encoding.
+
+```json
+"transform": [
+  {"bin": true, "field": "IMDB Rating", "as": "rating_bin"}
+]
+```
 
 ---
 
-## vega-lite selections
+## vega-lite aggregate
 
-Selections are defined with *names* -- this seems to be the most common stumbling block.  You get to choose the name!
+`aggregate` collapses rows into summary statistics, optionally grouped by one or more fields. This is the same aggregation you can do inline on an encoding (`"aggregate": "sum"`), but as a transform it runs once and the result is available to every encoding and every downstream transform.
 
-We use selections in one of a few ways.
-
-- We can conditionally encode data -- for instance, change visibility, or alpha, or color.
-- We can use selections as input for filtering data.  Typically this is done with one plot showing unfiltered data and another using a filter from that selection.
-- Scale a domain based on a selection
+```json
+"transform": [
+  {
+    "aggregate": [
+      {"op": "sum", "field": "Square Footage", "as": "total_by_agency"}
+    ],
+    "groupby": ["Agency Name"]
+  }
+]
+```
 
 ---
 
-## vega-lite selections
+## vega-lite window
 
-There are three types of selections:
+`window` computes a value across a *sliding or cumulative* set of rows -- running totals, ranks, lags -- rather than collapsing them like `aggregate` does. You still get one output row per input row, just with a new field attached.
 
-- `single` -- selecting a single point,
-- `multi` -- multiple points
-- `interval` -- collections of values along encoding axes
+```json
+"transform": [
+  {
+    "window": [
+      {"op": "rank", "field": "total_by_agency", "as": "agency_rank"}
+    ],
+    "sort": [{"field": "total_by_agency", "order": "descending"}]
+  }
+]
+```
 
-We will focus on the `interval` selection.
+This is how we build "top-N" charts: compute a rank with `window`, then `filter` on `datum.agency_rank <= n`.
+
+---
+
+## vega-lite reshaping: fold
+
+So far every transform has added a *column*. `fold` instead reshapes wide data into long (tidy) data -- it takes several fields and stacks them into `key`/`value` pairs, which is often what an encoding needs.
+
+```json
+"transform": [
+  {"fold": ["Square Footage", "Rentable Square Footage"], "as": ["metric", "amount"]}
+]
+```
+
+Its counterpart, `pivot`, does the reverse -- turning the distinct values of one field into new columns.
+
+---
+
+## vega-lite params
+
+Modern vega-lite unifies interactivity under a single top-level `params` list.  Every param has a *name* -- this seems to be the most common stumbling block.  You get to choose the name!
+
+A param is one of two things:
+
+- A **selection** param -- it records what the viewer clicked, hovered, or dragged.
+- A **variable** param -- it just holds a value, which you can bind to a widget or use in an expression.
+
+We use params in one of a few ways.
+
+- We can conditionally encode data -- for instance, change visibility, alpha, or color.
+- We can use a selection as input for filtering data.  Typically this is done with one plot showing unfiltered data and another using a filter from that selection.
+- We can scale a domain, or pan/zoom it, based on a selection.
+- We can bind a variable param to an input widget and reference it in a `calculate` or `filter` expression.
+
+---
+
+## vega-lite selection types
+
+There are two types of selection, specified with `select`:
+
+- `point` -- selecting discrete marks (a single click, or shift-click for several). This replaces the old `single`/`multi` selection types from vega-lite 4.
+- `interval` -- a drag-to-brush selection over a continuous range of values along one or more encodings.
+
+We will focus on the `interval` selection, but will also see `point` in the examples.
 
 ---
 
@@ -241,6 +316,73 @@ We can define a box-based selector that operates along the x axis by specifying 
 
 Let's try this.
 
+---
+
+## vega-lite point selection
+
+A `point` selection lets the viewer click individual marks (bars, points, etc) rather than drag a region.  It is what you want for "click a bar to highlight it" interactions.
+
+```json
+"params": [{
+    "name": "picked",
+    "select": "point"
+    }]
+```
+
+Both selection types are used the same way downstream: as a `{"param": "name"}` reference inside a `filter` transform or a `condition` encoding.
+
+---
+
+## vega-lite nearest-point selection
+
+Adding `"nearest": true` to a `point` selection snaps it to the closest datum along the hovered axis, even if the cursor isn't exactly on a mark -- this is the standard recipe for crosshair/tooltip interactions on a line chart.
+
+```json
+"params": [{
+    "name": "hover",
+    "select": {
+      "type": "point",
+      "fields": ["Year Acquired"],
+      "nearest": true,
+      "on": "pointerover",
+      "clear": "pointerout"
+    }
+    }]
+```
+
+Pair it with a transparent, large `point` mark to give the mouse something easy to target, then `filter` the other layers (a highlighted point, a `rule`, a `text` label) on `{"param": "hover", "empty": false}` so they only appear once something is hovered.
+
+---
+
+## vega-lite parameter types: widget-bound variables
+
+A variable param doesn't select anything from the chart -- it just holds a value, given a starting `value` and optionally `bind` to a UI widget vega-embed generates for you.
+
+```json
+"params": [{
+    "name": "rank_wanted",
+    "value": 5,
+    "bind": {"input": "range", "min": 0, "max": 10, "step": 1, "name": "Rank Wanted"}
+    }]
+```
+
+Besides `"range"`, `bind.input` can be `"checkbox"`, `"radio"`, `"select"`, or any HTML input type. The current value is available anywhere as `rank_wanted`, e.g. in `{"filter": "datum.agency_rank <= rank_wanted"}`.
+
+---
+
+## vega-lite parameter types: binding to scales
+
+An `interval` selection can also be bound directly to the chart's scales instead of (or in addition to) an encoding, which turns it into pan-and-zoom:
+
+```json
+"params": [{
+    "name": "panzoom",
+    "select": "interval",
+    "bind": "scales"
+    }]
+```
+
+No `filter` transform needed here -- binding to `"scales"` updates the axis domains directly as the viewer drags and scrolls.
 
 ---
 
@@ -258,12 +400,12 @@ We will edit files ending in `.vg`, and they can access files we prepare in note
 You must include the correct javascript includes to embed vega-lite in the `&lt;head&gt;` section of your HTML.  For instance:
 
 ```html
- &lt;script src="https://cdn.jsdelivr.net/npm/vega@5.25.0/build/vega.min.js"
-        integrity="sha256-na2uPt+tUPV7GRVpc+/ezQj+lGwljIvOJifkmg8f3as=" crossorigin="anonymous"&gt;&lt;/script&gt;
-    &lt;script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.0/build/vega-lite.min.js"
-        integrity="sha256-WLAn82Ut4GptY/IJf4K/1i+R8ibAkVLFhBVkOovqCK8=" crossorigin="anonymous"&gt;&lt;/script&gt;
-    &lt;script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2/build/vega-embed.min.js"
-        integrity="sha256-GfFZ6w7V/y3Ws9eHVsOXZ/F1ZFroThVZraOAx3HAt6s=" crossorigin="anonymous"&gt;&lt;/script&gt;
+ &lt;script src="https://cdn.jsdelivr.net/npm/vega@6.4.0/build/vega.min.js"
+        integrity="sha256-j2o1h8+NT0LH4IEg4+sF0GfnRtVU450tz1KswL1boo8=" crossorigin="anonymous"&gt;&lt;/script&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.3/build/vega-lite.min.js"
+        integrity="sha256-NamCHfg4glsFpqc+lBS1h0ehsYMhWDhY7ZA8Zjk6XH4=" crossorigin="anonymous"&gt;&lt;/script&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/vega-embed@7.3.0/build/vega-embed.min.js"
+        integrity="sha256-sUVcq6L7GnL7RgJboLoTFuLbx/DdQKP2BAFyv5wIupE=" crossorigin="anonymous"&gt;&lt;/script&gt;
 ```
 
 ---

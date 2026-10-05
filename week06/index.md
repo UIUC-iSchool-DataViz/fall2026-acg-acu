@@ -52,6 +52,10 @@ examples:
     type: vega-lite
     title: Ranking agencies in building inventoryby year
     description: Window operations and aggregation
+  - filename: vega_example_nearest.html
+    type: vega-lite
+    title: Nearest-point hover
+    description: Hovering over a line chart highlights and labels the nearest point
 ---
 
 # Viz engines, vega-lite and the web
