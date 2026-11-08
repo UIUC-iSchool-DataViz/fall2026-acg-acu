@@ -1,0 +1,5 @@
+streamlit>=1.50
+pandas
+altair>=5
+requests
+maidr[streamlit,altair]>=1.28

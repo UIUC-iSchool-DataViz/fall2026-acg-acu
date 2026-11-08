@@ -15,3 +15,6 @@ _site/
 # Ruby bundler
 vendor/
 .bundle/
+
+# Streamlit secrets (API keys) -- never commit these
+.streamlit/secrets.toml

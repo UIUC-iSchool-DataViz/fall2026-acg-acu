@@ -275,6 +275,16 @@ maidr.show(fig)
 Single and layered Altair charts work. (Faceted and concatenated ones
 don't, yet -- remember week 13!)
 
+Two more things to watch for, which we found building the week 13
+observatory template:
+
+- maidr reads your **axis titles** out loud, so give every axis a real one.
+- A regular time axis (`"time:T"`) gets read as a raw number of
+  milliseconds -- "time is 1,793,952,000,000." For time series, make a text
+  label like "Tue 3 PM" and use it as an ordinal (`":O"`) axis instead.
+
+**Listen to your charts.** That's the only way to catch this stuff.
+
 ```python
 maidr.show(
     alt.Chart(by_agency).mark_bar().encode(

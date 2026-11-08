@@ -20,9 +20,9 @@
   weeks: [10]
 - id: science_publishing
   name: Science Viz & D3
-  description: Scientific visualization and an introduction to D3 and Starboard.
+  description: Updating data, Starboard, storytelling and annotation, scientific visualization, Streamlit, and an introduction to D3.
   weeks: [11, 12]
 - id: relational
   name: Networks & Structural Data
-  description: Viz validation, dynamic D3/Svelte, and network visualization.
+  description: Viz validation, uncertainty and small multiples, dynamic D3, network visualization, and building and deploying your observatory.
   weeks: [13]

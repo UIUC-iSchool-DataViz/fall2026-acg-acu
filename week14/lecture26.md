@@ -268,6 +268,8 @@ But remember what we found in week 13:
 - A seaborn **bar plot with confidence intervals** is read as plain bars. The error bars are silently dropped.
 - A **point plot** with the same intervals is read as an error bar chart.
 - **Faceted or concatenated Altair charts** aren't supported at all. matplotlib `subplots` are.
+- **Time axes are read as raw numbers.** A regular `time:T` axis is announced as "time is 1,793,952,000,000." Use a text label like "Tue 3 PM" on an ordinal axis instead. (See `week13/streamlit/observatory_template.py`.)
+- maidr reads your **axis titles** aloud. `temperature_2m` is not a title!
 
 Tools quietly drop things. **Always check.**
 

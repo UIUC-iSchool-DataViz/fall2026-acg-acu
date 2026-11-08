@@ -253,7 +253,7 @@ Acronyms for books:
 4. [yt Volume Rendering Tutorial](https://yt-project.org/doc/visualizing/volume_rendering.html)
 5. [Chapter 5: Dimensions of Visual Misinformation in the Emerging Media Landscape in the book "Misinformation and Mass Audiences"](https://books.google.com/books?hl=en&lr=&id=jUw7DwAAQBAJ&oi=fnd&pg=PA91&dq=scientific+visualization+misinformation&ots=Cv0QmoCdM2&sig=7xycURu8Um_C9VtHqf-aWg4qaEo#v=onepage&q=scientific%20visualization%20misinformation&f=false)
 
-### <a name="week13"></a>Week 13: Viz Validation; Uncertainty & Small Multiples; Dynamic D3 & Svelte
+### <a name="week13"></a>Week 13: Viz Validation; Uncertainty & Small Multiples; Dynamic D3; Build Your Observatory
 
 **Reading**:
 

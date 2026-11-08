@@ -124,9 +124,9 @@ We might start getting into javascript earlier, depending on how we are doing.
 - Week 9 - GeoPandas & Intermediate vega-lite
 - Week 10 - Choosing Charts; finishing the vega-lite lab
 - Week 11 - Updating Data; Intro to D3 & Starboard
-- Week 12 - Scientific Viz & D3
-- Week 13 - Viz Validation; Dynamic D3 & Svelte
-- Week 14 - Putting It All Together (**partially flipped class**)
+- Week 12 - Storytelling; Scientific Viz; Streamlit & D3
+- Week 13 - Viz Validation; Uncertainty & Small Multiples; Build Your Observatory
+- Week 14 - Putting It All Together; Accessible Visualization
 
 ---
 
