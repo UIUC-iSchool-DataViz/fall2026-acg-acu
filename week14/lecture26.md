@@ -263,12 +263,13 @@ give this a good five minutes.  it's genuinely a different experience, and it's 
 
 It handles a lot: bar, line, scatter, histogram, box plot, heatmap, error bars, and more, from matplotlib, seaborn and Altair.
 
-But remember what we found in week 13:
+But remember what we found in weeks 12 and 13:
 
 - A seaborn **bar plot with confidence intervals** is read as plain bars. The error bars are silently dropped.
 - A **point plot** with the same intervals is read as an error bar chart.
 - **Faceted or concatenated Altair charts** aren't supported at all. matplotlib `subplots` are.
-- **Time axes are read as raw numbers.** A regular `time:T` axis is announced as "time is 1,793,952,000,000." Use a text label like "Tue 3 PM" on an ordinal axis instead. (See `week13/streamlit/observatory_template.py`.)
+- **Time axes are read as raw numbers.** A regular `time:T` axis is announced as "time is 1,793,952,000,000." Use a text label like "Tue 3 PM" on an ordinal axis instead.
+- **Maps are read as ID numbers.** "id is 2" is Alaska. Pair a map with a sorted bar chart (week 12).
 - maidr reads your **axis titles** aloud. `temperature_2m` is not a title!
 
 Tools quietly drop things. **Always check.**
@@ -314,7 +315,7 @@ Test: unplug your mouse and try to use your app.
 - **Animations and transitions** (hello, D3!) -- keep them short, and respect the "reduce motion" setting where you can.
 - **Nothing that flashes.** Ever.
 
-So: in our observatories, auto-refresh should be **off by default**, and if it's on, say so.
+So: if your app refreshes itself, auto-refresh should be **off by default**, and if it's on, say so.
 
 ---
 
@@ -322,9 +323,9 @@ So: in our observatories, auto-refresh should be **off by default**, and if it's
 
 ---
 
-## An Accessible Observatory
+## An Accessible Streamlit App
 
-`week14/streamlit/accessible_observatory.py` is the week 12 earthquake observatory, redone:
+`week14/streamlit/accessible_earthquakes.py` is the week 12 live earthquake app, redone:
 
 1. Charts go through maidr's `render_maidr`
 2. A written summary, generated from the data, comes _first_
@@ -334,10 +335,10 @@ So: in our observatories, auto-refresh should be **off by default**, and if it's
 6. The map is described in words, and the "where" is in the table
 
 ```bash
-uv run streamlit run week14/streamlit/accessible_observatory.py
+uv run streamlit run week14/streamlit/accessible_earthquakes.py
 ```
 
-Open it next to `week12/streamlit/03_earthquake_observatory.py` and compare.
+Open it next to `week12/streamlit/03_live_earthquakes.py` and compare.
 
 ---
 

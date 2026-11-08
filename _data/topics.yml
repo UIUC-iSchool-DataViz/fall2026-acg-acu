@@ -20,9 +20,9 @@
   weeks: [10]
 - id: science_publishing
   name: Science Viz & Streamlit
-  description: Updating data, Starboard, storytelling and annotation, scientific visualization, and Streamlit.
+  description: Updating data, Starboard, storytelling and annotation, maps for the public, scientific visualization, and Streamlit.
   weeks: [11, 12]
 - id: relational
   name: Networks & Structural Data
-  description: Viz validation, uncertainty and small multiples, network visualization, and building and deploying your observatory.
+  description: Viz validation, uncertainty and small multiples, network visualization, and building, deploying and presenting your viz for the public.
   weeks: [13]

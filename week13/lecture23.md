@@ -260,7 +260,7 @@ Bonus lesson in there: putting several vega-lite `errorbar` charts on the same d
 
 ---
 
-## After the Break: Build Your Observatory
+## After the Break: Build Your Viz for the Public
 
 After the break, we build. Every group starts from a Streamlit template, and leaves today with a deployed app.
 

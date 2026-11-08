@@ -8,6 +8,10 @@ examples:
     type: ipynb
     title: Storytelling and Annotation
     description: Turning a "viz for self" chart into one that says something -- titles, highlighting, annotation, caveats, and a first look at maidr
+  - filename: maps_for_the_public
+    type: ipynb
+    title: Maps for the Public
+    description: Raw counts vs. rates, how classification changes the story, sorted bars as an alternative, diverging color, and what a map sounds like in maidr
   - filename: streamlit/01_hello_streamlit.py
     type: streamlit
     title: "Streamlit 1: Hello, Streamlit"
@@ -16,20 +20,20 @@ examples:
     type: streamlit
     title: "Streamlit 2: Building Inventory Dashboard"
     description: Caching, sidebar filters, and linking and brushing with an Altair selection
-  - filename: streamlit/03_earthquake_observatory.py
+  - filename: streamlit/03_live_earthquakes.py
     type: streamlit
-    title: "Streamlit 3: Earthquake Observatory"
-    description: A tiny final-project-style observatory using the live USGS feed, with a refresh button and auto-refresh
+    title: "Streamlit 3: Live Earthquakes"
+    description: What to do when your data keeps changing -- the live USGS feed, with a refresh button and auto-refresh
   - filename: streamlit/requirements.txt
     type: text
     title: requirements.txt
     description: The packages you need to deploy these on Streamlit Community Cloud
 ---
 
-# Storytelling, Scientific Viz, and Streamlit
+# Storytelling, Maps, Scientific Viz, and Streamlit
 
 This week we covered some principles of Scientific Visualization, talked about
-storytelling and annotation, and built and deployed some Streamlit apps.
+storytelling and annotation and how to make maps that don't mislead, and built and deployed some Streamlit apps.
 
 To run the examples, download them and run `streamlit run <filename>`, or from
 the course repo, `uv run streamlit run week12/streamlit/<filename>`.

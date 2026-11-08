@@ -1,10 +1,10 @@
-# Week 14: An *accessible* earthquake observatory
+# Week 14: *Accessible* live earthquakes
 #
 # Run this with:
 #
-#     uv run --extra notebooks streamlit run week14/streamlit/accessible_observatory.py
+#     uv run --extra notebooks streamlit run week14/streamlit/accessible_earthquakes.py
 #
-# This is the observatory from week 12 (week12/streamlit/03_earthquake_observatory.py),
+# This is the earthquake app from week 12 (week12/streamlit/03_live_earthquakes.py),
 # redone with accessibility in mind. Open them side by side and compare!
 # What changed:
 #
@@ -27,7 +27,7 @@ import requests
 import streamlit as st
 from maidr.widget.streamlit import render_maidr
 
-st.set_page_config(page_title="Accessible Earthquake Observatory", layout="wide")
+st.set_page_config(page_title="Accessible Live Earthquakes", layout="wide")
 
 FEEDS = {"Past hour": "all_hour", "Past day": "all_day", "Past week": "all_week"}
 
@@ -70,7 +70,7 @@ def describe(quakes, window):
     return text
 
 
-st.title("Accessible Earthquake Observatory")
+st.title("Accessible Live Earthquakes")
 st.write(
     "Live earthquake data from the U.S. Geological Survey. Every chart on this page "
     "can be explored with the keyboard: Tab to a chart, then use the arrow keys. "
@@ -96,7 +96,7 @@ with st.sidebar:
 
 
 @st.fragment(run_every="60s" if live else None)
-def observatory():
+def live_quakes():
     if live:
         load_quakes.clear()
 
@@ -170,4 +170,4 @@ def observatory():
         )
 
 
-observatory()
+live_quakes()

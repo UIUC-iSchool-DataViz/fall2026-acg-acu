@@ -275,13 +275,15 @@ maidr.show(fig)
 Single and layered Altair charts work. (Faceted and concatenated ones
 don't, yet -- remember week 13!)
 
-Two more things to watch for, which we found building the week 13
-observatory template:
+A few more things to watch for, which we found building this semester's
+examples:
 
 - maidr reads your **axis titles** out loud, so give every axis a real one.
 - A regular time axis (`"time:T"`) gets read as a raw number of
   milliseconds -- "time is 1,793,952,000,000." For time series, make a text
   label like "Tue 3 PM" and use it as an ordinal (`":O"`) axis instead.
+- A map gets read as ID numbers -- "id is 2" (that's Alaska). Pair it with
+  a sorted bar chart. (See `week12/maps_for_the_public.ipynb`.)
 
 **Listen to your charts.** That's the only way to catch this stuff.
 
@@ -307,7 +309,7 @@ maidr.save_html(fig, "buildings.html")
 <!-- #region -->
 ## 4. In Your Streamlit App
 
-`week14/streamlit/accessible_observatory.py` is the earthquake observatory
+`week14/streamlit/accessible_earthquakes.py` is the live earthquake app
 from week 12, redone with accessibility in mind:
 
 - charts drawn with `render_maidr` instead of `st.altair_chart`
@@ -326,7 +328,7 @@ render_maidr(chart)  # instead of st.altair_chart(chart)
 
 ## Your turn: audit your final project
 
-Go through your group's observatory:
+Go through your group's Part 3 app:
 
 1. **Contrast:** run your colors through `contrast_ratio`. Anything
    important under 3:1?

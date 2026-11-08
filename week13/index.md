@@ -13,10 +13,10 @@ examples:
     type: ipynb
     title: Uncertainty and Small Multiples
     description: Error bars (and what they mean), distributions, small multiples, and what survives when you make them accessible with maidr
-  - filename: streamlit/observatory_template.py
+  - filename: streamlit/part3_template.py
     type: streamlit
-    title: Observatory Template (Streamlit)
-    description: A skeleton for your final project -- story, explore, data and about tabs, cached API loading, secrets, maidr charts. Runs as-is with Open-Meteo weather data.
+    title: Part 3 Template (Streamlit)
+    description: A skeleton for Part 3 of your final project -- story, explore, data and about tabs, a computed summary, and maidr charts. Runs as-is with the building inventory.
   - filename: streamlit/requirements.txt
     type: text
     title: requirements.txt for the template
@@ -27,9 +27,9 @@ examples:
     description: Drawing a force-directed network graph and comparing it to a ring layout, using igraph and bqplot
 ---
 
-# Validation, Uncertainty, Small Multiples, and Your Observatory
+# Validation, Uncertainty, Small Multiples, and Building for the Public
 
 This week we discussed how to determine if a visualization is effective (and
-for whom!), how to show uncertainty, and how to use small multiples. Then we built our observatories: every
+for whom!), how to show uncertainty, and how to use small multiples. Then we built our Part 3 apps: every
 group started from a Streamlit template and deployed it to Streamlit Community
-Cloud before leaving.
+Cloud before leaving. We also planned presentations and videos.

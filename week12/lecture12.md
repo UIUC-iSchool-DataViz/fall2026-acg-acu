@@ -1,87 +1,43 @@
 ---
-title: Storytelling, SciViz, and Streamlit
+title: Storytelling, Maps, SciViz, and Streamlit
 layout: lecture
 tags:
   - storytelling
   - annotation
+  - maps
   - scientific
   - streamlit
 description: >-
-  Making viz that says something, what makes scientific data "different," and building and deploying Streamlit apps.
+  Making viz that says something, maps that don't mislead, what makes scientific data "different," and building and deploying Streamlit apps.
 date: 2026-11-09
 ---
 
-# Storytelling, SciViz, and Streamlit
+# Storytelling, Maps, SciViz, and Streamlit
 
 ---
 
-# Final Project
+# Final Project: Where We Are
 
-Your final project, to be completed in (assigned) groups, is to build a semi-realtime "observatory" of data. You can find a few different possibilities for the data, but I want to encourage you to think of data related to things like:
+Three parts, due the last three weeks of class. **Due dates are on Canvas.**
 
-- Earthquakes
-- Space weather, rocks and satellites
-- Weather
-- Political events and news
-- Nothing directly COVID related
+1. **Viz for Self** (individual) -- explore your dataset in a notebook. Mess is fine!
+1. **Viz for Peers** (group) -- a dashboard notebook, like Lab #5.
+1. **Viz for the Public** (group) -- a Streamlit app, deployed on Streamlit Community Cloud, that somebody who has never seen your data can understand.
 
----
+For Part 3 you'll also give feedback on three other groups' projects, and your group will submit a video. Presentations are **December 7**.
 
-# Final Project: Phases
-
-Your final project will have three phases, each of which will have a component for you to turn in. The second and third components will be turned in as a group, but the first component will be individually graded.
-
-**Before beginning, clear your dataset with me and Yilin.**
-
-Some places to look for dataset ideas:
-
-- [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)
-- [Public APIs](https://github.com/public-apis/public-apis)
-- [Awesome JSON](https://github.com/jdorfman/awesome-json-datasets)
+**Before going further, clear your dataset with me or Yilin.**
 
 ---
 
-# Final Project: Part One
+# Today, and Part 3
 
-The first part of your project will be to _explore_ the data; this is worth **30 points out of 100**. You are to turn in a Jupyter notebook that includes every single cell and step you took in exploring the data. This is an example of the "visualization for self" process. This means you might take shortcuts, you might make mistakes, and you might make really, really awful visualizations.
+Everything today is aimed at Part 3:
 
-Showing that you explored the data individually (even if you did it while talking to a collaborator or classmate) is enough to satisfy this portion of the project.
-
-Download the data. Dig in to it. Look at it. Find interesting things. Experiment. Make plots, make summary statistics, and make it familiar to yourself.
-
----
-
-# Final Project: Part Two
-
-The second component of your project will be to design your "observatory." Note that this is _pseudo_ realtime. It does not need to _automatically_ update its data; a refresh button, or requiring a page reload, is sufficient. This is worth **40 points out of 100**.
-
-This could consist of drawings, prototypes of web pages or notebooks, and the code necessary to build the different components. This component is _scaffolding_, not the final product. It should be thought of as the "viz for peers" stage of the process. You can submit drawings (including photos of drawings), jamboards, notebooks (which you _are_ allowed to clean up), and stages of prototypes.
-
-You should walk me through the process of how you built your observatory, and it does not need to be a linear, successes-only process.
-
-This will include your in-class presentation of the work. You will also have five minutes, as a _group_, to present your work in class. This presentation needs to include the final product, as well as a summary of any stumbling blocks you might have had, and a little bit of the process. These presentations will be on the 7th of December, the final class date.
-
----
-
-# Final Project: Part Three
-
-The final component of your project will be a deployment of your work online. This will be worth **30 points out of 100**.
-
-This should be a Streamlit app deployed on [Streamlit Community Cloud](https://streamlit.io/cloud), which we will demonstrate later today. (It's free, and it deploys right from a GitHub repo.) It should be fully-executable and need to include a mechanism for "checking for new data."
-
----
-
-# Final Project Summary
-
-| Points | Description                                                          | Requires Code |
-| ------ | -------------------------------------------------------------------- | ------------- |
-| 30     | Your own exploration of a dataset.                                   | Yes           |
-| 40     | You and your group designing, then presenting your design, to class. | No            |
-| 30     | A final deployment of your project on Streamlit Community Cloud.     | Yes           |
-
-- You will use _your own datasets_ for part 1. This is **on your own**.
-- Your group will choose from those datasets for parts 2 and 3.
-- Part 3 will be a Streamlit app, deployed on Streamlit Community Cloud.
+- **Storytelling** -- making a chart _say_ something
+- **Maps for the public** -- because a lot of you have geographic data
+- **Scientific viz** -- what's different about it
+- **Streamlit** -- building and deploying the app itself
 
 ---
 
@@ -321,6 +277,96 @@ It also ends with a sneak preview of something we'll spend a lot more time on in
 
 ---
 
+## Maps for the Public
+
+We learned how to _make_ maps in weeks 7-9. Now: how to make maps that don't mislead people.
+
+Maps are one of the most popular things you can show the public. Everybody wants to find their house! They're also one of the easiest things to get wrong, in ways that look totally fine.
+
+---
+
+## Every Raw-Count Map Is a Population Map
+
+![Two maps of the US side by side: number of engineers by state, and population by state. They look almost identical.](images/maps_count_vs_population.png)
+
+Where are the engineers? California, Texas, New York... which is to say, where the people are. ([xkcd #1138](https://xkcd.com/1138/))
+
+---
+
+## Divide by Something
+
+![Map of engineers per 1,000 people by state. Washington, Massachusetts and Virginia are darkest.](images/maps_rate.png)
+
+Engineers _per 1,000 people_: a different story. Texas drops to the middle, Florida to the bottom half.
+
+If your number goes up just because more people live there, you want a **rate**. And say what you divided by, in the legend!
+
+---
+
+## Classes Are a Choice
+
+![Two maps of county unemployment. The equal-interval map is mostly pale; the quantile map is dark across much of the country.](images/maps_classification.png)
+
+Same data. **Equal interval** splits the _range_ into equal chunks. **Quantile** puts the same _number of counties_ in each class -- look how narrow its classes are.
+
+Which one is the "unemployment crisis" map?
+
+note:
+quantile always uses every color equally, so it always looks dramatic.  equal interval gets dominated by a few outliers.  neither is wrong; make the choice on purpose and show the breaks in the legend.
+
+---
+
+## Big, Empty States
+
+On a map, size means _land area_. That's almost never what your data is about.
+
+Wyoming gets about 11 times the ink of New Jersey, with about a fifteenth of the people.
+
+If the question is "which is highest?", a **sorted bar chart** is usually better. Every state gets the same space. Show both: the map for "where," the bars for "how much."
+
+---
+
+## Sequential or Diverging?
+
+- **Sequential** (light to dark): low to high, nothing special in the middle. This is the default.
+- **Diverging** (two hues, light in the middle): _only_ when the middle means something -- zero, an average, a target.
+
+A diverging scheme on data with no real midpoint invents a "good side" and a "bad side."
+
+And: missing data should look different from zero. Not the lightest color in your scheme!
+
+---
+
+## What Does a Map Sound Like?
+
+We gave our map to maidr. Pressing the right arrow:
+
+> id is 2, Engineers per 1,000 people is 1.59
+
+"id is 2" is Alaska's FIPS code. The state's name never gets read.
+
+So the accessible version of a map is _everything around it_:
+
+1. **A sentence** that says the point, generated from the data
+2. **A sorted bar chart** -- maidr reads "state is Washington, Engineers per 1,000 people is 10.71"
+3. **A table**, so people can find their own state
+
+---
+
+## Example: Maps for the Public
+
+`maps_for_the_public.ipynb`:
+
+- raw counts vs. rates
+- continuous, equal interval and quantile classes, side by side
+- the sorted bar chart alternative
+- a diverging scheme with a real midpoint
+- what maidr does with a map, and what to do about it
+
+If you have geographic data for your project, go through the checklist at the end.
+
+---
+
 ## Scientific Visualization
 
 What characterizes "scientific" visualization?
@@ -556,16 +602,18 @@ this is the same interval selection we wrote by hand in the vega-lite JSON a few
 
 ---
 
-## Example 3: An Earthquake Observatory
+## Example 3: Live Earthquakes
 
-`03_earthquake_observatory.py`
+`03_live_earthquakes.py`
 
-This one is a tiny version of what your final project is asking for! It pulls the [USGS earthquake feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php), which updates every minute or so.
+What if your data keeps changing? This one pulls the [USGS earthquake feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php), which updates every minute or so.
 
 - GeoJSON into a dataframe (we've seen this before)
 - `st.map` for a quick-and-dirty map
 - a histogram and a scatter in Altair
 - **checking for new data**
+
+Your project does _not_ need live data! But if yours comes from an API that updates, here's how.
 
 ---
 
@@ -582,13 +630,13 @@ Or, a _fragment_ that re-runs itself on a timer:
 
 ```python
 @st.fragment(run_every="60s")
-def observatory():
+def live_quakes():
     ...
 ```
 
 A fragment re-runs _just that function_, not the whole script. This is the Streamlit version of what we did last week with vega-lite changesets.
 
-Either one satisfies the "checking for new data" requirement. A button is totally fine!
+If you do have changing data, a button is totally fine.
 
 ---
 

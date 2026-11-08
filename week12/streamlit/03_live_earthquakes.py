@@ -1,15 +1,16 @@
-# Week 12, Streamlit Example 3: A (tiny) earthquake observatory
+# Week 12, Streamlit Example 3: Live earthquakes
 #
 # Run this with:
 #
-#     uv run --extra notebooks streamlit run week12/streamlit/03_earthquake_observatory.py
+#     uv run --extra notebooks streamlit run week12/streamlit/03_live_earthquakes.py
 #
-# This is a small version of what your final project is asking for: a
-# semi-realtime "observatory" of some data. We pull the USGS earthquake feed,
-# which updates every minute or so, and show it a couple of different ways.
+# What do you do when your data keeps changing? We pull the USGS earthquake
+# feed, which updates every minute or so, and show it a couple of different
+# ways.
 #
-# Remember from the final project description -- it does *not* have to update
-# automatically! A refresh button is totally fine. But I'll show you both.
+# Your final project does *not* need live data. But if your dataset comes
+# from an API that updates, this is how you'd handle it: a refresh button,
+# or a fragment that re-runs itself on a timer. I'll show you both.
 #
 # Feed docs: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
 
@@ -20,7 +21,7 @@ import pandas as pd
 import requests
 import streamlit as st
 
-st.set_page_config(page_title="Earthquake Observatory", layout="wide")
+st.set_page_config(page_title="Live Earthquakes", layout="wide")
 
 FEEDS = {
     "Past hour": "all_hour",
@@ -57,7 +58,7 @@ def load_quakes(feed):
     return pd.DataFrame(rows).dropna(subset=["mag"]), fetched_at
 
 
-st.title("Earthquake Observatory")
+st.title("Live Earthquakes")
 
 with st.sidebar:
     feed_name = st.radio("Time window", list(FEEDS), index=1)
@@ -77,7 +78,7 @@ with st.sidebar:
 # the Streamlit version of what we were doing last week with vega-lite
 # changesets -- new data comes in, the view updates.
 @st.fragment(run_every="60s" if live else None)
-def observatory():
+def live_quakes():
     if live:
         load_quakes.clear()
 
@@ -137,4 +138,4 @@ def observatory():
     )
 
 
-observatory()
+live_quakes()
