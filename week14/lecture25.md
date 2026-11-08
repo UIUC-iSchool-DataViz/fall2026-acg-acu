@@ -316,6 +316,8 @@ $ cookiecutter gh:audreyr/cookiecutter-pypackage
 
 ---
 
-## Next Time
+## Next Up
 
-Next time, we start with presentations!
+After the break: making all of this _accessible_.
+
+And next week: presentations!

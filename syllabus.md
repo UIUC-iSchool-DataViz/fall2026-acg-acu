@@ -242,28 +242,34 @@ Acronyms for books:
 2. [FDV, Ch. 29: Telling a story and making a point](https://clauswilke.com/dataviz/telling-a-story.html)
 3. [D3 docs](https://d3js.org/)
 
-### <a name="week12"></a>Week 12: Scientific Visualization & D3
+### <a name="week12"></a>Week 12: Storytelling & Annotation; Scientific Visualization; Streamlit; D3
 
 **Reading**:
 
+1. [FDV, Ch. 22: Titles, captions, and tables](https://clauswilke.com/dataviz/figure-titles-captions.html)
 1. VAD Ch. 8.4-8.6: Arrange Spatial Data
 2. VAD Ch. 11.6: Manipulate View
 3. [yt docs](https://yt-project.org/)
 4. [yt Volume Rendering Tutorial](https://yt-project.org/doc/visualizing/volume_rendering.html)
 5. [Chapter 5: Dimensions of Visual Misinformation in the Emerging Media Landscape in the book "Misinformation and Mass Audiences"](https://books.google.com/books?hl=en&lr=&id=jUw7DwAAQBAJ&oi=fnd&pg=PA91&dq=scientific+visualization+misinformation&ots=Cv0QmoCdM2&sig=7xycURu8Um_C9VtHqf-aWg4qaEo#v=onepage&q=scientific%20visualization%20misinformation&f=false)
 
-### <a name="week13"></a>Week 13: Viz Validation; Dynamic D3 & Svelte
+### <a name="week13"></a>Week 13: Viz Validation; Uncertainty & Small Multiples; Dynamic D3 & Svelte
 
 **Reading**:
 
+1. [FDV, Ch. 16: Visualizing uncertainty](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
+1. [FDV, Ch. 21: Multi-panel figures](https://clauswilke.com/dataviz/multi-panel-figures.html)
 1. VAD Ch. 9: Arrange Networks and Trees
 2. VAD, Ch. 13.4.3.1: Reduce Items and Attributes
 3. VAD, Ch. 6: Rules of Thumb
 
-### <a name="week14"></a>Week 14: Putting It All Together
+### <a name="week14"></a>Week 14: Putting It All Together; Accessible Visualization
 
 **Reading**:
 
+1. [Chartability](https://chartability.fizz.studio/) -- heuristics for auditing data visualizations
+1. [Do No Harm Guide: Centering Accessibility in Data Visualization](https://www.urban.org/research/publication/do-no-harm-guide-centering-accessibility-data-visualization) (Urban Institute)
+1. [Writing Alt Text for Data Visualization](https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81) (Amy Cesal)
 1. [FDV, Ch. 28: Choosing the right visualization software](https://clauswilke.com/dataviz/choosing-visualization-software.html)
 2. [FDV, Ch. 26: Don't go 3D](https://clauswilke.com/dataviz/no-3d.html)
 3. [FDV, Ch. 25: Avoid line drawings](https://clauswilke.com/dataviz/avoid-line-drawings.html)
