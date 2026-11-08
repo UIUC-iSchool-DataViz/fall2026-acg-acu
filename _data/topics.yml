@@ -19,7 +19,7 @@
   description: Vega-Lite for building and updating charts and dashboards on the web.
   weeks: [10]
 - id: science_publishing
-  name: Science Viz & Streamlit
+  name: Storytelling, Science Viz & Streamlit
   description: Updating data, Starboard, storytelling and annotation, maps for the public, scientific visualization, and Streamlit.
   weeks: [11, 12]
 - id: relational

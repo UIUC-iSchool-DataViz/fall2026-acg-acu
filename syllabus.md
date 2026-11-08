@@ -234,13 +234,12 @@ Acronyms for books:
 1. [FDV, Ch. 5: Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
 2. [Altair docs](https://altair-viz.github.io/gallery/index.html) - in particular [Encoding Data Types](https://altair-viz.github.io/user_guide/encoding.html#encoding-data-types), [Binning](https://altair-viz.github.io/user_guide/transform/bin.html#bin-transforms), and [Filter transforms](https://altair-viz.github.io/user_guide/transform/filter.html)
 
-### <a name="week11"></a>Week 11: Updating Data; Intro to D3 & Starboard
+### <a name="week11"></a>Week 11: Updating Data; Starboard; Intro to Streamlit
 
 **Reading**:
 
 1. [Same Data, Multiple Perspectives](https://medium.com/multiple-views-visualization-research-explained/same-data-multiple-perspectives-curse-of-knowledge-in-visual-data-communication-d827c381f936)
 2. [FDV, Ch. 29: Telling a story and making a point](https://clauswilke.com/dataviz/telling-a-story.html)
-3. [D3 docs](https://d3js.org/)
 
 ### <a name="week12"></a>Week 12: Storytelling & Annotation; Maps for the Public; Scientific Visualization; Streamlit
 

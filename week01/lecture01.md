@@ -123,7 +123,7 @@ We might start getting into javascript earlier, depending on how we are doing.
 
 - Week 9 - GeoPandas & Intermediate vega-lite
 - Week 10 - Choosing Charts; finishing the vega-lite lab
-- Week 11 - Updating Data; Intro to D3 & Starboard
+- Week 11 - Updating Data; Starboard; Intro to Streamlit
 - Week 12 - Storytelling; Maps; Scientific Viz; Streamlit
 - Week 13 - Viz Validation; Uncertainty & Small Multiples; Build Your Viz for the Public
 - Week 14 - Putting It All Together; Accessible Visualization

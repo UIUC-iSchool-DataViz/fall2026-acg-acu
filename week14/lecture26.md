@@ -312,7 +312,7 @@ Test: unplug your mouse and try to use your app.
 ## Motion and Change
 
 - **Auto-updating content** -- if the page changes on its own, a screen reader user can lose their place. WCAG says people need to be able to [pause, stop or hide](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html) it.
-- **Animations and transitions** (hello, D3!) -- keep them short, and respect the "reduce motion" setting where you can.
+- **Animations and transitions** -- keep them short, and respect the "reduce motion" setting where you can.
 - **Nothing that flashes.** Ever.
 
 So: if your app refreshes itself, auto-refresh should be **off by default**, and if it's on, say so.
