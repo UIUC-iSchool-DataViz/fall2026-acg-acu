@@ -1,11 +1,15 @@
 ---
-title: Validation and more D3
+title: Validation, Uncertainty, Small Multiples, and more D3
 layout: lecture
 tags:
+  - validation
+  - uncertainty
+  - small-multiples
+  - accessibility
   - d3
   - javascript
 description: >-
-  This week we talked about validating viz, and then using D3 for transitions and interaction.
+  Validating viz, showing uncertainty, small multiples, and using D3 for transitions and interaction.
 date: 2026-11-16
 ---
 
@@ -115,87 +119,146 @@ Your peers will ask you questions in the Open Discussion Forum.
 
 Try to understand what is working for them and what is not. It will help hone your instincts.
 
-# Final Project
+---
 
-Your final project, to be completed in (assigned) groups, is to build a semi-realtime "observatory" of data. You can find a few different possibilities for the data, but I want to encourage you to think of data related to things like:
+## Validation Includes Everybody
 
-- Earthquakes
-- Space weather, rocks and satellites
-- Weather
-- Political events and news
-- Nothing directly COVID related
+When you ask "does this work?" -- work for _who_?
+
+If you only ever test your viz by looking at it, you're only validating it for people who can see it the way you do.
+
+Some quick checks you can do yourself, today:
+
+- Can you get the main point with the color turned off? (Grayscale it!)
+- Can you get to everything with just the keyboard? (Unplug your mouse.)
+- What does a screen reader say about it? (VoiceOver: Cmd + F5 on a Mac. NVDA is free on Windows.)
+
+We'll go _much_ deeper on accessibility on November 30. For now, keep it in the back of your head as we go.
 
 ---
 
-# Final Project: Phases
+## Final Project Check-in
 
-Your final project will have three phases, each of which will have a component for you to turn in. The second and third components will be turned in as a group, but the first component will be individually graded.
-
-**Before beginning, clear your dataset with me and Yilin.**
-
-Some places to look for dataset ideas:
-
-- [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)
-- [Public APIs](https://github.com/public-apis/public-apis)
-- [Awesome JSON](https://github.com/jdorfman/awesome-json-datasets)
+- Groups should be set. If you're not in one, come talk to me after class!
+- **Part Three is a Streamlit app, deployed on [Streamlit Community Cloud](https://streamlit.io/cloud).** See last week's slides and the `week12/streamlit/` examples.
+- Presentations are on **December 7**, our last class -- five minutes per group.
+- Due dates for each part are on Canvas.
 
 ---
 
-# Final Project: Part One
-
-The first part of your project will be to _explore_ the data; this is worth
-**30 points out of 100**. You are to turn in a notebook -- whether in
-Starboard, Python, or a _combination_ of them, that includes every
-single cell and step you took in exploring the data. This is an example of the
-"visualization for self" process. This means you might take shortcuts, you
-might make mistakes, and you might make really, really awful visualizations.
-
-Showing that you explored the data individually (even if you did it while
-talking to a collaborator or classmate) is enough to satisfy this portion of
-the project.
-
-Download the data. Dig in to it. Look at it. Find interesting things.
-Experiment. Make plots, make summary statistics, and make it familiar to
-yourself.
+# Uncertainty
 
 ---
 
-# Final Project: Part Two
+## Your Numbers Are Never Exact
 
-The second component of your project will be to design your "observatory." Note
-that this is _pseudo_ realtime. It does not need to _automatically_ update its
-data; a refresh button, or requiring a page reload, is sufficient. This is
-worth **40 points out of 100**.
+Pretty much every number you plot has some uncertainty in it:
 
-This could consist of drawings, prototypes of web pages or notebooks, and the
-code necessary to build the different components. This component is
-_scaffolding_, not the final product. It should be thought of as the "viz for
-peers" stage of the process. You can submit drawings (including photos of
-drawings), jamboards, notebooks (which you _are_ allowed to clean up), and
-stages of prototypes.
+- It's a sample (a survey, a poll, a subset)
+- It's a summary (a mean hides a whole distribution)
+- It's a measurement (instruments have error)
+- It's a prediction (weather, elections, models)
 
-You should walk me through the process of how you built your observatory, and
-it does not need to be a linear, successes-only process.
+If you don't show it, people will assume your numbers are exact. And they'll read differences into noise.
+
+note:
+reading for this: FDV ch 16, visualizing uncertainty -- https://clauswilke.com/dataviz/visualizing-uncertainty.html
 
 ---
 
-# Final Project: Part Three
+## "Error Bars" Can Mean Four Different Things
 
-The final component of your project will be an in-class presentation of your
-work, and the deployment of that work online. This will be worth **30 points
-out of 100**.
+![](images/four_error_bars.png)
 
-Your "observatory" should be located somewhere online, either as a notebook I
-can download and run (or that runs on [binder](https://mybinder.org/)) or view
-on Starboard or Github Pages.
+Same data, four different intervals. Two are about how sure we are of the _average_; two are about how spread out the _data_ is.
 
-You will also have five minutes, as a _group_, to present your work in class.
-This presentation needs to include the final product, as well as a summary of
-any stumbling blocks you might have had, and a little bit of the process.
+**Always say what your error bars are.**
 
-These presentations will be on the 7th of December, the final class date. The project will
-be due by the end of finals week, but you are **strongly encouraged** to submit
-earlier.
+note:
+also note the mean +/- sd one goes negative -- negative square feet!  that's a hint that mean/sd is the wrong summary for this data.
+
+---
+
+## Other Ways to Show Uncertainty
+
+- **Show the distribution** -- box plots, violins, strips of points. Let people see the spread.
+- **Gradients and bands** -- fade the interval out instead of a hard edge.
+- **Hypothetical outcome plots** -- animate through plausible outcomes. People are better at "how often" than "what's a 95% interval."
+- **Words** -- "between 12,000 and 15,000 square feet." Seriously! Especially for the public.
+
+---
+
+## Uncertainty and Accessibility
+
+Here's something we found out building this week's notebook. With [maidr](https://py.maidr.ai/):
+
+- A seaborn **point plot** with confidence intervals gets read as an _error bar_ chart. You can hear the interval for each item.
+- A seaborn **bar plot** with confidence intervals gets read as... a bar chart. The error bars are just gone, and nothing tells you they're missing.
+
+Tools quietly drop things. **Check.** And put the uncertainty in words, too.
+
+---
+
+# Small Multiples
+
+---
+
+## The Spaghetti Problem
+
+![](images/spaghetti.png)
+
+Six colors, lines crossing everywhere, and you're bouncing back and forth to the legend. (And six colors is already pushing it for color vision deficiencies.)
+
+---
+
+## Small Multiples
+
+![](images/small_multiples.png)
+
+One little chart per group, same scale, same position. Your eye compares _shapes_, no decoding required.
+
+```python
+alt.Chart(df).mark_line().encode(x="Decade:O", y="Buildings:Q").properties(
+    width=180, height=100
+).facet(facet="Agency:N", columns=3)
+```
+
+---
+
+## Shared or Independent Scales?
+
+```python
+.resolve_scale(y="independent")
+```
+
+- **Shared:** you can compare across panels. (Natural Resources built way more buildings than U of I.)
+- **Independent:** you can see each panel's shape. But now comparing across panels is misleading!
+
+Neither is wrong. Make the choice on purpose -- and say which one you made.
+
+---
+
+## Small Multiples and Accessibility
+
+maidr can't read a faceted Altair chart at all -- it raises an error.
+
+But the same small multiples built with matplotlib `subplots` get read as six separate line plots, which you can move between.
+
+So, sometimes, the accessible choice is also a _library_ choice.
+
+---
+
+## Example: Uncertainty and Small Multiples
+
+`uncertainty_small_multiples.ipynb` -- building inventory, one more time:
+
+- bar chart of means, then means with confidence intervals
+- four kinds of error bars, computed by hand
+- box plots
+- spaghetti to small multiples, shared and independent scales
+- what survives in maidr, and what doesn't
+
+Bonus lesson in there: putting several vega-lite `errorbar` charts on the same data into one `hconcat` currently computes the _wrong_ intervals, silently. Check your charts against numbers you computed yourself!
 
 ---
 
