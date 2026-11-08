@@ -37,6 +37,7 @@ notebooks = [
     "nltk",
     "wordcloud",
     "streamlit",
+    "maidr[altair,streamlit,jupyter]",
     "geopandas",
     "geodatasets",
     "shapely",

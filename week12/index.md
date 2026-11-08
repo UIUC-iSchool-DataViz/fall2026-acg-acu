@@ -4,6 +4,10 @@ visible: true
 icon: undraw_medical_research_qg4d.svg
 notitle: true
 examples:
+  - filename: storytelling_annotation
+    type: ipynb
+    title: Storytelling and Annotation
+    description: Turning a "viz for self" chart into one that says something -- titles, highlighting, annotation, caveats, and a first look at maidr
   - filename: streamlit/01_hello_streamlit.py
     type: streamlit
     title: "Streamlit 1: Hello, Streamlit"
@@ -22,10 +26,11 @@ examples:
     description: The packages you need to deploy these on Streamlit Community Cloud
 ---
 
-# Scientific Viz, Streamlit, and D3
+# Storytelling, Scientific Viz, Streamlit, and D3
 
-This week we covered some principles of Scientific Visualization, built and
-deployed some Streamlit apps, and threw in a tad bit of D3.
+This week we covered some principles of Scientific Visualization, talked about
+storytelling and annotation, built and deployed some Streamlit apps, and threw
+in a tad bit of D3.
 
 To run the examples, download them and run `streamlit run <filename>`, or from
 the course repo, `uv run streamlit run week12/streamlit/<filename>`.

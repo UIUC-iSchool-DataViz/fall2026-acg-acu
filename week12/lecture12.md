@@ -1,17 +1,19 @@
 ---
-title: Motivations, SciViz, D3
+title: Storytelling, SciViz, Streamlit and D3
 layout: lecture
 tags:
+  - storytelling
+  - annotation
   - scientific
   - streamlit
   - d3
   - javascript
 description: >-
-  What makes scientific data "different"?  Plus building and deploying Streamlit apps, and an introduction to D3.
+  Making viz that says something, what makes scientific data "different," building and deploying Streamlit apps, and an introduction to D3.
 date: 2026-11-09
 ---
 
-# Viz Motivations, SciViz, Streamlit, and D3
+# Storytelling, SciViz, Streamlit, and D3
 
 ---
 
@@ -220,6 +222,104 @@ ask students - other ideas? What about animated data?
 This is what you're most accustomed to, because usually YOU are the public.
 
 Communicating information to the public is an entire field, and I encourage you to take IS457 - Data Storytelling for a more comprehensive discussion.
+
+---
+
+## Storytelling and Annotation
+
+So what makes a viz for the public _work_? A lot of it comes down to one thing:
+
+**Tell people what you want them to see.**
+
+You've spent hours with your data. Your reader has spent about eight seconds. They don't know what's interesting yet -- that's your job.
+
+(This is also the FDV chapter on [telling a story](https://clauswilke.com/dataviz/telling-a-story.html) from last week's reading.)
+
+---
+
+## Title as a Sentence
+
+The single most effective thing you can do:
+
+- "Square footage by decade" tells me what the axes are.
+- "Illinois built more in the 1960s than in any other decade" tells me what to look for.
+
+Put the takeaway in the title. Put the description of the axes in the subtitle.
+
+```python
+title = alt.Title(
+    "Illinois built more in the 1960s than in any other decade",
+    subtitle="Total square footage of state-owned buildings, by decade",
+    anchor="start",
+)
+alt.Chart(df, title=title).mark_bar()...
+```
+
+---
+
+## Highlight, Then Gray Out
+
+Use color to _point_ at something, not just to decorate.
+
+```python
+color = alt.condition(alt.datum.Decade == 1960,
+                      alt.value("#c0392b"), alt.value("#b0b0b0"))
+```
+
+Everything that isn't the story goes gray.
+
+And: don't make color the _only_ way to find the thing. Here, it's also the tallest bar, and it's also got a label on it. (About 1 in 12 men has some form of color vision deficiency. Remember week 3!)
+
+---
+
+## Annotate Directly
+
+Put the words right next to the thing they're about. No legends to decode, no "see figure caption."
+
+In Altair, annotations are just another layer:
+
+```python
+notes = pd.DataFrame([
+    {"Decade": 1960, "million_sqft": 21.4,
+     "note": "21 million sq. ft. -- about double the 1950s"},
+])
+annotations = alt.Chart(notes).mark_text(align="left", dx=22).encode(
+    x="Decade:O", y="million_sqft:Q", text="note:N")
+
+bars + annotations
+```
+
+---
+
+## Be Honest About the Caveats
+
+![](images/storytelling_final.png)
+
+That 2010s bar looks like a collapse! But the data stops in 2019. So we fade it out _and_ label it.
+
+Annotations aren't just for the exciting part -- they're also for the part that might mislead.
+
+note:
+also -- always have a source line.  st.caption in streamlit, or just text underneath.
+
+---
+
+## Structure: Martini Glass
+
+A lot of good public-facing viz follows the "martini glass" shape:
+
+1. **The stem:** you lead. Here is the thing, here is why it matters, here is what to notice.
+2. **The bowl:** then you let go. Here are the controls, go explore.
+
+Your final project is a great place for this! Start with a few annotated, opinionated charts, _then_ hand them the interactive dashboard.
+
+---
+
+## Example: Storytelling and Annotation
+
+`storytelling_annotation.ipynb` walks through all of this, step by step, starting with the "viz for self" version and ending with something you'd publish.
+
+It also ends with a sneak preview of something we'll spend a lot more time on in a couple of weeks: making sure the chart works for people who can't _see_ it.
 
 ---
 
@@ -635,194 +735,18 @@ This is now an object we can use to map the values 0 .. 1 to 0 .. 100. This is u
 
 ---
 
-## Additional Basic Topics
+## More D3 Next Week
 
-`d3.axisBottom(xScale)` can be used to create ticks and axes; however, it requires manual translation using the `transform` attribute, using something like `.attr("transform", "translate(0, 30)")`. This then brings up our concept of margins, width, height, and the like! How can we manage these?
+That's the core of it: select, bind, set attributes, scale.
 
-Let's try it out!
-
----
-
-## Creating an SVG canvas
-
-We can create one programmatically:
-
-```javascript
-const svg = d3
-  .create("svg")
-  .attr("id", "my_svg")
-  .attr("width", 300)
-  .attr("height", 300);
-```
-
-or, in starboard, we can create one through standard HTML:
-
-```
-<svg id="my_svg">
-```
-
-which we can then _select_:
-
-```javascript
-const svg = d3.select("#my_svg");
-```
+Next week we'll pick back up with events, transitions, brushing and paths.
 
 ---
 
-# Selecting and binding data
+## Group Time
 
-```javascript
-var dataset = [
-  { x1: 1.0, y1: 3.0, x2: 3.5, y2: 2.0, radius: 10 },
-  { x1: 2.5, y1: 2.0, x2: 0.75, y2: 3.5, radius: 5 },
-  { x1: 3.1, y1: 0.6, x2: 4.1, y2: 3.4, radius: 25 },
-];
+The rest of today is yours.
 
-svg
-  .selectAll("circle")
-  .data(dataset)
-  .enter()
-  .attr("cx", (d) => xScale(d.x1))
-  .attr("cy", (d) => yScale(d.y1))
-  .attr("r", (d) => d.radius)
-  .style("fill", "black");
-```
-
----
-
-## Events
-
-There are many events that we can "listen" for, and respond to. For instance, the `click` event is a common event to manage.
-
-The function receives the data (if any), the index of the node, and the nodelist.
-
-```javascript
-d3.selectAll("circle").on("click", (d, i, n) => {
-  d3.select(n[i]).attr("r", 100);
-});
-```
-
----
-
-## Transitions
-
-We can also update items through transitions, which can accept both a `delay` and a `duration`, both specified in milliseconds.
-
-```javascript
-d3.selectAll("circle")
-  .data(dataset)
-  .transition()
-  .duration(2000)
-  .attr("x", (d) => d.x + 2);
-```
-
-Updating attributes utilizes "tween"-ing functions for interpolation. Many are built in, but you can choose to build your own.
-
----
-
-## D3 Notes: HTML
-
-Anything that is in the DOM can be selected by, and modified by, D3.
-
-```
-`<p id="my_hi">hi there</p>`
-```
-
-How might we modify this paragraph?
-
----
-
-## Transformations
-
-SVG specifies a number of [possible transformations](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform). These include rotation, translations, skews and scales. We can set these through the `.attr` call, but note that this requires a bit of string manipulation.
-
-```javascript
-svg.selectAll("circle").attr("transform", (d, i) => "skewY(" + i * 5 + ")");
-```
-
-Note that we're concatenating an integer to a string here, which casts the int to a string. This is a bit non-intuitive.
-
-We can use this to reshape our objects in many different ways -- especially using the index of the data point!
-
----
-
-## Scales
-
-D3 provides a number of different [scaling types](https://github.com/d3/d3-scale). We will be discussing, specifically, banded scales and color scales.
-
-One thing to note is that d3 also provides handy functions for computing properties of [arrays](https://github.com/d3/d3-array). For instance:
-
-- `d3.min`, `d3.max`, `d3.minIndex` and `d3.maxIndex`, all of which accept both an iterable _and_ an "accessor" function.
-- `d3.extent`, which provides the format required by a scale.
-- `d3.sum`, `d3.mean`, `d3.median`, `d3.quantil`, `d3.variance`
-
----
-
-## Linear and Numeric Scaling
-
-```javascript
-var xScale = d3.scaleLinear().range([0, 100]).domain([0.0, 1.0]);
-```
-
-We can construct objects that map between a _domain_ and a _range_. Here, we are mapping the data values 0.0 .. 1.0 to the values 0 .. 100. This has the effect of allowing us to take data values and scale them to, for instance, pixel values.
-
----
-
-## Banded Scales
-
-Banded scales provide discrete categorization of values, often used for categorical data.
-
-```javascript
-var band = d3.scaleBand(["low", "medium", "high"], [0.0, 100.0]);
-```
-
-This takes an array of input values for the domain. Additional changes can be made to the bandwidth, padding, etc. The d3 wiki has a\
-[diagram](https://raw.githubusercontent.com/d3/d3-scale/master/img/band.png) describing this.
-
----
-
-## Color Scales
-
-We can use `d3.scaleSequential` to generate colormaps for continuous values. These accept an interpolator function. d3 provides interpolator functions for many common colormaps. For instance:
-
-```javascript
-var csc = d3.scaleSequential(d3.interpolateViridis).domain([1.0, 100.0]);
-```
-
-We can also use log versions of these, and quantized versions.
-
----
-
-## Brushing
-
-Brushing in d3 requires some build-it-yourself effort, but building a brush object itself is straightforward. You create a brush object with extents, and you call that on your object. Here, `brushed` is a function to be called when the brush selection changes.
-
-```
-
-function brushed() {
-  console.log(d3.event.selection);
-}
-
-var brush = d3.brush()
-              .extent([[0.0, 0.0], [512, 512]])
-              .on("brush", brushed);
-svg.append("g").attr("class", "brush").call(brush);
-```
-
-What could we do with this?
-
----
-
-## Paths
-
-d3 can also generate `path` objects. Typically these are generated using curve generators.
-
-```javascript
-var line = d3.line().curve(d3.curveCatmullRom.alpha(0.5));
-var myPath = svg
-  .append("path")
-  .attr("d", line(myPoints))
-  .attr("stroke", "black");
-```
-
-Interpolation of paths can be tricky, but it is possible.
+- Find your group, if you haven't yet (sign-up deadline is on Canvas!)
+- Talk through your Part One datasets -- which one(s) will you use for Parts Two and Three?
+- **Come clear your dataset with me or Yilin before you leave.**
