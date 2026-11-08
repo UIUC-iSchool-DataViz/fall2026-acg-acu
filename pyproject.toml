@@ -1,0 +1,54 @@
+[project]
+name = "fall2026-acg-acu"
+version = "0.1.0"
+description = "Course materials tooling for IS445 Data Visualization (ACG-ACU, Fall 2026)"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "jupytext>=1.19",
+    "pre-commit>=3.7",
+    "doit>=0.36",
+    "beautifulsoup4>=4.12",
+]
+
+[project.optional-dependencies]
+# Everything needed to actually open and run the course notebooks locally.
+# Not required for the pre-commit / jupytext / link-checking tooling above.
+notebooks = [
+    "jupyterlab>=4.0",
+    "notebook>=7.0",
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "seaborn",
+    "ipywidgets",
+    "ipympl",
+    "traitlets",
+    "bqplot",
+    "altair",
+    "vega-datasets",
+    "palettable",
+    "h5py",
+    "pillow",
+    "requests",
+    "networkx",
+    "python-igraph",
+    "webcolors",
+    "openpyxl",
+    "nltk",
+    "wordcloud",
+    "streamlit",
+    "geopandas",
+    "geodatasets",
+    "shapely",
+    "pyproj",
+    "rtree",
+    "fiona",
+    "cartopy",
+    "contextily",
+    "ipyleaflet",
+    "yt",
+    "pygraphviz",
+]
+
+[tool.uv]
+package = false

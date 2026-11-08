@@ -21,6 +21,19 @@ shared between Matthew Turk and Jill Naiman.
 
 ## Development
 
+### Python environment
+
+This repository's own tooling (jupytext, pre-commit, doit, the link checker,
+and optionally the packages needed to run the course notebooks) is managed
+with [`uv`](https://docs.astral.sh/uv/). No manual virtualenv or conda setup
+is needed:
+
+```bash
+uv sync                    # tooling only (jupytext, pre-commit, doit, ...)
+uv sync --extra notebooks  # also installs the full notebook stack (pandas, bqplot, geopandas, ...)
+uv run jupyter lab         # run notebooks locally (requires the notebooks extra)
+```
+
 ### Jupytext and Pre-commit
 
 This repository uses `jupytext` to manage Jupyter notebooks. This allows us to
@@ -29,13 +42,9 @@ store notebooks as markdown files, which are easier to diff and merge. We use
 
 To set this up:
 
-1.  Install `pre-commit`:
+1.  Install the git hooks:
     ```bash
-    pip install pre-commit
-    ```
-2.  Install the git hooks:
-    ```bash
-    pre-commit install
+    uv run pre-commit install
     ```
 
 ### Adding a New Notebook
@@ -43,9 +52,10 @@ To set this up:
 To add a new notebook to the repository:
 
 1.  Create your notebook as usual (e.g., `my_notebook.ipynb`).
-2.  Pair the notebook with a markdown file using `jupytext`. You can do this via the command line:
+2.  Pair the notebook with the markdown and percent-script formats configured
+    in `jupytext.toml`, using `jupytext`:
     ```bash
-    jupytext --set-formats ipynb,md my_notebook.ipynb
+    uv run jupytext --set-formats ipynb,py:percent,md my_notebook.ipynb
     ```
 3.  Stage the files for commit.
     ```bash

@@ -1,14 +1,14 @@
 # Pre-commit configuration to automate Jupytext syncing
-# To install: 
-#   1. pip install pre-commit jupytext
-#   2. pre-commit install
+# To install:
+#   1. uv sync
+#   2. uv run pre-commit install
 #
-# This will ensure that every time you commit an .ipynb file, 
+# This will ensure that every time you commit an .ipynb file,
 # a synced .py (percent format) version is created/updated.
 
 repos:
 - repo: https://github.com/mwouts/jupytext
-  rev: v1.16.0  # Check for latest version
+  rev: v1.19.5  # Check for latest version
   hooks:
   - id: jupytext
     args: [--from, ipynb, --to, "py:percent", --to, "md"]

@@ -63,5 +63,4 @@ construction.
 
 - [UFO Sitings Dataset](https://uiuc-ischool-dataviz.github.io/spring2019online/week04/data/ufo-scrubbed-geocoded-time-standardized-00.csv)
 - [Michigan Depth Map](https://uiuc-ischool-dataviz.github.io/spring2019online/week05/data/michigan_lld.flt)
-- [Wealth of Nations Data](https://uiuc-ischool-dataviz.github.io/spring2019online/week06/data_and_libs/nations.html)
 - [Github Pages](https://pages.github.com/)
