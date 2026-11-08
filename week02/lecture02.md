@@ -805,7 +805,7 @@ not without its possible faults, however.
 
 ## Binning and Histograms
 
-<!-- .slide: data-background-image="../week03/images/circles_grid_filled.svg" data-background-size="auto 75%" data-background-position="right 20% bottom 50%"-->
+<!-- .slide: data-background-image="images/circles_grid_filled.svg" data-background-size="auto 75%" data-background-position="right 20% bottom 50%"-->
 
 - $\Sigma 1$ (count)
 - $\Sigma v_i$ (sum)
@@ -970,7 +970,7 @@ The image shows putting circles into irregularly-spaced bins.
 
 ## Binning and Histograms
 
-<!-- .slide: data-background-image="../week03/images/circles_grid_filled.svg" data-background-size="auto 75%" data-background-position="right 20% bottom 50%"-->
+<!-- .slide: data-background-image="images/circles_grid_filled.svg" data-background-size="auto 75%" data-background-position="right 20% bottom 50%"-->
 
 - $\Sigma 1$ (count)
 - $\Sigma v_i$ (sum)

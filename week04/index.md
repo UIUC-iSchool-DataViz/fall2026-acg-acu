@@ -49,7 +49,7 @@ spent some time starting using `bqplot` to explore data.
 1.  [Intro to ipywidgets](https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Basics.html)
 2.  [Example Widgets Notebooks](https://github.com/jupyter-widgets/ipywidgets/blob/master/docs/source/examples/Index.ipynb)
 3.  VAD Ch. 7: Arrange Tables
-4.  [FDV Ch 7: Visualizing Distributions](https://serialmentor.com/dataviz/histograms-density-plots.html)
+4.  [FDV Ch 7: Visualizing Distributions](https://clauswilke.com/dataviz/histograms-density-plots.html)
 
 ## Data
 

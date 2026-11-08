@@ -9,13 +9,13 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.18.1
+#       jupytext_version: 1.19.5
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 #   layout: notebook
-#   title: Fall2019 Prep Notebook Week03
+#   title: Prep Notebook Week03
 # ---
 
 # %%

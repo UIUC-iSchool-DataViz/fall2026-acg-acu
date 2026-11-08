@@ -9,13 +9,13 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.0
+      jupytext_version: 1.19.5
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
     name: python3
   layout: notebook
-  title: Fall2019 Prep Notebook Week03
+  title: Prep Notebook Week03
 ---
 
 ```python

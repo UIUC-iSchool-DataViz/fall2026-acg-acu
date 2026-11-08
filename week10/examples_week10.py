@@ -9,7 +9,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.18.1
+#       jupytext_version: 1.19.5
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -25,7 +25,7 @@ import numpy as np
 import pandas as pd
 
 # %%
-tree_data = json.load(open("../workspace/champaign_trees.geojson", "r"))
+tree_data = json.load(open("../data/champaign_trees.json", "r"))
 
 # %%
 tree_data.keys()
@@ -60,19 +60,23 @@ l = ipywidgets.Label()
 def change_label(event):
     l.value = str(event['new'])
 
-champaign_map.observe(change_label, ["selected"])
+us_map.observe(change_label, ["selected"])
 l
 
 # %%
 
 # %%
-legislators = pd.read_csv("../workspace/legislators_historical.csv")
+legislators = pd.read_csv("../data/govtrack-us-congress-legislators/data/legislators_historical.csv")
 
 # %%
-legislators_terms = pd.read_csv("../workspace/legislators_historical_terms.csv")
+legislators_terms = pd.read_csv("../data/govtrack-us-congress-legislators/data/legislators_historical_terms.csv")
 
 # %%
-fips = pd.read_csv("../workspace/state_fips_master.csv")
+fips = pd.read_csv(
+    "https://gist.githubusercontent.com/dantonnoriega/bf1acd2290e15b91e6710b6fd3be0a53/raw/11d15233327c8080c9646c7e1f23052659db251d/us-state-ansi-fips.csv",
+    skipinitialspace=True,
+)
+fips.columns = ["name_full", "fips", "state_abbr"]
 
 # %%
 legislators_terms.state

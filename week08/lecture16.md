@@ -7,7 +7,7 @@ tags:
   - pandas
   - dashboards
 description: >-
-  Today we'll talk about map projections, how to properly wrap a baseball, and continue with our dashboarding.
+  We build out more pandas skills, set up linking and brushing between plots, and use layouts and object-orientation to expand our dashboard.
 ---
 
 ## Visualization Reports

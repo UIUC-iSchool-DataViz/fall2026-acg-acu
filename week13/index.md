@@ -10,8 +10,8 @@ tags:
 examples:
   - filename: lecture_network
     type: ipynb
-    title: Network Visualization in D3
-    description: Developing dynamic D3 visualizations and interactivity
+    title: Network Visualization with bqplot
+    description: Drawing a force-directed network graph and comparing it to a ring layout, using igraph and bqplot
 ---
 
 # Viz Validation and Dynamics in D3

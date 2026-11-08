@@ -54,7 +54,7 @@ Today we will be exploring the new data release from the Gaia satellite!
 
 ## Gaia Data
 
-The Gaia eDR3 -- just out! -- includes a collection of `.csv.gz` files. The full collection can be found here:
+The Gaia eDR3 release includes a collection of `.csv.gz` files. (Gaia DR3, a fuller release, has since come out too -- see [the archive](https://gea.esac.esa.int/archive/) if you'd rather use that.) The full eDR3 collection can be found here:
 
 https://gea.esac.esa.int/archive/
 
@@ -81,7 +81,7 @@ Our task for today is to _explore_ this data, using Python. We will utilize this
 
 - Pandas for reading the data
 - Matplotlib for static plots and distributions
-- bpqlot and ipywidgets for detailed exploration
+- bqplot and ipywidgets for detailed exploration
 
 Each of you will pick out three random data files, read them using pandas, and
 explore the distribution of these objects based on these parameters.

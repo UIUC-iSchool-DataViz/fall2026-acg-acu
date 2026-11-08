@@ -9,7 +9,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.18.1
+#       jupytext_version: 1.19.5
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -29,18 +29,20 @@ import numpy as np
 import pandas as pd
 
 import geopandas as gpd
+import geodatasets
 import matplotlib.pyplot as plt
 
 # %% [markdown]
 # # Geopandas
 
 # %%
-# build in dataset
-gpd.datasets.available
+# built-in example datasets (gpd.datasets was removed in GeoPandas 1.0+;
+# geodatasets is the current way to fetch these)
+geodatasets.data
 
 # %%
 # New York dataset
-gdf_ny = gpd.read_file(gpd.datasets.get_path('nybb'))
+gdf_ny = gpd.read_file(geodatasets.get_path('nybb'))
 gdf_ny
 
 # %%
@@ -56,11 +58,11 @@ plt.show()
 # Datasets that we are going to use:
 
 # Council Districts
-url_council = 'https://opendata.arcgis.com/datasets/1f75636917604299861fb408bbf79378_1.geojson'
+url_council = 'https://gis-cityofchampaign.opendata.arcgis.com/api/download/v1/items/1f75636917604299861fb408bbf79378/geojson?layers=1'
 # City owned properties
-url_properties = 'https://opendata.arcgis.com/datasets/3ecbc7baf1a44110a98f6d4420432000_2.geojson'
+url_properties = 'https://gis-cityofchampaign.opendata.arcgis.com/api/download/v1/items/3ecbc7baf1a44110a98f6d4420432000/geojson?layers=2'
 # Apartments
-url_apartments = 'https://opendata.arcgis.com/datasets/64154052c5a040e287bae1583d727825_8.geojson'
+url_apartments = 'https://gis-cityofchampaign.opendata.arcgis.com/api/download/v1/items/37c15c0bcaf24c4ea8aa3e9c4c010b70/geojson?layers=8'
 
 # %%
 # councils

@@ -12,10 +12,6 @@ examples:
     type: ipynb
     title: bqplot objects and dashboards
     description: How to set up a stateful object as a dashboard
-  - filename: vega_example_gross.html
-    type: vega-lite
-    title: vega-lite example with IMDB data
-    description: Applying filtering, hconcat, layers and selections to IMDB data
   - filename: vega_example_4.html
     type: vega-lite
     title: vega-lite example 4
@@ -27,7 +23,7 @@ examples:
   - filename: vega_example_gross.html
     type: vega-lite
     title: Gross total
-    description: IMDB vega-lite example
+    description: IMDB vega-lite example, with filtering, hconcat, layers and selections
   - filename: vega_example_imdb_bar_selection.html
     type: vega-lite
     title: Selecting Bars in vega-lite
@@ -50,7 +46,7 @@ examples:
     description: Window operations and aggregation
   - filename: vega_example_building_inventory_by_year.html
     type: vega-lite
-    title: Ranking agencies in building inventoryby year
+    title: Ranking agencies in building inventory by year
     description: Window operations and aggregation
   - filename: vega_example_nearest.html
     type: vega-lite

@@ -1,3 +1,9 @@
+---
+title: Start of our COVID dashboard
+description: A first pass at a map + case-count dashboard, joining NYT COVID data onto US states
+layout: vegalite_example
+---
+
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
