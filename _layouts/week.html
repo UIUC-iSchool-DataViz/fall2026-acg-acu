@@ -11,7 +11,7 @@ layout: default
             <div class="column">
                 {% if page.icon %}
                 <figure class="image">
-                    <img src="{{ '/assets/undraw/' | append: page.icon | relative_url}}">
+                    <img src="{{ '/assets/undraw/' | append: page.icon | relative_url}}" alt="">
                 </figure>
                 {% endif %}
             </div>
@@ -46,8 +46,8 @@ layout: default
             <div class="media-content">
                 <p>
                     {% if example.type == "ipynb" %}
-                    <a href="{{example.filename | relative_url }}.html">{{example.title}}</a> - 
-                    (<a href="{{example.filename | relative_url}}.ipynb">download</a>)
+                    <a href="{{page.dir | append: example.filename | append: '.html' | relative_url }}">{{example.title}}</a> -
+                    (<a href="{{page.dir | append: example.filename | append: '.ipynb' | relative_url }}">download</a>)
                     {% else %}
                     <a href="{{page.dir | append: example.filename | relative_url }}">{{example.title}}</a>
                     {% endif %}
