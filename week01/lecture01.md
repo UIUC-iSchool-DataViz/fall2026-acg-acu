@@ -335,7 +335,7 @@ your own. Always cite, and be reasonable in what you utilize.
 - Git & [GitHub](https://github.com/) (toward end of class)
 - [Streamlit](https://streamlit.io/)
 - Markdown & [Jekyll](https://jekyllrb.com/)
-- [HuggingFace](https://huggingface.co) for hosting apps
+- [Streamlit Community Cloud](https://streamlit.io/cloud) for hosting apps
 - CampusWire
 
 notes:
