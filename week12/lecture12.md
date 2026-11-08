@@ -29,7 +29,7 @@ Your final project, to be completed in (assigned) groups, is to build a semi-rea
 
 Your final project will have three phases, each of which will have a component for you to turn in. The second and third components will be turned in as a group, but the first component will be individually graded.
 
-**Before beginning, clear your dataset with me and Esther.**
+**Before beginning, clear your dataset with me and Hunter.**
 
 Some places to look for dataset ideas:
 

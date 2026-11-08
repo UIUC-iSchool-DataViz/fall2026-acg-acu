@@ -23,4 +23,4 @@ Each component will be worth 10 points (5 for code and 5 for writeup of your
 narrative discussing your process what things did/did not work) and must be a
 completely communicative visualization -- including labels and a one paragraph
 writeup of successes and shortcomings in your approach. Submit a notebook or a
-set of JSON gists to Moodle. All source code must be in these files.
+set of JSON gists to Canvas. All source code must be in these files.

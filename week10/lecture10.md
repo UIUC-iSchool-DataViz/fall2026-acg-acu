@@ -43,7 +43,7 @@ also, parts 2 & 3 will be in a group, however you will pick your own groups AND 
 * Group size: maximum 4, minimum 1 (i.e. doing the final on your own)
 * Ask group members before you join a group!
 * Sign up on Canvas under `People` $\rightarrow$ `Groups`
-* Want to find a group?  Check out the **`#find-a-final-project-group`** channel on Slack 
+* Want to find a group?  Check out the **`#find-a-final-project-group`** channel on CampusWire 
 * **Group sign-up closes April 15**
 
 

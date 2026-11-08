@@ -14,7 +14,7 @@ that communicates the following information:
 
 Each component will be worth 5 points and *must* be a completely communicative
 visualization -- including labels and a one paragraph writeup of successes and
-shortcomings in your approach.  Submit a notebook to Moodle.  All source code
+shortcomings in your approach.  Submit a notebook to Canvas.  All source code
 must be in these files.
 
 

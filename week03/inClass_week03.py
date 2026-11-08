@@ -9,7 +9,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.18.1
+#       jupytext_version: 1.19.5
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -24,7 +24,7 @@
 # %% [markdown]
 # You can access this notebook in near-realy time by going here:
 #
-# https://github.com/UIUC-iSchool-DataViz/is445_bcubcg_fall2023/blob/master/week03/inClass_week03.ipynb 
+# https://github.com/UIUC-iSchool-DataViz/fall2026-acg-acu/blob/main/week03/inClass_week03.ipynb 
 #
 # Or by pasting that URL into the nbviewer interface for a plain-text rendering:
 #
