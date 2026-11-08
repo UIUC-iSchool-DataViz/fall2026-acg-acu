@@ -8,7 +8,7 @@ tags:
   - transformations
 description: >-
   How are values transformed from 0's and 1's into values we can manipulate and understand?  When we draw something on a screen, how do we represent that internally, and how is that translated into pixels?  What operations can we do on data? How do colors work?  What are the different ways we can map colors to values?  What should we keep in mind when doing this?
-date: 2026-02-03
+date: 2026-09-14
 ---
 
 ## Scaling Data

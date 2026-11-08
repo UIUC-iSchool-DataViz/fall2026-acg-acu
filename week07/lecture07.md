@@ -8,7 +8,7 @@ tags:
   - maps
 description: >-
   We start out learning about the basics of geospatial visualization, including applying this in bqplot and cartopy.
-date: 2026-03-03
+date: 2026-10-12
 ---
 
 # Beginning Geographic Visualization

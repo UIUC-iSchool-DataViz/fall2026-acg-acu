@@ -9,7 +9,7 @@ tags:
   - d3
 description: >-
   We will learn about Starboard, then update data in vega-lite and possibly learn a little d3.
-date: 2026-03-31
+date: 2026-11-02
 ---
 
 # Changing Data in Vega-Lite and D3

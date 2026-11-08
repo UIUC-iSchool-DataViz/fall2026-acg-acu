@@ -6,7 +6,7 @@ tags:
   - javascript
 description: >-
   This week we talked about validating viz, and then using D3 for transitions and interaction.
-date: 2026-04-14
+date: 2026-11-16
 ---
 
 ## Validation
@@ -131,7 +131,7 @@ Your final project, to be completed in (assigned) groups, is to build a semi-rea
 
 Your final project will have three phases, each of which will have a component for you to turn in. The second and third components will be turned in as a group, but the first component will be individually graded.
 
-**Before beginning, clear your dataset with me and Hunter.**
+**Before beginning, clear your dataset with me and Yilin.**
 
 Some places to look for dataset ideas:
 
@@ -193,7 +193,7 @@ You will also have five minutes, as a _group_, to present your work in class.
 This presentation needs to include the final product, as well as a summary of
 any stumbling blocks you might have had, and a little bit of the process.
 
-These presentations will be on the 2nd and 7th of December. The project will
+These presentations will be on the 7th of December, the final class date. The project will
 be due by the end of finals week, but you are **strongly encouraged** to submit
 earlier.
 

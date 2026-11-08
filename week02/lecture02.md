@@ -9,7 +9,7 @@ tags:
   - drawing
 description: >-
   How are values transformed from 0's and 1's into values we can manipulate and understand?  When we draw something on a screen, how do we represent that internally, and how is that translated into pixels?  What operations can we do on data? 
-date: 2023-08-28
+date: 2026-08-31
 ---
 
 ## Warm-Up Activity

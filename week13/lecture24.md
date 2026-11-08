@@ -7,7 +7,7 @@ tags:
   - d3
 description: >-
   We went over how to test out Svelte on PrairieLearn
-date: 2026-04-16
+date: 2026-11-16
 ---
 
 ---

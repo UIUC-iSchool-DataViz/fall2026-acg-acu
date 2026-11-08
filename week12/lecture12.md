@@ -7,6 +7,7 @@ tags:
   - javascript
 description: >-
   What makes scientific data "different"?  And, an introduction to D3.
+date: 2026-11-09
 ---
 
 # Viz Motivations, SciViz, and D3
@@ -29,7 +30,7 @@ Your final project, to be completed in (assigned) groups, is to build a semi-rea
 
 Your final project will have three phases, each of which will have a component for you to turn in. The second and third components will be turned in as a group, but the first component will be individually graded.
 
-**Before beginning, clear your dataset with me and Hunter.**
+**Before beginning, clear your dataset with me and Yilin.**
 
 Some places to look for dataset ideas:
 
@@ -57,7 +58,7 @@ This could consist of drawings, prototypes of web pages or notebooks, and the co
 
 You should walk me through the process of how you built your observatory, and it does not need to be a linear, successes-only process.
 
-This will include your in-class presentation of the work. You will also have five minutes, as a _group_, to present your work in class. This presentation needs to include the final product, as well as a summary of any stumbling blocks you might have had, and a little bit of the process. These presentations will be the 8th of December, the final class date.
+This will include your in-class presentation of the work. You will also have five minutes, as a _group_, to present your work in class. This presentation needs to include the final product, as well as a summary of any stumbling blocks you might have had, and a little bit of the process. These presentations will be on the 7th of December, the final class date.
 
 ---
 

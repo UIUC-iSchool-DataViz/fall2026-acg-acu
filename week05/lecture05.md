@@ -11,7 +11,7 @@ tags:
 description: >-
   The foundations of interactivity, and how we can think about it and how we use it. We introduce a little bit of javascript, how to publish websites on GitHub,
   and we start learning vega-lite.
-date: 2026-02-17
+date: 2026-09-28
 ---
 
 ## Status Update: Concepts

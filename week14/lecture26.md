@@ -8,7 +8,7 @@ tags:
 description: >-
   This week, we tried bringing it all together: let's talk about dashboards in
   Jupyter, and we'll explore Gaia eDR3 data using the tools in our toolbox.
-date: 2026-04-23
+date: 2026-11-30
 ---
 
 ## Dashboards
