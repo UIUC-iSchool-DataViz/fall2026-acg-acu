@@ -26,11 +26,10 @@ examples:
     description: The packages you need to deploy these on Streamlit Community Cloud
 ---
 
-# Storytelling, Scientific Viz, Streamlit, and D3
+# Storytelling, Scientific Viz, and Streamlit
 
 This week we covered some principles of Scientific Visualization, talked about
-storytelling and annotation, built and deployed some Streamlit apps, and threw
-in a tad bit of D3.
+storytelling and annotation, and built and deployed some Streamlit apps.
 
 To run the examples, download them and run `streamlit run <filename>`, or from
 the course repo, `uv run streamlit run week12/streamlit/<filename>`.

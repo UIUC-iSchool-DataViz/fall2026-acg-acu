@@ -1,19 +1,17 @@
 ---
-title: Storytelling, SciViz, Streamlit and D3
+title: Storytelling, SciViz, and Streamlit
 layout: lecture
 tags:
   - storytelling
   - annotation
   - scientific
   - streamlit
-  - d3
-  - javascript
 description: >-
-  Making viz that says something, what makes scientific data "different," building and deploying Streamlit apps, and an introduction to D3.
+  Making viz that says something, what makes scientific data "different," and building and deploying Streamlit apps.
 date: 2026-11-09
 ---
 
-# Storytelling, SciViz, Streamlit, and D3
+# Storytelling, SciViz, and Streamlit
 
 ---
 
@@ -629,117 +627,6 @@ Take the dataset you're using for Part One, and:
 3. If you're feeling ambitious, deploy it
 
 This doesn't have to be pretty. This is viz for self!
-
----
-
-## A Little Bit of D3
-
-We're going to learn a very small bit of [d3.js](https://d3js.org/).
-
-We will utilize D3 on [starboard.gg](https://starboard.gg). We do this by including it from a CDN, as we did for vega last time:
-
-<code>
-&lt;script src="https://d3js.org/d3.v7.min.js"&gt;&lt;/script&gt;
-</code>
-
----
-
-## Concepts in d3: outline
-
-The basic concepts here we will convey, focusing on _static_ visualizations:
-
-- `.select()` and `.selectAll()`
-- `.enter()`
-- `.attr()` and `.style()`
-- `d3.scaleLinear()`
-
----
-
-## Concepts in d3: data and elements
-
-When we manipulate items in d3, we connect the concept of a data item to an element in a document.
-
-Typically, this will be an element in an SVG -- for instance, a `line`,
-`circle`, `rect` or `text` element.
-
-Our typical workflow:
-
-1. Select all items of a specific criteria
-1. Bind these items to a set of data
-1. Update, append or remove items based on their corresponding item.
-
----
-
-## Concepts in d3: accessors and setters
-
-We will very frequently run into the case where we call something, and supply a _function_ to it, rather than supplying a value. For instance, _both_ of these calls to `attr` are valid in a typical d3 workflow:
-
-```javascript
-.attr("cx", 1.0)
-
-// or
-
-.attr("cx", d => d.x)
-```
-
-In one, we are setting the value static; in the other, we base the value on the datapoint supplied.
-
----
-
-## Concepts in d3: Let's make circles
-
-For our first exploration, let's just make some circles. I will demonstrate this in Starboard, but here is the key snippet of code:
-
-```
-var dataset = [ {'x': 100, 'y': 200, 'radius': 15},
-                {'x': 150, 'y': 300, 'radius': 30} ];
-svg.selectAll("circle").data(dataset).enter()
-   .append("circle")
-   .attr("cx", d => d.x)
-   .attr("cy", d => d.y)
-   .attr("r", d => d.radius)
-   .style("fill", "black");
-```
-
-What does this do?
-
----
-
-## Concepts in d3: Objects
-
-We will mostly use the objects
-
-- [`rect`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/rect) -- which has `x`, `y`, `width` and `height`
-- [`circle`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle) -- which has `cx`, `cy`, and `r`
-- [`line`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/line) -- which has `x1`, `x2`, `y1` and `y2`.
-
-Each of these objects can be controlled in style, appearance, position, etc, according to standard SVG and CSS rules.
-
-Let's experiment!
-
----
-
-## Concepts in d3: Scaling
-
-To map from a given range to a different range in a linear fashion, we can construct a linear scale:
-
-```javascript
-var xScale = d3.scaleLinear().range([0, 100]).domain([0.0, 1.0]);
-```
-
-This is now an object we can use to map the values 0 .. 1 to 0 .. 100. This is useful for, among other things, computing the position of a given value:
-
-```javascript
-.attr("cx", d => xScale(d.x))
-```
-
----
-
-## More D3 Next Week
-
-That's the core of it: select, bind, set attributes, scale.
-
-Next week we'll pick back up with events, transitions, brushing and paths.
 
 ---
 

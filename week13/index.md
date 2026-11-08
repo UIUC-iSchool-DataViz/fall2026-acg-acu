@@ -6,7 +6,6 @@ notitle: true
 tags:
   - uncertainty
   - small-multiples
-  - d3
   - streamlit
   - deployment
 examples:
@@ -28,11 +27,9 @@ examples:
     description: Drawing a force-directed network graph and comparing it to a ring layout, using igraph and bqplot
 ---
 
-# Validation, Uncertainty, Small Multiples, and D3
+# Validation, Uncertainty, Small Multiples, and Your Observatory
 
 This week we discussed how to determine if a visualization is effective (and
-for whom!), how to show uncertainty, and how to use small multiples. From a
-technical standpoint we worked to develop dynamic D3 visualizations and
-interactivity in those visualizations. Then we built our observatories: every
+for whom!), how to show uncertainty, and how to use small multiples. Then we built our observatories: every
 group started from a Streamlit template and deployed it to Streamlit Community
 Cloud before leaving.

@@ -19,10 +19,10 @@
   description: Vega-Lite for building and updating charts and dashboards on the web.
   weeks: [10]
 - id: science_publishing
-  name: Science Viz & D3
-  description: Updating data, Starboard, storytelling and annotation, scientific visualization, Streamlit, and an introduction to D3.
+  name: Science Viz & Streamlit
+  description: Updating data, Starboard, storytelling and annotation, scientific visualization, and Streamlit.
   weeks: [11, 12]
 - id: relational
   name: Networks & Structural Data
-  description: Viz validation, uncertainty and small multiples, dynamic D3, network visualization, and building and deploying your observatory.
+  description: Viz validation, uncertainty and small multiples, network visualization, and building and deploying your observatory.
   weeks: [13]
