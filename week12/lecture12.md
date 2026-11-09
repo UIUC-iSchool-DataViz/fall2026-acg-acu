@@ -404,7 +404,7 @@ And: missing data should look different from zero. Not the lightest color in you
 
 ## What Does a Map Sound Like?
 
-We gave our map to [maidr](https://py.maidr.ai/) (Seo et al., ["MAIDR: Making Statistical Visualizations Accessible with Multimodal Data Representation"](https://doi.org/10.1145/3613904.3642730), CHI 2024). Pressing the right arrow:
+We gave our map to [maidr](https://py.maidr.ai/) (Seo et al., ["MAIDR: Making Statistical Visualizations Accessible with Multimodal Data Representation"](https://doi.org/10.1145/3613904.3642730), CHI 2024). Click the map (or Tab to it) and press the **→ key** to step to the first state. maidr says:
 
 > id is 2, Engineers per 1,000 people is 1.59
 
