@@ -567,7 +567,7 @@ The arc mark is typically used for displaying radial plots, such as pie or donut
     "theta": {"field": "value", "type": "quantitative"},
     "color": {"field": "category", "type": "nominal"}
   }
-}  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+}
 ```
 
 See also the `arc` configuration, which includes `radius` and `radius2`.

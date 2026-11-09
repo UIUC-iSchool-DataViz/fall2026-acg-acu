@@ -29,7 +29,11 @@ things to get wrong, in ways that look totally fine.
 We'll use a few small datasets from
 [vega-datasets](https://github.com/vega/vega-datasets): state populations,
 the share of each state's population that works as an engineer, and county
-unemployment rates.
+unemployment rates. Per the vega-datasets
+[sources list](https://github.com/vega/vega-datasets/blob/v2.11.0/SOURCES.md),
+the engineer counts come from the BLS
+[Occupational Employment and Wage Statistics](https://www.bls.gov/oes/tables.htm),
+and the unemployment rates are roughly 2009 BLS county figures.
 
 ```python
 import altair as alt
@@ -166,12 +170,19 @@ makes it look like a few hot spots?
 None of these is wrong. Make the choice on purpose, and make sure the legend
 shows people where the lines are.
 
+(If you want to go deeper: Brewer & Pickle,
+["Evaluation of Methods for Classifying Epidemiological Data on Choropleth Maps in Series"](https://doi.org/10.1111/1467-8306.00310)
+(2002) compared these methods head to head, and Mark Monmonier's _How to
+Lie with Maps_ is a very readable tour of all the ways this goes wrong.)
+
 
 ## 3. Big, empty states
 
 On a map, the size of a thing is its _land area_. That's almost never what
-your data is about. Wyoming gets about 11 times as much ink as New Jersey,
-with about a fifteenth of the people.
+your data is about. Wyoming has about 11 times the land area of New Jersey,
+and about a sixteenth of the people
+([Census state areas](https://www.census.gov/geographies/reference-files/2010/geo/state-area.html);
+[2020 Census populations](https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html)).
 
 When the question is "which states are highest?", a map usually isn't the
 best chart. A sorted bar chart is.
@@ -236,7 +247,10 @@ median_rate = pd.read_csv(VEGA_DATA + "unemployment.tsv", sep="\t")["rate"].medi
 ```
 
 A diverging scheme on data with no meaningful middle invents a
-"good side" and a "bad side" that aren't there.
+"good side" and a "bad side" that aren't there. (This split comes from
+Cynthia Brewer's work on map color; [ColorBrewer](https://colorbrewer2.org/)
+is where most of the schemes in Altair and matplotlib come from. FDV covers
+it too, in [color scales](https://clauswilke.com/dataviz/color-basics.html).)
 
 And remember the contrast check from week 14 (coming up!): the lightest
 end of a sequential scheme is often nearly invisible against a white
@@ -245,7 +259,7 @@ background. The white borders between shapes help.
 
 ## 5. What does a map sound like?
 
-Let's give our map to maidr and listen.
+Let's give our map to [maidr](https://py.maidr.ai/) and listen.
 
 ```python
 import maidr
@@ -302,3 +316,13 @@ Much better.
 - [ ] **The title says what the map shows.**
 - [ ] **A sentence, a chart, or a table carries the point too**, for
   anybody who can't use the map.
+
+
+## References
+
+- Brewer, C. A., & Pickle, L. (2002). [Evaluation of Methods for Classifying Epidemiological Data on Choropleth Maps in Series](https://doi.org/10.1111/1467-8306.00310). _Annals of the Association of American Geographers_ 92(4).
+- Harrower, M., & Brewer, C. A. (2003). [ColorBrewer.org: An Online Tool for Selecting Colour Schemes for Maps](https://doi.org/10.1179/000870403235002042). _The Cartographic Journal_ 40(1).
+- Monmonier, M. (2018). _How to Lie with Maps_, 3rd ed. University of Chicago Press.
+- Munroe, R. [Heatmap](https://xkcd.com/1138/). xkcd #1138.
+- Seo, J., et al. (2024). [MAIDR: Making Statistical Visualizations Accessible with Multimodal Data Representation](https://doi.org/10.1145/3613904.3642730). CHI 2024.
+- Wilke, C. O. (2019). [_Fundamentals of Data Visualization_](https://clauswilke.com/dataviz/), especially [Visualizing geospatial data](https://clauswilke.com/dataviz/geospatial-data.html). O'Reilly.

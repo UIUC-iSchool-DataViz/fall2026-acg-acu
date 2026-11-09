@@ -25,6 +25,12 @@
 # turn it into something we'd show to the public.
 #
 # Our old friend, the Illinois building inventory.
+#
+# A lot of what follows is standard advice from Claus Wilke's
+# [_Fundamentals of Data Visualization_](https://clauswilke.com/dataviz/)
+# (FDV) and Cole Nussbaumer Knaflic's
+# [_Storytelling with Data_](https://www.storytellingwithdata.com/books);
+# there's a list of references at the end.
 
 # %%
 import altair as alt
@@ -63,6 +69,11 @@ alt.Chart(by_decade).mark_bar().encode(
 # that says what you want people to notice. "Square footage by decade" tells
 # me what the axes are. "Illinois built more in the 1960s than in any other
 # decade" tells me what to look for.
+#
+# This isn't just style. Titles measurably change what people remember a
+# chart as saying -- see Kong, Liu & Karahalios,
+# ["Frames and Slants in Titles of Visualizations on Controversial Topics"](https://doi.org/10.1145/3173574.3174012)
+# (CHI 2018).
 
 # %%
 title = alt.Title(
@@ -82,6 +93,12 @@ alt.Chart(by_decade, title=title).mark_bar().encode(
 # Now we use color to _point_. Everything else goes gray. Note that this is
 # using color for emphasis, not to encode a variable -- and the bar is also
 # the tallest one, so nobody has to rely on color alone to find it.
+#
+# (FDV calls this
+# [color as a tool to highlight](https://clauswilke.com/dataviz/color-basics.html#color-as-a-tool-to-highlight).
+# On not relying on color alone: about 1 in 12 men of Northern European
+# ancestry has red-green color vision deficiency --
+# [Birch 2012](https://doi.org/10.1364/JOSAA.29.000313).)
 
 # %%
 highlight = alt.condition(
@@ -103,7 +120,8 @@ bars
 # ## Step 3: Annotate directly on the chart
 #
 # Put the words right next to the thing they're about. Readers shouldn't have
-# to go back and forth between the chart and a caption.
+# to go back and forth between the chart and a caption. (FDV:
+# [designing figures without legends](https://clauswilke.com/dataviz/redundant-coding.html#designing-figures-without-legends).)
 #
 # Annotations in Altair are just more layers -- a `mark_text` with its own
 # little dataframe.
@@ -162,7 +180,7 @@ story
 # whatever you're embedding into -- in Streamlit that's `st.caption(...)`.
 # In a notebook, it's just markdown:
 #
-# _Source: Illinois Building Inventory, data.illinois.gov. Buildings with no
+# _Source: Illinois Building Inventory, [data.illinois.gov](https://data.illinois.gov/). Buildings with no
 # construction year recorded (289 of them) are excluded._
 
 # %% [markdown]
@@ -177,6 +195,10 @@ story
 # and braille. Click on the chart below (or Tab to it), use the arrow keys to
 # move between bars, and press **T** for text, **S** for sound and **B** for
 # braille. **Ctrl + /** (Command + / on a Mac) shows all the keys.
+#
+# The paper behind it: Seo et al.,
+# ["MAIDR: Making Statistical Visualizations Accessible with Multimodal Data Representation"](https://doi.org/10.1145/3613904.3642730)
+# (CHI 2024).
 #
 # We'll spend a lot more time on this in week 14.
 
@@ -194,3 +216,13 @@ maidr.show(bars_honest.properties(width=500))
 # 2. Highlight the one thing you want people to see.
 # 3. Annotate it directly.
 # 4. Write the one-paragraph description you'd want a screen reader to say.
+
+# %% [markdown]
+# ## References
+#
+# - Birch, J. (2012). [Worldwide prevalence of red-green color deficiency](https://doi.org/10.1364/JOSAA.29.000313). _JOSA A_ 29(3).
+# - Knaflic, C. N. (2015). [_Storytelling with Data_](https://www.storytellingwithdata.com/books). Wiley.
+# - Kong, H.-K., Liu, Z., & Karahalios, K. (2018). [Frames and Slants in Titles of Visualizations on Controversial Topics](https://doi.org/10.1145/3173574.3174012). CHI 2018.
+# - Segel, E., & Heer, J. (2010). [Narrative Visualization: Telling Stories with Data](https://doi.org/10.1109/TVCG.2010.179). _IEEE TVCG_ 16(6). (The "martini glass" structure from lecture.)
+# - Seo, J., et al. (2024). [MAIDR: Making Statistical Visualizations Accessible with Multimodal Data Representation](https://doi.org/10.1145/3613904.3642730). CHI 2024.
+# - Wilke, C. O. (2019). [_Fundamentals of Data Visualization_](https://clauswilke.com/dataviz/). O'Reilly.

@@ -185,9 +185,66 @@ So what makes a viz for the public _work_? A lot of it comes down to one thing:
 
 **Tell people what you want them to see.**
 
-You've spent hours with your data. Your reader has spent about eight seconds. They don't know what's interesting yet -- that's your job.
+You've spent hours with your data. Your reader has spent a few seconds. They don't know what's interesting yet -- that's your job.
 
-(This is also the FDV chapter on [telling a story](https://clauswilke.com/dataviz/telling-a-story.html) from last week's reading.)
+(This is also the FDV chapter on [telling a story](https://clauswilke.com/dataviz/telling-a-story.html) from last week's reading. For a whole book on it: Cole Nussbaumer Knaflic, [_Storytelling with Data_](https://www.storytellingwithdata.com/books) (Wiley, 2015).)
+
+---
+
+## A Quick Detour: Altair
+
+All of today's examples -- the notebooks _and_ the Streamlit apps -- use [Altair](https://altair-viz.github.io/).
+
+**Altair is vega-lite, written in Python.** It doesn't draw anything itself. It builds the same JSON spec we've been writing by hand, and then vega-lite renders it.
+
+So everything you know about marks, encodings, transforms and selections still applies. You just get to skip the curly braces, and you can hand it a pandas dataframe directly.
+
+---
+
+## Same Chart, Two Ways
+
+```json
+{
+  "data": {"url": "building_inventory.csv"},
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "Decade", "type": "ordinal"},
+    "y": {"field": "Square Footage", "type": "quantitative",
+          "aggregate": "sum"}
+  }
+}
+```
+
+```python
+import altair as alt
+
+alt.Chart(df).mark_bar().encode(
+    x="Decade:O",
+    y="sum(Square Footage):Q",
+)
+```
+
+`"Decade:O"` is shorthand for `{"field": "Decade", "type": "ordinal"}`. The letters are the vega-lite types: `Q`uantitative, `O`rdinal, `N`ominal, `T`emporal.
+
+---
+
+## Altair Cheat Sheet
+
+| vega-lite | Altair |
+|-----------|--------|
+| `"mark": "point"` | `.mark_point()` |
+| `"encoding": {...}` | `.encode(x=..., y=..., color=...)` |
+| `"transform": [{"filter": ...}]` | `.transform_filter(...)` |
+| `"params": [{"select": "interval"}]` | `alt.selection_interval()` + `.add_params(...)` |
+| `"layer": [a, b]` | `a + b` |
+| `"hconcat"` / `"vconcat"` | `a \| b` / `a & b` |
+
+If you want the long form, use `alt.X("Decade", type="ordinal", title="...")` instead of the shorthand string.
+
+And if you ever want to see what's going on underneath: `chart.to_json()` gives you the vega-lite spec. You can paste it right into the [vega editor](https://vega.github.io/editor/).
+
+note:
+worth actually doing the to_json thing live -- it makes the point that there's nothing magic here.
 
 ---
 
@@ -199,6 +256,8 @@ The single most effective thing you can do:
 - "Illinois built more in the 1960s than in any other decade" tells me what to look for.
 
 Put the takeaway in the title. Put the description of the axes in the subtitle.
+
+Titles really do change what people take away from a chart: Kong, Liu & Karahalios, ["Frames and Slants in Titles of Visualizations on Controversial Topics"](https://doi.org/10.1145/3173574.3174012) (CHI 2018).
 
 ```python
 title = alt.Title(
@@ -220,15 +279,15 @@ color = alt.condition(alt.datum.Decade == 1960,
                       alt.value("#c0392b"), alt.value("#b0b0b0"))
 ```
 
-Everything that isn't the story goes gray.
+Everything that isn't the story goes gray. (FDV: [color as a tool to highlight](https://clauswilke.com/dataviz/color-basics.html#color-as-a-tool-to-highlight); Knaflic ch. 4.)
 
-And: don't make color the _only_ way to find the thing. Here, it's also the tallest bar, and it's also got a label on it. (About 1 in 12 men has some form of color vision deficiency. Remember week 3!)
+And: don't make color the _only_ way to find the thing. Here, it's also the tallest bar, and it's also got a label on it. (About 1 in 12 men of Northern European ancestry has red-green color vision deficiency -- [Birch 2012](https://doi.org/10.1364/JOSAA.29.000313). Remember week 3!)
 
 ---
 
 ## Annotate Directly
 
-Put the words right next to the thing they're about. No legends to decode, no "see figure caption."
+Put the words right next to the thing they're about. No legends to decode, no "see figure caption." (FDV: [designing figures without legends](https://clauswilke.com/dataviz/redundant-coding.html#designing-figures-without-legends).)
 
 In Altair, annotations are just another layer:
 
@@ -260,7 +319,7 @@ also -- always have a source line.  st.caption in streamlit, or just text undern
 
 ## Structure: Martini Glass
 
-A lot of good public-facing viz follows the "martini glass" shape:
+A lot of good public-facing viz follows the "martini glass" shape, from Segel & Heer, ["Narrative Visualization: Telling Stories with Data"](https://doi.org/10.1109/TVCG.2010.179) (IEEE TVCG, 2010):
 
 1. **The stem:** you lead. Here is the thing, here is why it matters, here is what to notice.
 2. **The bowl:** then you let go. Here are the controls, go explore.
@@ -301,6 +360,8 @@ Engineers _per 1,000 people_: a different story. Texas drops to the middle, Flor
 
 If your number goes up just because more people live there, you want a **rate**. And say what you divided by, in the legend!
 
+(Data: `population_engineers_hurricanes.csv` from [vega-datasets](https://github.com/vega/vega-datasets). See also FDV, [choropleth mapping](https://clauswilke.com/dataviz/geospatial-data.html#choropleth-mapping).)
+
 ---
 
 ## Classes Are a Choice
@@ -311,6 +372,8 @@ Same data. **Equal interval** splits the _range_ into equal chunks. **Quantile**
 
 Which one is the "unemployment crisis" map?
 
+(Data: `unemployment.tsv` from vega-datasets. The classic study: Brewer & Pickle, ["Evaluation of Methods for Classifying Epidemiological Data on Choropleth Maps in Series"](https://doi.org/10.1111/1467-8306.00310) (_Annals of the AAG_, 2002). And Mark Monmonier, _How to Lie with Maps_, 3rd ed. (U. Chicago Press, 2018).)
+
 note:
 quantile always uses every color equally, so it always looks dramatic.  equal interval gets dominated by a few outliers.  neither is wrong; make the choice on purpose and show the breaks in the legend.
 
@@ -320,7 +383,7 @@ quantile always uses every color equally, so it always looks dramatic.  equal in
 
 On a map, size means _land area_. That's almost never what your data is about.
 
-Wyoming gets about 11 times the ink of New Jersey, with about a fifteenth of the people.
+Wyoming has about 11 times the land area of New Jersey, and about a sixteenth of the people. ([Census Bureau](https://www.census.gov/geographies/reference-files/2010/geo/state-area.html) state areas; [2020 Census](https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html) populations.)
 
 If the question is "which is highest?", a **sorted bar chart** is usually better. Every state gets the same space. Show both: the map for "where," the bars for "how much."
 
@@ -335,11 +398,13 @@ A diverging scheme on data with no real midpoint invents a "good side" and a "ba
 
 And: missing data should look different from zero. Not the lightest color in your scheme!
 
+(Harrower & Brewer, ["ColorBrewer.org: An Online Tool for Selecting Colour Schemes for Maps"](https://doi.org/10.1179/000870403235002042) (_The Cartographic Journal_, 2003), and [colorbrewer2.org](https://colorbrewer2.org/). FDV, [color scales](https://clauswilke.com/dataviz/color-basics.html).)
+
 ---
 
 ## What Does a Map Sound Like?
 
-We gave our map to maidr. Pressing the right arrow:
+We gave our map to [maidr](https://py.maidr.ai/) (Seo et al., ["MAIDR: Making Statistical Visualizations Accessible with Multimodal Data Representation"](https://doi.org/10.1145/3613904.3642730), CHI 2024). Pressing the right arrow:
 
 > id is 2, Engineers per 1,000 people is 1.59
 
@@ -518,7 +583,7 @@ This will pop open a browser tab. Leave it open! When you save changes to the fi
 
 This is the one thing to really internalize:
 
-**Every time somebody touches a widget, Streamlit re-runs your _entire script_, top to bottom.**
+**Every time somebody touches a widget, Streamlit re-runs your _entire script_, top to bottom.** ([Streamlit docs: data flow](https://docs.streamlit.io/get-started/fundamentals/main-concepts#data-flow))
 
 ```python
 import streamlit as st
@@ -559,7 +624,7 @@ def load_data():
     return pd.read_csv("building_inventory.csv")
 ```
 
-The first time, it actually runs. Every time after that, Streamlit hands you back the same result.
+The first time, it actually runs. Every time after that, Streamlit hands you back the same result. ([Streamlit docs: caching](https://docs.streamlit.io/develop/concepts/architecture/caching))
 
 You can also give it a `ttl` -- "time to live" -- so that it expires:
 
@@ -595,7 +660,7 @@ event = st.altair_chart(chart, on_select="rerun")
 event.selection["brush"]  # {'Year Constructed': [1950.2, 1971.8]}
 ```
 
-`on_select="rerun"` means: when the selection changes, re-run the script and tell me what got selected.
+`on_select="rerun"` means: when the selection changes, re-run the script and tell me what got selected. ([`st.altair_chart` docs](https://docs.streamlit.io/develop/api-reference/charts/st.altair_chart))
 
 note:
 this is the same interval selection we wrote by hand in the vega-lite JSON a few weeks ago.  Now we just get to use it from Python.
@@ -634,7 +699,7 @@ def live_quakes():
     ...
 ```
 
-A fragment re-runs _just that function_, not the whole script. This is the Streamlit version of what we did last week with vega-lite changesets.
+A fragment re-runs _just that function_, not the whole script ([Streamlit docs: fragments](https://docs.streamlit.io/develop/concepts/architecture/fragments)). This is the Streamlit version of what we did last week with vega-lite changesets.
 
 If you do have changing data, a button is totally fine.
 
@@ -663,6 +728,8 @@ the #1 thing that goes wrong here is a missing package in requirements.txt.  If 
 - **Data files.** Paths are relative to the root of your repo, not to wherever you happened to run it. Keep data files small (remember GitHub's size limits!) or load them from a URL.
 - **Secrets.** Do _not_ commit API keys. Use `st.secrets` and the "Secrets" setting in the app dashboard.
 - **Sleeping.** Apps that nobody visits for a while go to sleep, and take a little bit to wake back up. Load yours up before you present it!
+
+All of this is in the [Community Cloud docs](https://docs.streamlit.io/deploy/streamlit-community-cloud).
 
 ---
 
